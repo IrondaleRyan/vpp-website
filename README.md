@@ -1,30 +1,15 @@
-# Veteran Promise Project — Website Redesign Preview
+# Veteran Promise Project
 
-A complete multi-page redesign preview for the [Veteran Promise Project](https://www.veteranpromiseproject.com/). Navigation links work between all pages; external links (Donate, Request a Cane) redirect to the live site.
+Official website for the Veteran Promise Project — custom handcrafted walking canes and VA benefits support for veterans, at no cost.
 
-## Live Preview
+**Live site:** veteranpromiseproject.com
 
-**https://u22766.github.io/vpp-prototype/**
+## About
 
-## Pages
+The Veteran Promise Project is a nonprofit based in North Texas that handcrafts custom walking canes for veterans free of charge and provides one-on-one VA benefits navigation support.
 
-| Page | File | Description |
-|------|------|-------------|
-| Homepage | `index.html` | Hero, impact counter, How It Works, gallery preview, testimonial, founder story, CTA |
-| Services | `services.html` | Custom canes + VA benefits support, process steps, FAQ |
-| Cane Gallery | `cane-gallery.html` | All 16 canes with real photos from the live site |
-| Sponsors | `sponsors.html` | Current sponsors + "Become a Sponsor" section |
-| Blog | `blog.html` | Coming soon placeholder |
-| Request a Cane | `request.html` | Redesigned veteran intake form with proper fields |
-| Contact | `contact.html` | Contact form + quick links to intake form, GoFundMe, live site |
-| Members | `members.html` | Account benefits + mock dashboard preview |
+## Contact
 
-## External Links (redirect to live site)
-
-- **Donate** → GoFundMe campaign
-- **Log In / Create Account** → Wix Members portal
-
-## Companion Documents
-
-1. **VPP-Website-Review.docx** — Assessment and prioritized recommendations
-2. **VPP-Wix-Implementation-Guide.docx** — Step-by-step Wix editor instructions
+- Phone: (903) 444-1214
+- Email: ryan@veteranpromiseproject.com
+- Location: Greater North Texas, serving all who have served — wherever you may be
