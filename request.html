@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Support | Veteran Promise Project</title>
+  <meta name="description" content="Request a free custom walking cane. Fill out the veteran intake form and we'll get started on your handcrafted cane.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .intake-layout { display: grid; grid-template-columns: 1fr 360px; gap: 48px; align-items: start; }
+    .intake-form { background: #fff; border: 1px solid #E5E7EB; border-radius: 12px; padding: 36px; }
+    .intake-sidebar { position: sticky; top: 120px; }
+    .intake-sidebar-card {
+      background: var(--warm-bg); border: 1px solid #E5E7EB; border-radius: 12px;
+      padding: 28px; margin-bottom: 20px;
+    }
+    .intake-sidebar-card h4 {
+      font-family: 'Bitter', serif; font-size: 17px; font-weight: 700;
+      margin-bottom: 12px; color: var(--dark-text);
+    }
+    .intake-sidebar-card p { font-size: 14px; color: var(--muted); line-height: 1.6; margin: 0; }
+    .intake-sidebar-card ul {
+      list-style: none; padding: 0; margin: 12px 0 0;
+    }
+    .intake-sidebar-card li {
+      font-size: 14px; color: var(--muted); padding: 6px 0;
+      display: flex; align-items: flex-start; gap: 8px;
+    }
+    .intake-sidebar-card li svg { flex-shrink: 0; margin-top: 2px; }
+    .form-section-title {
+      font-family: 'Bitter', serif; font-size: 20px; font-weight: 700;
+      color: var(--dark-text); margin: 32px 0 8px; padding-top: 24px;
+      border-top: 1px solid #E5E7EB;
+    }
+    .form-section-title:first-of-type { margin-top: 0; border-top: none; padding-top: 0; }
+    .form-section-desc { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+    .radio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin-bottom: 16px; }
+    .radio-option {
+      display: flex; align-items: center; gap: 8px; padding: 10px 14px;
+      border: 1px solid #E5E7EB; border-radius: 6px; cursor: pointer;
+      font-size: 14px; color: var(--dark-text); transition: all 0.15s;
+    }
+    .radio-option:hover { border-color: #B8860B; background: rgba(184,134,11,0.04); }
+    .radio-option input { accent-color: #B8860B; }
+    .checkbox-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin-bottom: 16px; }
+    .checkbox-option {
+      display: flex; align-items: flex-start; gap: 8px; padding: 10px 14px;
+      border: 1px solid #E5E7EB; border-radius: 6px; cursor: pointer;
+      font-size: 14px; color: var(--dark-text); transition: all 0.15s;
+    }
+    .checkbox-option:hover { border-color: #B8860B; background: rgba(184,134,11,0.04); }
+    .checkbox-option input { accent-color: #B8860B; margin-top: 2px; }
+    .form-note {
+      font-size: 13px; color: var(--muted); font-style: italic; margin-top: -8px; margin-bottom: 16px;
+    }
+    @media (max-width: 768px) {
+      .intake-layout { grid-template-columns: 1fr; }
+      .intake-sidebar { position: static; order: -1; }
+      .radio-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="mockup-banner">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span>Redesign preview — this form does not submit data. Use the <a href="https://www.veteranpromiseproject.com/copy-2-of-veteran-intake-form" style="color:#92400E;text-decoration:underline;">live intake form</a> to submit a real request.</span>
+  </div>
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v5c0 5.25-3.5 9.74-7 11-3.5-1.26-7-5.75-7-11V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span>Veteran Promise Project</span>
+      </a>
+      <div class="navbar-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="cane-gallery.html">Cane Gallery</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="members.html" class="nav-members-link">Log In</a>
+        <a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank" class="btn btn-primary btn-sm">Donate</a>
+      </div>
+      <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+        <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="cane-gallery.html">Cane Gallery</a><a href="sponsors.html">Sponsors</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="members.html">Log In</a>
+      <a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank" class="btn btn-primary" style="justify-content:center;margin-top:8px;">Donate</a>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Request Support</h1>
+      <p class="page-hero-sub">Fill out the form below and we'll get started on your custom cane. Everything is free — no cost, no catch.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="intake-layout">
+        <div class="intake-form">
+          <form onsubmit="event.preventDefault();document.getElementById('submit-msg').style.display='block';this.querySelector('button[type=submit]').style.display='none';">
+
+            <div class="form-section-title">Your Information</div>
+            <div class="form-section-desc">So we know who to contact and where to send your cane.</div>
+
+            <div class="form-row">
+              <div class="form-group"><label>First Name *</label><input type="text" placeholder="Your first name" required></div>
+              <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Your last name" required></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Email *</label><input type="email" placeholder="your@email.com" required></div>
+              <div class="form-group"><label>Phone</label><input type="tel" placeholder="(555) 123-4567"></div>
+            </div>
+            <div class="form-group"><label>Mailing Address</label><input type="text" placeholder="Street address for cane delivery"></div>
+            <div class="form-row">
+              <div class="form-group"><label>City</label><input type="text" placeholder="City"></div>
+              <div class="form-group"><label>State</label><input type="text" placeholder="State"></div>
+            </div>
+            <div class="form-group" style="max-width:200px;"><label>ZIP Code</label><input type="text" placeholder="ZIP"></div>
+
+            <div class="form-section-title">Service Details</div>
+            <div class="form-section-desc">Tell us about your military service.</div>
+
+            <div class="form-group"><label>Branch of Service *</label></div>
+            <div class="radio-grid">
+              <label class="radio-option"><input type="radio" name="branch" value="army"> Army</label>
+              <label class="radio-option"><input type="radio" name="branch" value="navy"> Navy</label>
+              <label class="radio-option"><input type="radio" name="branch" value="airforce"> Air Force</label>
+              <label class="radio-option"><input type="radio" name="branch" value="marines"> Marines</label>
+              <label class="radio-option"><input type="radio" name="branch" value="spaceforce"> Space Force</label>
+              <label class="radio-option"><input type="radio" name="branch" value="coastguard"> Coast Guard</label>
+              <label class="radio-option"><input type="radio" name="branch" value="guard"> National Guard</label>
+            </div>
+
+            <div class="form-group"><label>Status *</label></div>
+            <div class="radio-grid">
+              <label class="radio-option"><input type="radio" name="status" value="active"> Active Duty</label>
+              <label class="radio-option"><input type="radio" name="status" value="reserve"> Reservist</label>
+              <label class="radio-option"><input type="radio" name="status" value="retired"> Retired</label>
+              <label class="radio-option"><input type="radio" name="status" value="discharged"> Discharged</label>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group"><label>Years of Service</label><input type="text" placeholder="e.g., 8 years"></div>
+              <div class="form-group"><label>Veteran of a Foreign War?</label>
+                <select><option value="">Select</option><option>Yes</option><option>No</option></select>
+              </div>
+            </div>
+
+            <div class="form-section-title">What Do You Need?</div>
+            <div class="form-section-desc">Select all that apply.</div>
+
+            <div class="checkbox-grid">
+              <label class="checkbox-option"><input type="checkbox"> Free Custom Walking Cane</label>
+              <label class="checkbox-option"><input type="checkbox"> VA Benefits Consultation</label>
+              <label class="checkbox-option"><input type="checkbox"> Disability Claim Assistance</label>
+              <label class="checkbox-option"><input type="checkbox"> Volunteer Help Needed (explain below)</label>
+              <label class="checkbox-option"><input type="checkbox"> Other (explain below)</label>
+            </div>
+
+            <div class="form-group"><label>Additional Details</label><textarea rows="3" placeholder="Anything else we should know about your situation or needs?"></textarea></div>
+
+            <div class="form-section-title">Cane Preferences</div>
+            <div class="form-section-desc">If you're requesting a cane, tell us what you'd like. Don't worry if you're not sure — we'll work with you.</div>
+
+            <div class="form-row">
+              <div class="form-group"><label>Your Height</label><input type="text" placeholder="e.g., 5'10&quot;"></div>
+              <div class="form-group"><label>Dominant Hand</label>
+                <select><option value="">Select</option><option>Right</option><option>Left</option><option>Either</option></select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Preferred Wood</label>
+                <select><option value="">No preference</option><option>Mahogany</option><option>Black Walnut</option><option>Red Oak</option><option>White Oak</option><option>Maple</option><option>Other (note below)</option></select>
+              </div>
+              <div class="form-group"><label>Preferred Finish</label>
+                <select><option value="">No preference</option><option>Danish Oil</option><option>Tung Oil</option><option>Polyurethane</option><option>Other (note below)</option></select>
+              </div>
+            </div>
+            <div class="form-group"><label>Cane Style</label>
+              <select><option value="">No preference</option><option>Straight / Standard</option><option>Crook Handle</option><option>Derby Handle</option><option>Branch Style</option><option>Other (note below)</option></select>
+            </div>
+            <div class="form-group"><label>Engraving or Custom Details</label><textarea rows="2" placeholder="Branch emblem, name, dates of service, custom text — anything you'd like on the cane."></textarea></div>
+            <div class="form-group"><label>Additional Notes</label><textarea rows="2" placeholder="Weight preference, grip needs, mobility considerations, or anything else."></textarea></div>
+
+            <div class="form-section-title">Contact Preferences</div>
+
+            <div class="form-group"><label>Preferred Contact Method</label></div>
+            <div class="radio-grid">
+              <label class="radio-option"><input type="radio" name="contact" value="phone"> Phone Call</label>
+              <label class="radio-option"><input type="radio" name="contact" value="email"> Email</label>
+              <label class="radio-option"><input type="radio" name="contact" value="text"> Text</label>
+              <label class="radio-option"><input type="radio" name="contact" value="any"> Any</label>
+            </div>
+
+            <div class="form-group"><label>Best Time to Reach You</label></div>
+            <div class="radio-grid">
+              <label class="radio-option"><input type="radio" name="time" value="morning"> Morning</label>
+              <label class="radio-option"><input type="radio" name="time" value="afternoon"> Afternoon</label>
+              <label class="radio-option"><input type="radio" name="time" value="evening"> Evening</label>
+            </div>
+
+            <div class="form-group"><label>How Did You Hear About Us?</label>
+              <select><option value="">Select</option><option>Met in person</option><option>Friend or family member</option><option>Other recipient</option><option>Social media</option><option>Internet search</option><option>Other</option></select>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:12px;padding:16px 28px;font-size:16px;">Submit Request</button>
+
+            <div id="submit-msg" style="display:none;margin-top:20px;padding:16px;background:#F0FDF4;border:1px solid #86EFAC;border-radius:8px;color:#166534;font-size:15px;text-align:center;line-height:1.6;">
+              <strong>This is a preview.</strong> Your request was not submitted.<br>
+              To submit a real request, please use the <a href="https://www.veteranpromiseproject.com/copy-2-of-veteran-intake-form" style="color:#166534;font-weight:700;">live intake form</a>.
+            </div>
+          </form>
+        </div>
+
+        <div class="intake-sidebar">
+          <div class="intake-sidebar-card">
+            <h4>What to expect</h4>
+            <ul>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg> <span>We review every request personally</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg> <span>We'll reach out to discuss your preferences</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg> <span>Build timeline dependent on the number of veterans ahead of you</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg> <span>Cane ships to you free of charge</span></li>
+            </ul>
+          </div>
+          <div class="intake-sidebar-card">
+            <h4>Cost to you</h4>
+            <p style="font-size:32px;font-weight:700;color:#B8860B;font-family:'Bitter',serif;margin:8px 0;">$0</p>
+            <p>Materials, craftsmanship, and shipping are 100% donor-funded. You will never be charged.</p>
+          </div>
+          <div class="intake-sidebar-card">
+            <h4>Questions?</h4>
+            <p>Not sure what to choose? Don't worry — we'll work with you on every detail after you submit. <a href="contact.html" style="color:#B8860B;font-weight:600;">Contact us</a> if you need help.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v5c0 5.25-3.5 9.74-7 11-3.5-1.26-7-5.75-7-11V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
+          <span>Veteran Promise Project</span>
+        </div>
+        <p class="footer-about">Custom walking canes and VA benefits support for the veterans who've earned it. Every cane free. Every veteran honored.</p>
+      </div>
+      <div class="footer-links"><div class="footer-heading">Navigate</div><a href="index.html">Home</a><a href="services.html">Services</a><a href="cane-gallery.html">Cane Gallery</a><a href="blog.html">Blog</a><a href="members.html">Members</a><a href="contact.html">Contact Us</a></div>
+      <div class="footer-links"><div class="footer-heading">Get Involved</div><a href="request.html">Request Support</a><a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank">Donate</a><a href="contact.html">Become a Sponsor</a><a href="contact.html">Volunteer</a></div>
+      <div class="footer-links"><div class="footer-heading">Connect</div><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">&copy; 2026 Veteran Promise Project. All rights reserved.</div><div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div>
+  </footer>
+
+  <script>
+    function toggleMenu(){const m=document.getElementById('mobile-menu'),a=document.getElementById('menu-icon'),b=document.getElementById('close-icon'),o=m.classList.toggle('open');a.style.display=o?'none':'block';b.style.display=o?'block':'none';}
+    document.querySelectorAll('.mobile-menu a').forEach(l=>l.addEventListener('click',()=>{document.getElementById('mobile-menu').classList.remove('open');document.getElementById('menu-icon').style.display='block';document.getElementById('close-icon').style.display='none';}));
+  </script>
+</body>
+</html>

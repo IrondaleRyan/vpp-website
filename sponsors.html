@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponsors | Veteran Promise Project</title>
+  <meta name="description" content="Meet the sponsors who make the Veteran Promise Project possible. Learn how your business can support free canes for veterans.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .sponsor-card-full {
+      border: 1px solid #E5E7EB; border-radius: 12px; overflow: hidden;
+      transition: box-shadow 0.2s; background: #fff;
+    }
+    .sponsor-card-full:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .sponsor-card-inner {
+      display: flex; gap: 32px; padding: 32px; align-items: flex-start;
+    }
+    .sponsor-logo {
+      flex: 0 0 140px; width: 140px; height: 140px; border-radius: 10px;
+      overflow: hidden; border: 1px solid #E5E7EB; background: #F8F6F2;
+    }
+    .sponsor-logo img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .sponsor-details { flex: 1; }
+    .sponsor-details h3 {
+      font-family: 'Bitter', serif; font-size: 22px; font-weight: 700;
+      color: var(--dark-text); margin-bottom: 4px;
+    }
+    .sponsor-since-tag {
+      display: inline-block; font-size: 12px; font-weight: 600;
+      color: #B8860B; margin-bottom: 14px;
+    }
+    .sponsor-details p {
+      font-size: 15px; color: var(--muted); line-height: 1.6; margin-bottom: 12px;
+    }
+    .sponsor-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 14px; font-weight: 600; color: #B8860B;
+      transition: color 0.2s;
+    }
+    .sponsor-link:hover { color: #9A7209; }
+    .sponsor-highlight {
+      margin-top: 14px; padding: 12px 16px; background: #FFFBEB;
+      border: 1px solid #FDE68A; border-radius: 8px;
+      font-size: 14px; color: #92400E; line-height: 1.5;
+    }
+    .sponsor-highlight strong { font-weight: 700; }
+    .sponsors-list { display: flex; flex-direction: column; gap: 28px; max-width: 780px; margin: 0 auto; }
+    @media (max-width: 600px) {
+      .sponsor-card-inner { flex-direction: column; align-items: center; text-align: center; }
+      .sponsor-logo { flex: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="mockup-banner">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span>Redesign preview of <a href="https://www.veteranpromiseproject.com/" style="color:#92400E;text-decoration:underline;">veteranpromiseproject.com</a> — proposed layout and content improvements.</span>
+  </div>
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v5c0 5.25-3.5 9.74-7 11-3.5-1.26-7-5.75-7-11V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span>Veteran Promise Project</span>
+      </a>
+      <div class="navbar-links">
+        <a href="index.html">Home</a><a href="services.html">Services</a><a href="cane-gallery.html">Cane Gallery</a>
+        <a href="sponsors.html" class="nav-active">Sponsors</a>
+        <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+        <a href="members.html" class="nav-members-link">Log In</a>
+        <a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank" class="btn btn-primary btn-sm">Donate</a>
+      </div>
+      <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+        <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="cane-gallery.html">Cane Gallery</a><a href="sponsors.html">Sponsors</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="members.html">Log In</a>
+      <a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank" class="btn btn-primary" style="justify-content:center;margin-top:8px;">Donate</a>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Our Sponsors</h1>
+      <p class="page-hero-sub">The businesses and individuals who make free canes for veterans possible.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="sponsors-list">
+
+        <!-- North Point Lumber -->
+        <div class="sponsor-card-full">
+          <div class="sponsor-card-inner">
+            <div class="sponsor-logo">
+              <img src="https://static.wixstatic.com/media/728d56_8e2077dd759f404e9098d8a25cacea50~mv2.jpg/v1/fill/w_265,h_265,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg" alt="North Point Lumber">
+            </div>
+            <div class="sponsor-details">
+              <h3>North Point Lumber</h3>
+              <div class="sponsor-since-tag">Sponsor since February 27, 2026</div>
+              <p>North Point Lumber is a full-service sawmill, lumber yard, and woodshop servicing North Texas since 2020. Their local exotics are shipped across the globe.</p>
+              <a href="https://www.etsy.com/shop/NorthPointLumber" target="_blank" class="sponsor-link">
+                Visit on Etsy
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Baker Hardwoods -->
+        <div class="sponsor-card-full">
+          <div class="sponsor-card-inner">
+            <div class="sponsor-logo">
+              <img src="images/baker-hardwoods-logo.png" alt="Baker Hardwoods">
+            </div>
+            <div class="sponsor-details">
+              <h3>Baker Hardwoods</h3>
+              <div class="sponsor-since-tag">Sponsor</div>
+              <p>Baker Hardwoods is a family-owned and operated hardwood lumber business dedicated to providing the highest quality materials and service in North Texas. They stock over 40 species of domestic and exotic hardwoods and operate a full-service sawmill, dry kiln, and mill shop. A commitment to doing things right.</p>
+              <a href="https://www.bakerhardwoodsoftexas.com/" target="_blank" class="sponsor-link">
+                Visit website
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Veritiv -->
+        <div class="sponsor-card-full">
+          <div class="sponsor-card-inner">
+            <div class="sponsor-logo" style="background:#000;">
+              <img src="images/veritiv-logo.png" alt="Veritiv">
+            </div>
+            <div class="sponsor-details">
+              <h3>Veritiv</h3>
+              <div class="sponsor-since-tag">Sponsor</div>
+              <p><a href="https://www.veritiv.com/" target="_blank" style="color:#B8860B;font-weight:600;">Veritiv</a>, a North American business-to-business packaging and supply chain solutions company, centers its organizational culture around the <strong>CODE of Values</strong>: <strong>C</strong>ultivate Innovation, <strong>O</strong>wn It, <strong>D</strong>eliver and Delight, and <strong>E</strong>mbrace the Green.</p>
+              <a href="https://www.veritiv.com/" target="_blank" class="sponsor-link">
+                Visit website
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Catalem LLC / Culminari for Veterans -->
+        <div class="sponsor-card-full">
+          <div class="sponsor-card-inner">
+            <div class="sponsor-logo" style="background:#5C7A56;padding:8px;">
+              <img src="images/culminari-logo.svg" alt="Culminari for Veterans" style="border-radius:8px;">
+            </div>
+            <div class="sponsor-details">
+              <h3>Catalem LLC</h3>
+              <div class="sponsor-since-tag">Sponsor</div>
+              <p>Catalem LLC is the maker of <a href="https://apps.apple.com/app/culminari-for-veterans/id6764764024" target="_blank" style="color:#B8860B;font-weight:600;">Culminari for Veterans</a>, a free app built by a service-disabled veteran to help fellow veterans see the bigger picture of their benefits in one place. It projects VA compensation, Social Security retirement benefits, Medicare costs, and survivor benefits forward over time &mdash; with interactive tools to explore options and flag milestones along the way. No advice, no guarantees, just clear math using published government rates.</p>
+              <a href="https://www.culminari.com/" target="_blank" class="sponsor-link">
+                Visit website
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Become a Sponsor -->
+      <div class="text-center" style="margin-top:80px;">
+        <div class="section-label">Become a Sponsor</div>
+        <h2 class="section-title">Your support funds every cane</h2>
+        <p style="color:var(--muted);font-size:17px;max-width:560px;margin:0 auto 28px;line-height:1.6;">
+          Sponsorships fund materials, tools, and shipping. Every dollar goes directly to putting a handcrafted cane in a veteran&rsquo;s hands. Your business gets featured here with a link and description.
+        </p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn btn-primary">
+            Get in Touch
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,6 15,12 9,18"/></svg>
+          </a>
+          <a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank" class="btn btn-outline">Donate via GoFundMe</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v5c0 5.25-3.5 9.74-7 11-3.5-1.26-7-5.75-7-11V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg><span>Veteran Promise Project</span></div>
+        <p class="footer-about">Custom walking canes and VA benefits support for the veterans who've earned it. Every cane free. Every veteran honored.</p>
+      </div>
+      <div class="footer-links"><div class="footer-heading">Navigate</div><a href="index.html">Home</a><a href="services.html">Services</a><a href="cane-gallery.html">Cane Gallery</a><a href="blog.html">Blog</a><a href="members.html">Members</a><a href="contact.html">Contact Us</a></div>
+      <div class="footer-links"><div class="footer-heading">Get Involved</div><a href="request.html">Request Support</a><a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank">Donate</a><a href="contact.html">Become a Sponsor</a><a href="contact.html">Volunteer</a></div>
+      <div class="footer-links"><div class="footer-heading">Connect</div><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">&copy; 2026 Veteran Promise Project. All rights reserved.</div><div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div>
+  </footer>
+
+  <script>
+    function toggleMenu(){const m=document.getElementById('mobile-menu'),a=document.getElementById('menu-icon'),b=document.getElementById('close-icon'),o=m.classList.toggle('open');a.style.display=o?'none':'block';b.style.display=o?'block':'none';}
+    document.querySelectorAll('.mobile-menu a').forEach(l=>l.addEventListener('click',()=>{document.getElementById('mobile-menu').classList.remove('open');document.getElementById('menu-icon').style.display='block';document.getElementById('close-icon').style.display='none';}));
+  </script>
+</body>
+</html>

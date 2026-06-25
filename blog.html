@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Veteran Promise Project</title>
+  <meta name="description" content="News, veteran stories, and updates from the Veteran Promise Project.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .blog-card {
+      border: 1px solid #E5E7EB; border-radius: 10px; overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s; background: #fff;
+    }
+    .blog-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); transform: translateY(-3px); }
+    .blog-card-img { width: 100%; height: 200px; object-fit: cover; display: block; }
+    .blog-card-body { padding: 24px; }
+    .blog-card-body h3 {
+      font-family: 'Bitter', serif; font-size: 18px; font-weight: 700;
+      color: #1F2937; margin-bottom: 10px; line-height: 1.3;
+    }
+    .blog-card-body p {
+      font-size: 14px; color: #6B7280; line-height: 1.6; margin-bottom: 16px;
+      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .blog-card-meta {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; color: #9CA3AF; border-top: 1px solid #F3F4F6; padding-top: 12px;
+    }
+    .blog-card-author { font-weight: 600; color: #6B7280; }
+    .blog-read-link {
+      font-size: 14px; font-weight: 600; color: #B8860B; display: inline-flex;
+      align-items: center; gap: 4px; transition: gap 0.2s;
+    }
+    .blog-card:hover .blog-read-link { gap: 8px; }
+    .va-news-section {
+      background: var(--warm-bg); border: 1px solid #E5E7EB; border-radius: 12px;
+      padding: 36px; display: flex; gap: 32px; align-items: center;
+    }
+    .va-news-icon {
+      flex: 0 0 72px; width: 72px; height: 72px; border-radius: 12px;
+      background: var(--navy); display: flex; align-items: center; justify-content: center;
+    }
+    .va-news-text { flex: 1; }
+    .va-news-text h3 { font-family: 'Bitter', serif; font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .va-news-text p { font-size: 15px; color: #6B7280; line-height: 1.6; margin-bottom: 12px; }
+    @media (max-width: 768px) {
+      .blog-grid { grid-template-columns: 1fr; }
+      .va-news-section { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="mockup-banner">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span>Redesign preview of <a href="https://www.veteranpromiseproject.com/" style="color:#92400E;text-decoration:underline;">veteranpromiseproject.com</a> — proposed layout and content improvements.</span>
+  </div>
+
+  <nav class="navbar"><div class="navbar-inner">
+    <a href="index.html" class="navbar-brand"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v5c0 5.25-3.5 9.74-7 11-3.5-1.26-7-5.75-7-11V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg><span>Veteran Promise Project</span></a>
+    <div class="navbar-links"><a href="index.html">Home</a><a href="services.html">Services</a><a href="cane-gallery.html">Cane Gallery</a><a href="sponsors.html">Sponsors</a><a href="blog.html" class="nav-active">Blog</a><a href="contact.html">Contact</a><a href="members.html" class="nav-members-link">Log In</a><a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank" class="btn btn-primary btn-sm">Donate</a></div>
+    <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Menu"><svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg><svg id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="cane-gallery.html">Cane Gallery</a><a href="sponsors.html">Sponsors</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="members.html">Log In</a><a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank" class="btn btn-primary" style="justify-content:center;margin-top:8px;">Donate</a></div></nav>
+
+  <section class="page-hero">
+    <div class="container"><h1>Blog</h1><p class="page-hero-sub">News, veteran stories, and updates from the workshop.</p></div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="blog-grid">
+
+        <a href="post-volunteer-donate.html" class="blog-card" style="text-decoration:none;">
+          <img class="blog-card-img" src="https://static.wixstatic.com/media/256398_869d34a3af9e4652b7cb19cab61d92d4~mv2.png/v1/fill/w_454,h_341,fp_0.50_0.50,q_95,enc_avif,quality_auto/256398_869d34a3af9e4652b7cb19cab61d92d4~mv2.webp" alt="Volunteer and Donate" loading="lazy">
+          <div class="blog-card-body">
+            <h3>Join the Veteran Promise Project: Volunteer and Donate</h3>
+            <p>The sacrifices made by our veterans deserve recognition and support. The Veteran Promise Project is a unique initiative aimed at providing assistance to those who have served our country. By volunteering or donating, you can make a meaningful impact in the lives of veterans and their families.</p>
+            <span class="blog-read-link">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,6 15,12 9,18"/></svg></span>
+          </div>
+          <div class="blog-card-meta"><span class="blog-card-author">Shanon Ryan</span><span>Dec 15, 2025 · 4 min read</span></div>
+        </a>
+
+        <a href="post-crafting-canes.html" class="blog-card" style="text-decoration:none;">
+          <img class="blog-card-img" src="https://static.wixstatic.com/media/256398_56042a5de2cd4019a6782ce08e8adb29~mv2.png/v1/fill/w_454,h_341,fp_0.50_0.50,q_95,enc_avif,quality_auto/256398_56042a5de2cd4019a6782ce08e8adb29~mv2.webp" alt="Crafting Custom Canes" loading="lazy">
+          <div class="blog-card-body">
+            <h3>Crafting Custom Canes for Our Veterans</h3>
+            <p>Creating custom canes for veterans is not just about providing mobility aids; it's about honoring their service and enhancing their quality of life. The canes we craft and donate are all designed to honor their service as a way of saying "thank you" in a more tangible way.</p>
+            <span class="blog-read-link">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,6 15,12 9,18"/></svg></span>
+          </div>
+          <div class="blog-card-meta"><span class="blog-card-author">Shanon Ryan</span><span>Dec 15, 2025 · 4 min read</span></div>
+        </a>
+
+        <a href="post-va-benefits.html" class="blog-card" style="text-decoration:none;">
+          <img class="blog-card-img" src="images/soldier-salute.png" alt="VA Benefits Support" loading="lazy" style="object-position:top;">
+          <div class="blog-card-body">
+            <h3>Supporting Veterans: Accessing VA Benefits Together</h3>
+            <p>Veterans have dedicated their lives to serving their country, and it is our responsibility to ensure they receive the support and benefits they deserve. Navigating the complex landscape of VA benefits can be overwhelming for many veterans and their families.</p>
+            <span class="blog-read-link">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,6 15,12 9,18"/></svg></span>
+          </div>
+          <div class="blog-card-meta"><span class="blog-card-author">Shanon Ryan</span><span>Dec 15, 2025 · 4 min read</span></div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VA NEWS -->
+  <section class="section" style="background:var(--warm-bg);">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:40px;">
+        <div class="section-label">Resources</div>
+        <h2 class="section-title">VA News &amp; Resources</h2>
+      </div>
+      <div class="va-news-section">
+        <div class="va-news-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><line x1="10" y1="6" x2="18" y2="6"/><line x1="10" y1="10" x2="18" y2="10"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <div class="va-news-text">
+          <h3>Stay Informed with VA News</h3>
+          <p>The U.S. Department of Veterans Affairs publishes updates on benefits, healthcare, policy changes, and resources for veterans and their families. Stay current on what matters to your benefits and care.</p>
+          <a href="https://news.va.gov/" target="_blank" class="btn btn-outline btn-sm">
+            Visit VA News
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v5c0 5.25-3.5 9.74-7 11-3.5-1.26-7-5.75-7-11V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg><span>Veteran Promise Project</span></div><p class="footer-about">Custom walking canes and VA benefits support for the veterans who've earned it.</p></div>
+      <div class="footer-links"><div class="footer-heading">Navigate</div><a href="index.html">Home</a><a href="services.html">Services</a><a href="cane-gallery.html">Cane Gallery</a><a href="blog.html">Blog</a><a href="members.html">Members</a><a href="contact.html">Contact Us</a></div>
+      <div class="footer-links"><div class="footer-heading">Get Involved</div><a href="request.html">Request Support</a><a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank">Donate</a><a href="contact.html">Become a Sponsor</a><a href="contact.html">Volunteer</a></div>
+      <div class="footer-links"><div class="footer-heading">Connect</div><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">&copy; 2026 Veteran Promise Project. All rights reserved.</div><div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div>
+  </footer>
+  <script>function toggleMenu(){const m=document.getElementById('mobile-menu'),a=document.getElementById('menu-icon'),b=document.getElementById('close-icon'),o=m.classList.toggle('open');a.style.display=o?'none':'block';b.style.display=o?'block':'none';}document.querySelectorAll('.mobile-menu a').forEach(l=>l.addEventListener('click',()=>{document.getElementById('mobile-menu').classList.remove('open');document.getElementById('menu-icon').style.display='block';document.getElementById('close-icon').style.display='none';}));</script>
+</body>
+</html>

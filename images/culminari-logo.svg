@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" role="img" aria-label="Culminari for Veterans">
+  <rect width="180" height="180" rx="40" fill="#5C7A56"/>
+  <path d="M15 145 C40 95,60 70,90 70 C120 70,140 95,165 145" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M25 145 C50 80,65 55,90 55 C115 55,130 80,155 145" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M35 145 C55 65,70 40,90 40 C110 40,125 65,145 145" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M50 145 C65 60,75 30,90 30 C105 30,115 60,130 145" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="90" cy="25" r="12" fill="#C0824A"/>
+</svg>

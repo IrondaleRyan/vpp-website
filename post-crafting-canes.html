@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crafting Custom Canes for Our Veterans | Veteran Promise Project</title>
+  <meta name="description" content="Creating custom walking canes for veterans — honoring their service one cane at a time.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .post-hero { background: linear-gradient(135deg, #111827 0%, #1a2740 50%, #243447 100%); padding: 140px 24px 48px; }
+    .post-hero h1 { font-family: 'Bitter', serif; font-size: 36px; font-weight: 700; color: #fff; max-width: 780px; margin: 0 auto 16px; text-align: center; line-height: 1.2; }
+    .post-meta { text-align: center; color: rgba(255,255,255,0.5); font-size: 14px; }
+    .post-meta span { margin: 0 8px; }
+    .post-body { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; }
+    .post-body img { width: 100%; border-radius: 10px; margin: 24px 0; }
+    .post-body h2 { font-family: 'Bitter', serif; font-size: 24px; font-weight: 700; color: #1F2937; margin: 36px 0 12px; }
+    .post-body h3 { font-family: 'Bitter', serif; font-size: 20px; font-weight: 700; color: #1F2937; margin: 28px 0 10px; }
+    .post-body p { font-size: 16px; color: #4B5563; line-height: 1.8; margin-bottom: 16px; }
+    .post-body ul, .post-body ol { margin: 12px 0 20px 24px; color: #4B5563; line-height: 1.8; font-size: 16px; }
+    .post-body li { margin-bottom: 8px; }
+    .post-body em { color: #6B7280; }
+    .post-body strong { color: #1F2937; }
+    .post-back { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: #B8860B; margin-bottom: 32px; }
+    .post-back:hover { color: #9A7209; }
+    .post-cta { text-align: center; padding: 48px 24px; background: #F8F6F2; border-radius: 12px; margin-top: 48px; }
+    .post-cta h3 { font-family: 'Bitter', serif; font-size: 22px; margin-bottom: 12px; }
+    .post-cta p { color: #6B7280; font-size: 15px; margin-bottom: 20px; }
+    .recent-posts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 40px; padding-top: 40px; border-top: 1px solid #E5E7EB; }
+    .recent-card { border: 1px solid #E5E7EB; border-radius: 8px; overflow: hidden; transition: box-shadow 0.2s; }
+    .recent-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    .recent-card img { width: 100%; height: 140px; object-fit: cover; }
+    .recent-card-body { padding: 16px; }
+    .recent-card-body h4 { font-family: 'Bitter', serif; font-size: 15px; font-weight: 700; color: #1F2937; line-height: 1.3; }
+    .recent-card-body span { font-size: 12px; color: #9CA3AF; display: block; margin-top: 6px; }
+    @media (max-width: 600px) { .post-hero h1 { font-size: 26px; } .recent-posts { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="mockup-banner"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span>Redesign preview of <a href="https://www.veteranpromiseproject.com/" style="color:#92400E;text-decoration:underline;">veteranpromiseproject.com</a></span></div>
+
+  <nav class="navbar"><div class="navbar-inner">
+    <a href="index.html" class="navbar-brand"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v5c0 5.25-3.5 9.74-7 11-3.5-1.26-7-5.75-7-11V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg><span>Veteran Promise Project</span></a>
+    <div class="navbar-links"><a href="index.html">Home</a><a href="services.html">Services</a><a href="cane-gallery.html">Cane Gallery</a><a href="sponsors.html">Sponsors</a><a href="blog.html" class="nav-active">Blog</a><a href="contact.html">Contact</a><a href="members.html" class="nav-members-link">Log In</a><a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank" class="btn btn-primary btn-sm">Donate</a></div>
+    <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Menu"><svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg><svg id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="cane-gallery.html">Cane Gallery</a><a href="sponsors.html">Sponsors</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="members.html">Log In</a><a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank" class="btn btn-primary" style="justify-content:center;margin-top:8px;">Donate</a></div></nav>
+
+  <section class="post-hero">
+    <div class="container">
+      <h1>Crafting Custom Canes for Our Veterans</h1>
+      <div class="post-meta">Shanon Ryan<span>·</span>Dec 15, 2025<span>·</span>4 min read<span>·</span>Updated Dec 20, 2025</div>
+    </div>
+  </section>
+
+  <article class="post-body">
+    <a href="blog.html" class="post-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,18 9,12 15,6"/></svg> All Posts</a>
+
+    <p>Creating custom canes for veterans is not just about providing mobility aids; it&rsquo;s about honoring their service and enhancing their quality of life. The VA will provide veterans with canes as needed, but they are simple aluminium and plastic canes. The canes we craft and donate to veterans are all designed to honor their service to our country as a way of saying &ldquo;thank you for your service&rdquo; in a more tangible way. Each cane tells a story, reflecting the unique journey of the individual who uses it.</p>
+
+    <h2>The Importance of Custom Canes</h2>
+
+    <h3>A Symbol of Respect and Recognition</h3>
+    <p>For many veterans, a cane is more than just a tool for mobility; it represents their strength and resilience. Custom canes serve as a <strong>symbol of respect</strong> for their service. By personalizing these canes, we acknowledge their sacrifices and celebrate their individuality.</p>
+
+    <h3>Enhancing Mobility and Independence</h3>
+    <p>Custom canes are designed to meet the specific needs of each veteran. This personalization can significantly enhance their mobility and independence. A well-crafted cane can provide the necessary support, allowing veterans to navigate their environments with confidence.</p>
+
+    <h3>Psychological Benefits</h3>
+    <p>The psychological impact of using a custom cane should not be underestimated. A cane that reflects a veteran&rsquo;s personality or interests can boost their self-esteem and promote a sense of pride. This emotional connection can lead to improved mental health and overall well-being.</p>
+
+    <h2>The Crafting Process</h2>
+
+    <h3>Understanding the Veteran&rsquo;s Needs</h3>
+    <p>The first step in crafting a custom cane is to understand the specific needs of the veteran. This involves a detailed consultation where we discuss their mobility challenges, preferences, and any specific features they might want in their cane.</p>
+
+    <h3>Selecting Materials</h3>
+    <p>Choosing the right materials is crucial for both functionality and aesthetics. The primary material is <strong>wood</strong>, which offers a classic look and can be carved into intricate designs.</p>
+
+    <h3>Design and Personalization</h3>
+    <p>Once the materials are selected, the design phase begins. Options for personalization include:</p>
+    <ul>
+      <li><strong>Engravings:</strong> Names, military insignias, or meaningful quotes can be engraved on the cane.</li>
+      <li><strong>Color Choices:</strong> Selecting colors that resonate with the veteran can make the cane feel more personal.</li>
+      <li><strong>Handles:</strong> Different handle designs can provide better grip and comfort.</li>
+    </ul>
+
+    <h3>Crafting the Cane</h3>
+    <p>With the design finalized, the actual crafting begins. A skilled craftsman uses traditional woodworking techniques alongside modern technology to create a cane that is both functional and beautiful. Attention to detail is paramount, ensuring that every cane meets high standards of quality.</p>
+
+    <h3>Final Touches</h3>
+    <p>After the cane is crafted, it undergoes a finishing process. This may include sanding, polishing, and applying protective coatings to ensure durability. The final product is a unique cane that not only serves its purpose but also tells a story.</p>
+
+    <h2>Real-Life Examples</h2>
+
+    <h3>Case Study: Dan N&rsquo;s Custom Cane</h3>
+    <p>Dan, a Vietnam era veteran, faced mobility challenges due to arthritis. After a consultation, we crafted a cane that featured:</p>
+    <ul>
+      <li>A sturdy <strong>Black Walnut shaft</strong> with a dark rich finish.</li>
+      <li>An <strong>engraved military insignia</strong> representing his service on one side and a cross on the other.</li>
+      <li>A comfortable, <strong>ergonomic handle</strong> designed for ease of use.</li>
+    </ul>
+    <p>Dan reported that his custom cane not only improved his mobility but also made him feel proud of his service.</p>
+
+    <h3>Case Study: Los K&rsquo;s Artistic Cane</h3>
+    <p>Los, a veteran of the Gulf War, is a police officer who wanted his cane to be one of a kind and reflect his passion. We collaborated with him to create a cane that included:</p>
+    <ul>
+      <li><strong>Unique angles and bevels with artistic patterns</strong> that mirrored his love of riding motorcycles.</li>
+      <li>A sturdy <strong>Black Walnut shaft that gently sloped towards the top</strong>.</li>
+      <li>A <strong>unique handle design</strong> that allowed for a comfortable grip.</li>
+    </ul>
+    <p>Los expressed that his cane has become a conversation starter and a source of inspiration for others.</p>
+
+    <h2>Community Involvement</h2>
+
+    <h3>Workshops and Events</h3>
+    <p>To promote awareness and support for veterans, we host workshops where community members can learn about the importance of custom canes. These events often include demonstrations of the crafting process and opportunities for veterans to design their own canes.</p>
+
+    <h3>Collaborations with Local Organizations</h3>
+    <p>Partnering with local veteran organizations allows us to reach more veterans in need. Through these collaborations, we can provide custom canes at no cost, ensuring that every veteran has access to this valuable resource.</p>
+
+    <h2>Conclusion</h2>
+    <p>Crafting custom canes for our veterans is a meaningful way to honor their service and improve their quality of life. Each cane is a unique blend of functionality and personal expression, serving as a reminder of their strength and resilience. Together, we can make a difference in the lives of our veterans, one custom cane at a time.</p>
+
+    <div class="post-cta">
+      <h3>Ready to get involved?</h3>
+      <p>Whether you need a cane, want to volunteer, or can support the mission financially &mdash; every contribution matters.</p>
+      <a href="request.html" class="btn btn-primary">Request a Cane</a>
+      <a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank" class="btn btn-outline" style="margin-left:12px;">Donate</a>
+    </div>
+  </article>
+
+  <footer class="site-footer"><div class="footer-grid">
+    <div><div class="footer-brand"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v5c0 5.25-3.5 9.74-7 11-3.5-1.26-7-5.75-7-11V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg><span>Veteran Promise Project</span></div><p class="footer-about">Custom walking canes and VA benefits support for the veterans who&rsquo;ve earned it.</p></div>
+    <div class="footer-links"><div class="footer-heading">Navigate</div><a href="index.html">Home</a><a href="services.html">Services</a><a href="cane-gallery.html">Cane Gallery</a><a href="blog.html">Blog</a><a href="members.html">Members</a><a href="contact.html">Contact Us</a></div>
+    <div class="footer-links"><div class="footer-heading">Get Involved</div><a href="request.html">Request a Cane</a><a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank">Donate</a><a href="contact.html">Become a Sponsor</a><a href="contact.html">Volunteer</a></div>
+    <div class="footer-links"><div class="footer-heading">Connect</div><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
+  </div><div class="footer-bottom"><div class="footer-copy">&copy; 2026 Veteran Promise Project. All rights reserved.</div><div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div></footer>
+  <script>function toggleMenu(){const m=document.getElementById('mobile-menu'),a=document.getElementById('menu-icon'),b=document.getElementById('close-icon'),o=m.classList.toggle('open');a.style.display=o?'none':'block';b.style.display=o?'block':'none';}document.querySelectorAll('.mobile-menu a').forEach(l=>l.addEventListener('click',()=>{document.getElementById('mobile-menu').classList.remove('open');document.getElementById('menu-icon').style.display='block';document.getElementById('close-icon').style.display='none';}));</script>
+</body>
+</html>
