@@ -1,0 +1,24 @@
+<svg width="2462" height="704" viewBox="0 0 1050 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1050" height="300" fill="#1A2F5A"></rect>
+
+  
+  <g transform="translate(150,150)">
+    <circle r="112" fill="none" stroke="#FFFFFF" stroke-width="3"></circle>
+    <circle r="100" fill="none" stroke="#C9A84C" stroke-width="1.25"></circle>
+
+    
+    <path d="M -38,-72 A 17,17 0 1 1 -54,-91 L 56,88" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"></path>
+
+    
+    <path d="M 38,-72 A 17,17 0 1 0 54,-91 L -56,88" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"></path>
+
+    
+    <circle cx="0" cy="8" r="5.5" fill="#B22234"></circle>
+  </g>
+
+  
+  <g transform="translate(330,118)" font-family="Cormorant Garamond, Georgia, &#39;Times New Roman&#39;, serif">
+    <text x="0" y="0" font-size="34" fill="#FFFFFF" letter-spacing="1">VETERAN PROMISE PROJECT</text>
+    <text x="0" y="85" font-size="38" fill="#FFFFFF" letter-spacing="2">SERVING THOSE WHO SERVED</text>
+  </g>
+</svg>
