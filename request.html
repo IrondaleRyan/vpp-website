@@ -275,7 +275,7 @@ document.getElementById('intakeForm').addEventListener('submit', async function(
   
   // Collect all named fields
   const fd = new FormData(this);
-  const formData = {};
+  const formData = { formSource: 'Request Support' };
   fd.forEach((value, key) => { formData[key] = value; });
   
   // Collect radio buttons (branch, status, contact, time)
