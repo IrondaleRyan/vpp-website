@@ -309,8 +309,7 @@ document.getElementById('intakeForm').addEventListener('submit', async function(
       msg.style.color = '#166534';
       msg.innerHTML = "<strong>Request submitted!</strong> Ryan will review your request and reach out personally.";
       msg.style.display = 'block';
-      btn.style.display = 'none';
-      this.querySelectorAll('input, select, textarea').forEach(el => el.disabled = true);
+      this.reset();
     } else {
       throw new Error(result.error || 'Submission failed');
     }
