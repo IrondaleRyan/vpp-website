@@ -204,7 +204,7 @@
             </div>
 
             <div class="form-group"><label>How Did You Hear About Us?</label>
-              <select name="hear"><option value="">Select</option><option>Met in person</option><option>Friend or family member</option><option>Other recipient</option><option>Social media</option><option>Internet search</option><option>Other</option></select>
+              <select name="hear"><option value="">Select</option><option>Met in Person</option><option>Friend or Family Member</option><option>Other Recipient</option><option>Social Media</option><option>Internet Search</option><option>Other</option></select>
             </div>
 
             <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:12px;padding:16px 28px;font-size:16px;">Submit Request</button>
@@ -280,13 +280,13 @@ document.getElementById('intakeForm').addEventListener('submit', async function(
   
   // Collect radio buttons (branch, status, contact, time)
   const branch = this.querySelector('input[name="branch"]:checked');
-  if (branch) formData.branch = branch.value;
+  if (branch) formData.branch = branch.parentElement.textContent.trim();
   const status = this.querySelector('input[name="status"]:checked');
-  if (status) formData.status = status.value;
+  if (status) formData.status = status.parentElement.textContent.trim();
   const contact = this.querySelector('input[name="contact"]:checked');
-  if (contact) formData.contactMethod = contact.value;
+  if (contact) formData.contactMethod = contact.parentElement.textContent.trim();
   const time = this.querySelector('input[name="time"]:checked');
-  if (time) formData.bestTime = time.value;
+  if (time) formData.bestTime = time.parentElement.textContent.trim();
   
   // Collect checkboxes (assistance needed)
   const checks = this.querySelectorAll('.checkbox-grid input[type="checkbox"]:checked');
