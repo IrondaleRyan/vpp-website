@@ -68,18 +68,11 @@
     }
 
     /* ---- MOCKUP BANNER ---- */
-    .mockup-banner {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      background: #FEF3C7; border-bottom: 1px solid #F59E0B;
-      padding: 8px 24px; display: flex; align-items: center;
-      justify-content: center; gap: 8px;
-      font-size: 13px; font-weight: 600; color: #92400E;
-      font-family: 'Source Sans 3', sans-serif;
-    }
+
 
     /* ---- NAV ---- */
     .navbar {
-      position: fixed; top: 36px; left: 0; right: 0; z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       background: var(--navy); border-bottom: 2px solid var(--brass);
     }
     .navbar-inner {
@@ -123,7 +116,7 @@
     /* ---- HERO ---- */
     .hero {
       background: linear-gradient(135deg, var(--navy) 0%, #1a2740 50%, #243447 100%);
-      padding: 176px 24px 100px; position: relative; overflow: hidden;
+      padding: 140px 24px 100px; position: relative; overflow: hidden;
     }
     .hero-texture {
       position: absolute; inset: 0; opacity: 0.04;
@@ -477,8 +470,6 @@
       .navbar-links { display: none !important; }
       .mobile-toggle { display: flex !important; }
       .hero h1 { font-size: 32px; }
-      .mockup-banner { font-size: 11px; padding: 6px 16px; }
-      .mockup-banner svg { display: none; }
       .hero { padding: 156px 24px 64px; }
       .hero p { font-size: 17px; }
       .hero-buttons { flex-direction: column; }
@@ -508,7 +499,7 @@
     /* ---- PAGE HERO ---- */
     .page-hero {
       background: linear-gradient(135deg, #111827 0%, #1a2740 50%, #243447 100%);
-      padding: 140px 24px 64px; position: relative; text-align: center;
+      padding: 104px 24px 64px; position: relative; text-align: center;
     }
     .page-hero h1 {
       font-family: 'Bitter', serif; font-size: 40px; font-weight: 700;
@@ -583,7 +574,7 @@
 
     /* ---- RESPONSIVE ADDITIONS ---- */
     @media (max-width: 768px) {
-      .page-hero { padding: 120px 24px 48px; }
+      .page-hero { padding: 84px 24px 48px; }
       .page-hero h1 { font-size: 28px; }
       .gallery-grid--full { grid-template-columns: 1fr 1fr; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
