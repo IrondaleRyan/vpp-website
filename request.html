@@ -319,6 +319,7 @@ document.getElementById('intakeForm').addEventListener('submit', async function(
     msg.style.color = '#991B1B';
     msg.innerHTML = 'Something went wrong. Please call <a href="tel:9034441214" style="color:#991B1B;font-weight:600;">(903) 444-1214</a> or email <a href="mailto:ryan@veteranpromiseproject.com" style="color:#991B1B;font-weight:600;">ryan@veteranpromiseproject.com</a> directly.';
     msg.style.display = 'block';
+  } finally {
     btn.textContent = originalText;
     btn.disabled = false;
   }
