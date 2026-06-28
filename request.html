@@ -268,6 +268,10 @@
 // ===== CONFIGURATION =====
 const SUBMIT_ENDPOINT = 'https://services.veteranpromiseproject.com/_functions/submitIntake';
 
+// Time-trap: stamp when the form became ready. The backend rejects submits that
+// arrive implausibly fast (a human can't fill the form in seconds — a bot can).
+var FORM_LOADED_AT = Date.now();
+
 // Contact details assembled at runtime so the page source carries no harvestable
 // address or number — a scraper reading the raw HTML finds only split fragments.
 var CONTACT_EMAIL = ['ryan', 'veteranpromiseproject.com'].join('@');
@@ -306,7 +310,10 @@ document.getElementById('intakeForm').addEventListener('submit', async function(
   const needs = [];
   checks.forEach(c => needs.push(c.parentElement.textContent.trim()));
   if (needs.length) formData.assistance = needs.join(', ');
-  
+
+  // Time elapsed from form-ready to submit (backend rejects implausibly fast submits)
+  formData.elapsedMs = Date.now() - FORM_LOADED_AT;
+
   try {
     const response = await fetch(SUBMIT_ENDPOINT, {
       method: 'POST',
