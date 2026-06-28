@@ -54,7 +54,12 @@
         <div class="contact-form-area">
           <h2 class="section-title" style="font-size:24px;">Send us a message</h2>
           <p style="color:var(--muted);font-size:15px;margin-bottom:28px;">We&rsquo;ll get back to you as soon as we can.</p>
-          <form id="contactForm">
+          <form id="contactForm" autocomplete="on">
+            <!-- Anti-spam honeypot: hidden from people, bots fill it and get silently dropped. Do not remove. -->
+            <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+              <label>Website</label>
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </div>
             <div class="form-row">
               <div class="form-group"><label>First Name *</label><input type="text" name="firstName" placeholder="Your first name" required></div>
               <div class="form-group"><label>Last Name *</label><input type="text" name="lastName" placeholder="Your last name" required></div>
@@ -72,11 +77,11 @@
           <h2 class="section-title" style="font-size:24px;">Contact Information</h2>
           <div class="contact-info-card">
             <h4>📞 Phone</h4>
-            <p><a href="tel:9034441214" style="color:#B8860B;font-weight:600;font-size:17px;">(903) 444-1214</a></p>
+            <p><a id="phone-link" href="#" style="color:#B8860B;font-weight:600;font-size:17px;">&nbsp;</a></p>
           </div>
           <div class="contact-info-card">
             <h4>✉️ Email</h4>
-            <p><a href="mailto:ryan@veteranpromiseproject.com" style="color:#B8860B;font-weight:600;">ryan@veteranpromiseproject.com</a></p>
+            <p><a id="email-link" href="#" style="color:#B8860B;font-weight:600;">&nbsp;</a></p>
           </div>
           <div class="contact-info-card">
             <h4>📍 Location</h4>
@@ -158,6 +163,19 @@
 // Replace this URL after publishing the Wix site
 const SUBMIT_ENDPOINT = 'https://services.veteranpromiseproject.com/_functions/submitIntake';
 
+// Contact details assembled at runtime so the page source carries no harvestable
+// address or number — a scraper reading the raw HTML finds only split fragments.
+var CONTACT_EMAIL = ['ryan', 'veteranpromiseproject.com'].join('@');
+var _ph = ['903', '444', '1214'];
+var CONTACT_PHONE_TEL = _ph.join('');
+var CONTACT_PHONE_DISPLAY = '(' + _ph[0] + ') ' + _ph[1] + '-' + _ph[2];
+(function () {
+  var e = document.getElementById('email-link');
+  if (e) { e.href = 'mailto:' + CONTACT_EMAIL; e.textContent = CONTACT_EMAIL; }
+  var p = document.getElementById('phone-link');
+  if (p) { p.href = 'tel:' + CONTACT_PHONE_TEL; p.textContent = CONTACT_PHONE_DISPLAY; }
+})();
+
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   
@@ -175,7 +193,8 @@ document.getElementById('contactForm').addEventListener('submit', async function
     lastName: this.querySelector('[name="lastName"]').value,
     emailAddress: this.querySelector('[name="emailAddress"]').value,
     assistance: this.querySelector('[name="assistance"]').value,
-    notes: this.querySelector('[name="notes"]').value
+    notes: this.querySelector('[name="notes"]').value,
+    website: this.querySelector('[name="website"]').value
   };
   
   try {
@@ -201,7 +220,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
     msg.style.background = '#FEF2F2';
     msg.style.border = '1px solid #FCA5A5';
     msg.style.color = '#991B1B';
-    msg.innerHTML = 'Something went wrong. Please call <a href="tel:9034441214" style="color:#991B1B;font-weight:600;">(903) 444-1214</a> or email <a href="mailto:ryan@veteranpromiseproject.com" style="color:#991B1B;font-weight:600;">ryan@veteranpromiseproject.com</a> directly.';
+    msg.innerHTML = 'Something went wrong. Please call <a href="tel:' + CONTACT_PHONE_TEL + '" style="color:#991B1B;font-weight:600;">' + CONTACT_PHONE_DISPLAY + '</a> or email <a href="mailto:' + CONTACT_EMAIL + '" style="color:#991B1B;font-weight:600;">' + CONTACT_EMAIL + '</a> directly.';
     msg.style.display = 'block';
   }
   

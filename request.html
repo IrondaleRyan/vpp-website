@@ -101,7 +101,13 @@
     <div class="container">
       <div class="intake-layout">
         <div class="intake-form">
-          <form id="intakeForm">
+          <form id="intakeForm" autocomplete="on">
+
+            <!-- Anti-spam honeypot: hidden from people, bots fill it and get silently dropped. Do not remove. -->
+            <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+              <label>Website</label>
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </div>
 
             <div class="form-section-title">Your Information</div>
             <div class="form-section-desc">So we know who to contact and where to send your cane.</div>
@@ -262,6 +268,13 @@
 // ===== CONFIGURATION =====
 const SUBMIT_ENDPOINT = 'https://services.veteranpromiseproject.com/_functions/submitIntake';
 
+// Contact details assembled at runtime so the page source carries no harvestable
+// address or number — a scraper reading the raw HTML finds only split fragments.
+var CONTACT_EMAIL = ['ryan', 'veteranpromiseproject.com'].join('@');
+var _ph = ['903', '444', '1214'];
+var CONTACT_PHONE_TEL = _ph.join('');
+var CONTACT_PHONE_DISPLAY = '(' + _ph[0] + ') ' + _ph[1] + '-' + _ph[2];
+
 document.getElementById('intakeForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   
@@ -317,7 +330,7 @@ document.getElementById('intakeForm').addEventListener('submit', async function(
     msg.style.background = '#FEF2F2';
     msg.style.border = '1px solid #FCA5A5';
     msg.style.color = '#991B1B';
-    msg.innerHTML = 'Something went wrong. Please call <a href="tel:9034441214" style="color:#991B1B;font-weight:600;">(903) 444-1214</a> or email <a href="mailto:ryan@veteranpromiseproject.com" style="color:#991B1B;font-weight:600;">ryan@veteranpromiseproject.com</a> directly.';
+    msg.innerHTML = 'Something went wrong. Please call <a href="tel:' + CONTACT_PHONE_TEL + '" style="color:#991B1B;font-weight:600;">' + CONTACT_PHONE_DISPLAY + '</a> or email <a href="mailto:' + CONTACT_EMAIL + '" style="color:#991B1B;font-weight:600;">' + CONTACT_EMAIL + '</a> directly.';
     msg.style.display = 'block';
   } finally {
     btn.textContent = originalText;
