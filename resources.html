@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VA Resources | Veteran Promise Project</title>
+  <meta name="description" content="Download VA Disability Benefits Questionnaire (DBQ) forms and access helpful resources for veterans navigating the VA claims process.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .page-hero { background: linear-gradient(135deg, #111827 0%, #1a2740 50%, #243447 100%); padding: 104px 24px 48px; }
+    .page-hero h1 { font-family: 'Bitter', serif; font-size: 36px; font-weight: 700; color: #fff; max-width: 780px; margin: 0 auto 12px; text-align: center; line-height: 1.2; }
+    .page-hero p { text-align: center; color: rgba(255,255,255,0.6); font-size: 16px; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+    .resources-body { max-width: 860px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    .resources-intro { font-size: 16px; color: #4B5563; line-height: 1.8; margin-bottom: 20px; }
+    .resources-intro strong { color: #1F2937; }
+
+    .hybrid-note { background: #F8F6F2; border-left: 4px solid #B8860B; border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 40px; font-size: 14px; color: #4B5563; line-height: 1.7; }
+    .hybrid-note strong { color: #1F2937; }
+
+    .dbq-section { margin-bottom: 36px; }
+    .dbq-section-title { font-family: 'Bitter', serif; font-size: 22px; font-weight: 700; color: #1F2937; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #E5E7EB; display: flex; align-items: center; gap: 10px; }
+    .dbq-section-icon { font-size: 20px; }
+
+    .dbq-card { background: #fff; border: 1px solid #E5E7EB; border-radius: 10px; padding: 18px 20px; margin-bottom: 12px; transition: box-shadow 0.2s; }
+    .dbq-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .dbq-card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 6px; flex-wrap: wrap; }
+    .dbq-card-title { font-family: 'Bitter', serif; font-size: 16px; font-weight: 700; color: #1F2937; line-height: 1.3; }
+    .dbq-form-num { font-size: 12px; color: #9CA3AF; font-weight: 400; white-space: nowrap; }
+    .dbq-card-desc { font-size: 14px; color: #6B7280; line-height: 1.6; margin-bottom: 10px; }
+    .dbq-card-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .dbq-link { font-size: 13px; font-weight: 600; color: #B8860B; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+    .dbq-link:hover { color: #9A7209; text-decoration: underline; }
+    .dbq-link svg { flex-shrink: 0; }
+
+    .dbq-note { font-size: 13px; color: #9CA3AF; font-style: italic; margin-top: 4px; }
+
+    .additional-resources { margin-top: 48px; padding-top: 40px; border-top: 2px solid #E5E7EB; }
+    .additional-resources h2 { font-family: 'Bitter', serif; font-size: 24px; font-weight: 700; color: #1F2937; margin-bottom: 20px; }
+    .resource-link-card { display: block; background: #F8F6F2; border-radius: 10px; padding: 18px 20px; margin-bottom: 12px; text-decoration: none; transition: box-shadow 0.2s; }
+    .resource-link-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .resource-link-card h4 { font-family: 'Bitter', serif; font-size: 16px; font-weight: 700; color: #1F2937; margin-bottom: 4px; }
+    .resource-link-card p { font-size: 14px; color: #6B7280; line-height: 1.5; margin: 0; }
+
+    .resources-cta { text-align: center; padding: 48px 24px; background: #F8F6F2; border-radius: 12px; margin-top: 48px; }
+    .resources-cta h3 { font-family: 'Bitter', serif; font-size: 22px; margin-bottom: 12px; color: #1F2937; }
+    .resources-cta p { color: #6B7280; font-size: 15px; margin-bottom: 20px; }
+
+    @media (max-width: 600px) {
+      .page-hero h1 { font-size: 26px; }
+      .dbq-card-header { flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar"><div class="navbar-inner">
+    <a href="index.html" class="navbar-brand"><svg width="56" height="56" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"><g transform="translate(150,150)"><circle r="112" fill="none" stroke="#FFFFFF" stroke-width="3"/><circle r="100" fill="none" stroke="#C9A84C" stroke-width="1.25"/><path d="M -38,-72 A 17,17 0 1 1 -54,-91 L 56,88" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M 38,-72 A 17,17 0 1 0 54,-91 L -56,88" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="8" r="5.5" fill="#B22234"/></g></svg><span style="display:flex;flex-direction:column;line-height:1.2;"><strong>Veteran Promise Project</strong><small style="font-size:10px;letter-spacing:2px;opacity:0.7;font-weight:400;">SERVING THOSE WHO SERVED</small></span></a>
+    <div class="navbar-links"><a href="index.html">Home</a><a href="services.html">Services</a><a href="cane-gallery.html">Cane Gallery</a><a href="sponsors.html">Sponsors</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank" class="btn btn-primary btn-sm">Donate</a></div>
+    <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Menu"><svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg><svg id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="cane-gallery.html">Cane Gallery</a><a href="sponsors.html">Sponsors</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank" class="btn btn-primary" style="justify-content:center;margin-top:8px;">Donate</a></div></nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>VA Resources</h1>
+      <p>Disability Benefits Questionnaires and helpful links to support your VA claims process.</p>
+    </div>
+  </section>
+
+  <div class="resources-body">
+
+    <p class="resources-intro">
+      <strong>Disability Benefits Questionnaires (DBQs)</strong> are standardized VA forms that your healthcare provider fills out to document the diagnosis, severity, and service connection of a specific condition. A properly completed DBQ gives VA raters exactly what they need to assign a disability rating &mdash; and can often speed up or even replace a Compensation &amp; Pension (C&amp;P) exam.
+    </p>
+    <p class="resources-intro">
+      Below are the most commonly used DBQs, organized by body system. Download the form, bring it to your treating clinician, and submit it with your claim.
+    </p>
+
+    <div class="hybrid-note">
+      <strong>Keeping forms current:</strong> Each form below links directly to the VA&rsquo;s official portal so you always get the latest version. If the VA&rsquo;s site is ever unavailable, we maintain backup copies of these forms. If you have trouble accessing any form, <a href="contact.html" style="color:#B8860B;font-weight:600;">contact us</a> and we&rsquo;ll get it to you.
+    </div>
+
+    <!-- Hearing -->
+    <div class="dbq-section">
+      <h2 class="dbq-section-title"><span class="dbq-section-icon">🔊</span> Hearing &amp; Ear</h2>
+
+      <div class="dbq-card">
+        <div class="dbq-card-header">
+          <div class="dbq-card-title">Hearing Loss and Tinnitus</div>
+          <div class="dbq-form-num">VA Form 21-0960N-1</div>
+        </div>
+        <div class="dbq-card-desc">The most commonly filed DBQ. Covers audiometric testing (pure-tone thresholds and Maryland CNC speech discrimination scores) that directly drive hearing loss rating tables. Also documents tinnitus.</div>
+        <div class="dbq-card-links">
+          <a href="https://www.benefits.va.gov/COMPENSATION/dbq_ListByDBQFormName.asp" target="_blank" class="dbq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Download from VA.gov</a>
+        </div>
+      </div>
+
+      <div class="dbq-card">
+        <div class="dbq-card-header">
+          <div class="dbq-card-title">Ear Conditions</div>
+          <div class="dbq-form-num">VA Form 21-0960N-2</div>
+        </div>
+        <div class="dbq-card-desc">Covers Meniere&rsquo;s disease, vertigo, otitis media, and labyrinthitis. Separate from the hearing loss/tinnitus DBQ.</div>
+        <div class="dbq-card-links">
+          <a href="https://www.benefits.va.gov/COMPENSATION/dbq_ListByDBQFormName.asp" target="_blank" class="dbq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Download from VA.gov</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spine -->
+    <div class="dbq-section">
+      <h2 class="dbq-section-title"><span class="dbq-section-icon">🦴</span> Spine &amp; Back</h2>
+
+      <div class="dbq-card">
+        <div class="dbq-card-header">
+          <div class="dbq-card-title">Back (Thoracolumbar Spine) Conditions</div>
+          <div class="dbq-form-num">VA Form 21-0960M-14</div>
+        </div>
+        <div class="dbq-card-desc">Documents range of motion, pain on movement, incapacitating episodes, neurological abnormalities, and functional impact. Used for low back strain, lumbar disc disease, radiculopathy, and spondylosis.</div>
+        <div class="dbq-card-links">
+          <a href="https://www.benefits.va.gov/COMPENSATION/dbq_ListByDBQFormName.asp" target="_blank" class="dbq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Download from VA.gov</a>
+        </div>
+      </div>
+
+      <div class="dbq-card">
+        <div class="dbq-card-header">
+          <div class="dbq-card-title">Neck (Cervical Spine) Conditions</div>
+          <div class="dbq-form-num">VA Form 21-0960M-13</div>
+        </div>
+        <div class="dbq-card-desc">Same structure as the back DBQ but for cervical spine. Covers cervical radiculopathy, herniated discs, and post-surgical residuals.</div>
+        <div class="dbq-card-links">
+          <a href="https://www.benefits.va.gov/COMPENSATION/dbq_ListByDBQFormName.asp" target="_blank" class="dbq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Download from VA.gov</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Joints -->
+    <div class="dbq-section">
+      <h2 class="dbq-section-title"><span class="dbq-section-icon">🦿</span> Joints &amp; Musculoskeletal</h2>
+
+      <div class="dbq-card">
+        <div class="dbq-card-header">
+          <div class="dbq-card-title">Knee and Lower Leg Conditions</div>
+          <div class="dbq-form-num">VA Form 21-0960M-9</div>
+        </div>
+        <div class="dbq-card-desc">Range of motion, instability testing, meniscus pathology, and post-surgical residuals (TKR, ACL/MCL/meniscectomy). Bilateral knee claims may trigger the bilateral factor bonus.</div>
+        <div class="dbq-card-links">
+          <a href="https://www.benefits.va.gov/COMPENSATION/dbq_ListByDBQFormName.asp" target="_blank" class="dbq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Download from VA.gov</a>
+        </div>
+      </div>
+
+      <div class="dbq-card">
+        <div class="dbq-card-header">
+          <div class="dbq-card-title">Shoulder and Arm Conditions</div>
+          <div class="dbq-form-num">VA Form 21-0960M-12</div>
+        </div>
+        <div class="dbq-card-desc">Rotator cuff injuries, AC separation, impingement syndrome. Notes dominant vs. non-dominant arm rating distinctions.</div>
+        <div class="dbq-card-links">
+          <a href="https://www.benefits.va.gov/COMPENSATION/dbq_ListByDBQFormName.asp" target="_blank" class="dbq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Download from VA.gov</a>
+        </div>
+      </div>
+
+      <div class="dbq-card">
+        <div class="dbq-card-header">
+          <div class="dbq-card-title">Ankle Conditions</div>
+          <div class="dbq-form-num">VA Form 21-0960M-2</div>
+        </div>
+        <div class="dbq-card-desc">Documents ankylosis, instability, and post-traumatic arthritis. Pair with a foot DBQ when both ankle and foot are involved.</div>
+        <div class="dbq-card-links">
+          <a href="https://www.benefits.va.gov/COMPENSATION/dbq_ListByDBQFormName.asp" target="_blank" class="dbq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Download from VA.gov</a>
+        </div>
+      </div>
+
+      <div class="dbq-card">
+        <div class="dbq-card-header">
+          <div class="dbq-card-title">Hip and Thigh Conditions</div>
+          <div class="dbq-form-num">VA Form 21-0960M-7</div>
+        </div>
+        <div class="dbq-card-desc">Covers labral tears, hip arthroplasty, and femoral nerve impingement.</div>
+        <div class="dbq-card-links">
+          <a href="https://www.benefits.va.gov/COMPENSATION/dbq_ListByDBQFormName.asp" target="_blank" class="dbq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Download from VA.gov</a>
+        </div>
+      </div>
+
+      <div class="dbq-card">
+        <div class="dbq-card-header">
+          <div class="dbq-card-title">Wrist Conditions</div>
+          <div class="dbq-form-num">VA Form 21-0960M-15</div>
+        </div>
+        <div class="dbq-card-desc">Carpal tunnel syndrome, scaphoid non-union, and post-fusion residuals.</div>
+        <div class="dbq-card-links">
+          <a href="https://www.benefits.va.gov/COMPENSATION/dbq_ListByDBQFormName.asp" target="_blank" class="dbq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Download from VA.gov</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mental Health -->
+    <div class="dbq-section">
+      <h2 class="dbq-section-title"><span class="dbq-section-icon">🧠</span> Mental Health</h2>
+
+      <div class="dbq-card">
+        <div class="dbq-card-header">
+          <div class="dbq-card-title">Mental Disorders (Other Than PTSD and Eating Disorders)</div>
+          <div class="dbq-form-num">VA Form 21-0960P-2</div>
+        </div>
+        <div class="dbq-card-desc">Used for depression, anxiety, bipolar disorder, adjustment disorder, and schizophrenia. The General Rating Formula for Mental Disorders covers 0% through 100% tiers.</div>
+        <div class="dbq-card-links">
+          <a href="https://www.benefits.va.gov/COMPENSATION/dbq_ListByDBQFormName.asp" target="_blank" class="dbq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Download from VA.gov</a>
+        </div>
+      </div>
+
+      <div class="dbq-card">
+        <div class="dbq-card-header">
+          <div class="dbq-card-title">PTSD &mdash; Review</div>
+          <div class="dbq-form-num">VA Form 21-0960P-4</div>
+        </div>
+        <div class="dbq-card-desc">Used for re-evaluation of existing PTSD ratings. Private clinicians with relevant credentials can complete this form.</div>
+        <div class="dbq-card-links">
+          <a href="https://www.benefits.va.gov/COMPENSATION/dbq_ListByDBQFormName.asp" target="_blank" class="dbq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Download from VA.gov</a>
+        </div>
+        <div class="dbq-note">Note: Initial PTSD evaluations require a VA-network or contracted clinician. Private DBQs for initial PTSD are not accepted &mdash; only review evaluations.</div>
+      </div>
+    </div>
+
+    <!-- Respiratory -->
+    <div class="dbq-section">
+      <h2 class="dbq-section-title"><span class="dbq-section-icon">🫁</span> Respiratory</h2>
+
+      <div class="dbq-card">
+        <div class="dbq-card-header">
+          <div class="dbq-card-title">Respiratory Conditions (Including Asthma and COPD)</div>
+          <div class="dbq-form-num">VA Form 21-0960L-1</div>
+        </div>
+        <div class="dbq-card-desc">Covers asthma, COPD, emphysema, chronic bronchitis, restrictive lung disease, and sarcoidosis. Includes pulmonary function test (PFT) values that drive the rating tier.</div>
+        <div class="dbq-card-links">
+          <a href="https://www.benefits.va.gov/COMPENSATION/dbq_ListByDBQFormName.asp" target="_blank" class="dbq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Download from VA.gov</a>
+        </div>
+      </div>
+
+      <div class="dbq-card">
+        <div class="dbq-card-header">
+          <div class="dbq-card-title">Sleep Apnea</div>
+          <div class="dbq-form-num">VA Form 21-0960L-2</div>
+        </div>
+        <div class="dbq-card-desc">Documents diagnosis (sleep study), severity, and treatment requirements (CPAP use). Commonly filed as a secondary claim connected to PTSD, medication-related weight gain, or sinusitis.</div>
+        <div class="dbq-card-links">
+          <a href="https://www.benefits.va.gov/COMPENSATION/dbq_ListByDBQFormName.asp" target="_blank" class="dbq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Download from VA.gov</a>
+        </div>
+      </div>
+
+      <div class="dbq-card">
+        <div class="dbq-card-header">
+          <div class="dbq-card-title">Sinusitis, Rhinitis, and Other Nose/Throat Conditions</div>
+          <div class="dbq-form-num">VA Form 21-0960F-2</div>
+        </div>
+        <div class="dbq-card-desc">Covers chronic sinusitis and rhinitis. PACT Act presumptive applies to chronic forms of these conditions for eligible veterans.</div>
+        <div class="dbq-card-links">
+          <a href="https://www.benefits.va.gov/COMPENSATION/dbq_ListByDBQFormName.asp" target="_blank" class="dbq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Download from VA.gov</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cardiac -->
+    <div class="dbq-section">
+      <h2 class="dbq-section-title"><span class="dbq-section-icon">❤️</span> Heart &amp; Cardiovascular</h2>
+
+      <div class="dbq-card">
+        <div class="dbq-card-header">
+          <div class="dbq-card-title">Heart Conditions (Ischemic and Non-Ischemic Heart Disease)</div>
+          <div class="dbq-form-num">VA Form 21-0960A-1</div>
+        </div>
+        <div class="dbq-card-desc">METs (Metabolic Equivalents) testing values drive the rating tier. Ischemic heart disease is an Agent Orange presumptive condition.</div>
+        <div class="dbq-card-links">
+          <a href="https://www.benefits.va.gov/COMPENSATION/dbq_ListByDBQFormName.asp" target="_blank" class="dbq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Download from VA.gov</a>
+        </div>
+      </div>
+
+      <div class="dbq-card">
+        <div class="dbq-card-header">
+          <div class="dbq-card-title">Hypertension</div>
+          <div class="dbq-form-num">VA Form 21-0960A-3</div>
+        </div>
+        <div class="dbq-card-desc">Documents blood pressure readings, medication regimen, and end-organ involvement. Now a presumptive condition for Agent Orange and PACT Act exposures.</div>
+        <div class="dbq-card-links">
+          <a href="https://www.benefits.va.gov/COMPENSATION/dbq_ListByDBQFormName.asp" target="_blank" class="dbq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Download from VA.gov</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full library callout -->
+    <div class="dbq-section">
+      <h2 class="dbq-section-title"><span class="dbq-section-icon">📋</span> All DBQ Forms</h2>
+      <div class="dbq-card">
+        <div class="dbq-card-title">Complete VA DBQ Library</div>
+        <div class="dbq-card-desc" style="margin-top:6px;">The forms above cover the most commonly claimed conditions. The VA maintains approximately 70 public DBQs covering everything from skin conditions to diabetes to eye disorders. If your condition isn&rsquo;t listed above, the full alphabetical library is available on the VA&rsquo;s website.</div>
+        <div class="dbq-card-links" style="margin-top:10px;">
+          <a href="https://www.benefits.va.gov/COMPENSATION/dbq_ListByDBQFormName.asp" target="_blank" class="dbq-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Browse all DBQs on VA.gov</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Resources -->
+    <div class="additional-resources">
+      <h2>Helpful VA Links</h2>
+
+      <a href="https://www.va.gov/disability/file-disability-claim-form-21-526ez/" target="_blank" class="resource-link-card">
+        <h4>File a Disability Claim (VA Form 21-526EZ) &rarr;</h4>
+        <p>The main application form for VA disability compensation. File online, by mail, or in person.</p>
+      </a>
+
+      <a href="https://www.va.gov/disability/va-claim-exam/" target="_blank" class="resource-link-card">
+        <h4>VA Compensation &amp; Pension (C&amp;P) Exam &rarr;</h4>
+        <p>What to expect from a VA exam, how to prepare, and what happens after.</p>
+      </a>
+
+      <a href="https://www.va.gov/disability/eligibility/" target="_blank" class="resource-link-card">
+        <h4>Disability Eligibility &rarr;</h4>
+        <p>Check if you&rsquo;re eligible for VA disability benefits based on your service history and conditions.</p>
+      </a>
+
+      <a href="https://www.va.gov/resources/the-pact-act-and-your-va-benefits/" target="_blank" class="resource-link-card">
+        <h4>PACT Act &amp; Toxic Exposure &rarr;</h4>
+        <p>Learn about expanded benefits under the PACT Act for veterans exposed to burn pits, Agent Orange, and other toxins.</p>
+      </a>
+
+      <a href="https://www.va.gov/vso/" target="_blank" class="resource-link-card">
+        <h4>Find a Veterans Service Organization (VSO) &rarr;</h4>
+        <p>VSOs are accredited representatives who help veterans navigate claims for free. Find one near you.</p>
+      </a>
+    </div>
+
+    <div class="resources-cta">
+      <h3>Need help with your VA claim?</h3>
+      <p>We&rsquo;re here to walk you through the process. Reach out and let us know how we can help.</p>
+      <a href="request.html" class="btn btn-primary">Request Support</a>
+      <a href="contact.html" class="btn btn-outline" style="margin-left:12px;">Contact Us</a>
+    </div>
+
+  </div>
+
+  <footer class="site-footer"><div class="footer-grid">
+    <div><div class="footer-brand"><svg width="24" height="24" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"><g transform="translate(150,150)"><circle r="112" fill="none" stroke="#FFFFFF" stroke-width="3"/><circle r="100" fill="none" stroke="#C9A84C" stroke-width="1.25"/><path d="M -38,-72 A 17,17 0 1 1 -54,-91 L 56,88" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M 38,-72 A 17,17 0 1 0 54,-91 L -56,88" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="8" r="5.5" fill="#B22234"/></g></svg><span>Veteran Promise Project</span></div><p class="footer-about">Custom walking canes and VA benefits support for the veterans who&rsquo;ve earned it.</p></div>
+    <div class="footer-links"><div class="footer-heading">Navigate</div><a href="index.html">Home</a><a href="services.html">Services</a><a href="cane-gallery.html">Cane Gallery</a><a href="blog.html">Blog</a><a href="contact.html">Contact Us</a></div>
+    <div class="footer-links"><div class="footer-heading">Get Involved</div><a href="request.html">Request a Cane</a><a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank">Donate</a><a href="contact.html">Become a Sponsor</a><a href="contact.html">Volunteer</a></div>
+    <div class="footer-links"><div class="footer-heading">Connect</div><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
+  </div><div class="footer-bottom"><div class="footer-copy">&copy; 2026 Veteran Promise Project. All rights reserved.</div><div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div></footer>
+  <script>function toggleMenu(){const m=document.getElementById('mobile-menu'),a=document.getElementById('menu-icon'),b=document.getElementById('close-icon'),o=m.classList.toggle('open');a.style.display=o?'none':'block';b.style.display=o?'block':'none';}document.querySelectorAll('.mobile-menu a').forEach(l=>l.addEventListener('click',()=>{document.getElementById('mobile-menu').classList.remove('open');document.getElementById('menu-icon').style.display='block';document.getElementById('close-icon').style.display='none';}));</script>
+</body>
+</html>
