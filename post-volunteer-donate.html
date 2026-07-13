@@ -10,6 +10,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
+    .foot-social { display: flex; gap: 14px; margin-top: 4px; }
+    .foot-social a { width: 34px; height: 34px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,.08); transition: background .2s; }
+    .foot-social a:hover { background: var(--brass); }
+    .foot-social svg { width: 17px; height: 17px; fill: #fff; }
+  </style>
+  <link rel="canonical" href="https://veteranpromiseproject.com/post-volunteer-donate.html">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta property="og:title" content="Join the Veteran Promise Project: Volunteer and Donate | Veteran Promise Project">
+  <meta property="og:description" content="Ways to support free canes and VA help for veterans.">
+  <meta property="og:image" content="https://veteranpromiseproject.com/images/logo.png">
+  <meta property="og:url" content="https://veteranpromiseproject.com/post-volunteer-donate.html">
+  <meta property="og:type" content="article" >
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
     .post-hero { background: linear-gradient(135deg, #111827 0%, #1a2740 50%, #243447 100%); padding: 104px 24px 48px; }
     .post-hero h1 { font-family: 'Bitter', serif; font-size: 36px; font-weight: 700; color: #fff; max-width: 780px; margin: 0 auto 16px; text-align: center; line-height: 1.2; }
     .post-meta { text-align: center; color: rgba(255,255,255,0.5); font-size: 14px; }
@@ -40,7 +58,7 @@
 </head>
 <body>
   <nav class="navbar"><div class="navbar-inner">
-    <a href="index.html" class="navbar-brand"><svg width="56" height="56" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"><g transform="translate(150,150)"><circle r="112" fill="none" stroke="#FFFFFF" stroke-width="3"/><circle r="100" fill="none" stroke="#C9A84C" stroke-width="1.25"/><path d="M -38,-72 A 17,17 0 1 1 -54,-91 L 56,88" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M 38,-72 A 17,17 0 1 0 54,-91 L -56,88" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="8" r="5.5" fill="#B22234"/></g></svg><span style="display:flex;flex-direction:column;line-height:1.2;"><strong>Veteran Promise Project</strong><small style="font-size:10px;letter-spacing:2px;opacity:0.7;font-weight:400;">SERVING THOSE WHO SERVED</small></span></a>
+    <a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="Veteran Promise Project" width="52" height="52"><span style="display:flex;flex-direction:column;line-height:1.2;"><strong>Veteran Promise Project</strong><small style="font-size:10px;letter-spacing:2px;opacity:0.7;font-weight:400;">SERVING THOSE WHO SERVED</small></span></a>
     <div class="navbar-links"><a href="index.html">Home</a><a href="services.html">Services</a><a href="cane-gallery.html">Cane Gallery</a><a href="sponsors.html">Sponsors</a><a href="blog.html" class="nav-active">Blog</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a><a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank" class="btn btn-primary btn-sm">Donate</a></div>
     <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Menu"><svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg><svg id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
   </div>
@@ -135,11 +153,14 @@
   </article>
 
   <footer class="site-footer"><div class="footer-grid">
-    <div><div class="footer-brand"><svg width="24" height="24" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"><g transform="translate(150,150)"><circle r="112" fill="none" stroke="#FFFFFF" stroke-width="3"/><circle r="100" fill="none" stroke="#C9A84C" stroke-width="1.25"/><path d="M -38,-72 A 17,17 0 1 1 -54,-91 L 56,88" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M 38,-72 A 17,17 0 1 0 54,-91 L -56,88" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="8" r="5.5" fill="#B22234"/></g></svg><span>Veteran Promise Project</span></div><p class="footer-about">Custom walking canes and VA benefits support for the veterans who&rsquo;ve earned it.</p></div>
+    <div><div class="footer-brand"><img src="images/logo.png" alt="" width="26" height="26"><span>Veteran Promise Project</span></div><p class="footer-about">Custom walking canes and VA benefits support for the veterans who&rsquo;ve earned it.</p></div>
     <div class="footer-links"><div class="footer-heading">Navigate</div><a href="index.html">Home</a><a href="services.html">Services</a><a href="cane-gallery.html">Cane Gallery</a><a href="blog.html">Blog</a><a href="resources.html">Resources</a><a href="contact.html">Contact Us</a></div>
     <div class="footer-links"><div class="footer-heading">Get Involved</div><a href="request.html">Request a Cane</a><a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans" target="_blank">Donate</a><a href="contact.html">Become a Sponsor</a><a href="contact.html">Volunteer</a></div>
-    <div class="footer-links"><div class="footer-heading">Connect</div><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
-  </div><div class="footer-bottom"><div class="footer-copy">&copy; 2026 Veteran Promise Project. All rights reserved.</div><div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div></footer>
+    <div class="footer-links"><div class="footer-heading">Connect</div><div class="foot-social" id="social"></div></div>
+  </div><div class="footer-bottom"><div class="footer-copy">&copy; 2026 Veteran Promise Project. All rights reserved.</div><div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a></div></div></footer>
   <script>function toggleMenu(){const m=document.getElementById('mobile-menu'),a=document.getElementById('menu-icon'),b=document.getElementById('close-icon'),o=m.classList.toggle('open');a.style.display=o?'none':'block';b.style.display=o?'block':'none';}document.querySelectorAll('.mobile-menu a').forEach(l=>l.addEventListener('click',()=>{document.getElementById('mobile-menu').classList.remove('open');document.getElementById('menu-icon').style.display='block';document.getElementById('close-icon').style.display='none';}));</script>
+
+<script src="canes.js"></script>
+<script>renderSocial();</script>
 </body>
 </html>
