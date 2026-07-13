@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponsor a Cane — Review &amp; Decision | Veteran Promise Project</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ---------- REVIEW CHROME (this page only, never ships public) ---------- */
+    .review-bar {
+      background: #16181B; color: #fff; padding: 10px 24px;
+      font-size: 13px; text-align: center; letter-spacing: .02em;
+    }
+    .review-bar strong { color: var(--brass-light); }
+
+    .rv-hero { background: var(--navy); padding: 48px 24px 40px; text-align: center; }
+    .rv-hero h1 {
+      font-family: 'Bitter', serif; font-size: 34px; color: #fff; margin-bottom: 10px;
+    }
+    .rv-hero p { color: rgba(255,255,255,.6); max-width: 620px; margin: 0 auto; line-height: 1.6; }
+
+    .rv-section { padding: 56px 24px; }
+    .rv-section:nth-of-type(even) { background: var(--warm-bg); }
+    .rv-inner { max-width: 900px; margin: 0 auto; }
+    .rv-num {
+      font-family: 'Bitter', serif; font-size: 12px; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase; color: var(--brass);
+      margin-bottom: 10px;
+    }
+    .rv-inner > h2 { font-size: 28px; margin-bottom: 12px; }
+    .rv-lede { color: var(--muted); font-size: 17px; line-height: 1.7; margin-bottom: 32px; }
+
+    /* ---------- NAV MOCKUP ---------- */
+    .navmock {
+      background: var(--navy); border-bottom: 2px solid var(--brass);
+      border-radius: 8px; padding: 14px 20px; overflow-x: auto;
+      display: flex; align-items: center; gap: 20px;
+    }
+    .navmock .nm-brand {
+      display: flex; align-items: center; gap: 10px; color: #fff;
+      font-family: 'Bitter', serif; font-weight: 700; font-size: 14px; white-space: nowrap;
+    }
+    .navmock .nm-links {
+      display: flex; align-items: center; gap: 18px; margin-left: auto;
+      font-size: 13px; color: rgba(255,255,255,.65); white-space: nowrap;
+    }
+    .navmock .btn { pointer-events: none; }
+    .nm-caption { font-size: 13px; color: var(--muted); margin-top: 10px; line-height: 1.6; }
+    .nm-caption code { background: #fff; border: 1px solid var(--border); padding: 1px 5px; border-radius: 3px; font-size: 12px; }
+
+    /* ---------- FLOW DEMO ---------- */
+    .flow {
+      background: #fff; border: 1px solid var(--border); border-radius: 10px;
+      overflow: hidden;
+    }
+    .flow-steps {
+      display: flex; border-bottom: 1px solid var(--border); background: #FCFBF9;
+    }
+    .flow-step {
+      flex: 1; padding: 14px 18px; font-size: 13px; font-weight: 600; color: var(--muted);
+      display: flex; align-items: center; gap: 8px; border-right: 1px solid var(--border);
+    }
+    .flow-step:last-child { border-right: none; }
+    .flow-step.active { color: var(--dark-text); background: #fff; }
+    .flow-step .dot {
+      width: 20px; height: 20px; border-radius: 50%; background: var(--border);
+      color: #fff; font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .flow-step.active .dot { background: var(--brass); }
+    .flow-body { padding: 32px; }
+
+    .demo-wrap { display: grid; grid-template-columns: 150px 1fr; gap: 40px; align-items: start; }
+    .cane-rail { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .cane-rail svg { width: 84px; height: 300px; }
+    .cane-empty { stroke: #E2DDD2; fill: none; }
+    .cane-fill {
+      fill: var(--brass); transform: scaleY(0);
+      transform-box: fill-box; transform-origin: bottom;
+      transition: transform .55s cubic-bezier(.22,1,.36,1);
+    }
+    .cane-readout { text-align: center; }
+    .cane-readout .amt { font-family: 'Bitter', serif; font-size: 26px; font-weight: 700; line-height: 1; }
+    .cane-readout .cap {
+      font-size: 10px; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--muted); margin-top: 7px;
+    }
+
+    .freq { display: inline-flex; background: var(--warm-bg); border: 1px solid var(--border);
+      border-radius: 999px; padding: 4px; margin-bottom: 20px; }
+    .freq button {
+      border: none; background: transparent; cursor: pointer; font-family: inherit;
+      font-size: 13px; font-weight: 600; color: var(--muted);
+      padding: 7px 18px; border-radius: 999px; transition: .2s;
+    }
+    .freq button[aria-pressed="true"] { background: var(--navy); color: #fff; }
+    .freq button:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+
+    .tiers { display: flex; flex-direction: column; gap: 10px; }
+    .tier {
+      display: grid; grid-template-columns: 76px 1fr; align-items: center; gap: 16px;
+      background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--border);
+      border-radius: 6px; padding: 16px 18px; cursor: pointer; width: 100%;
+      text-align: left; font-family: inherit; transition: .18s;
+    }
+    .tier:hover { border-color: #D6D2C8; }
+    .tier[aria-checked="true"] {
+      border-color: var(--brass); border-left-color: var(--brass);
+      box-shadow: 0 3px 14px rgba(184,134,11,.13);
+    }
+    .tier:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+    .tier-amt { font-family: 'Bitter', serif; font-size: 22px; font-weight: 700; }
+    .tier-name { font-weight: 700; font-size: 15px; margin-bottom: 2px; }
+    .tier-desc { color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .tier-flag {
+      display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--brass); margin-bottom: 4px;
+    }
+    .custom-input { display: flex; align-items: center; }
+    .custom-input span { font-family: 'Bitter', serif; font-size: 19px; font-weight: 700; color: var(--muted); }
+    .custom-input input {
+      width: 56px; border: none; border-bottom: 2px solid var(--border); background: transparent;
+      font-family: 'Bitter', serif; font-size: 22px; font-weight: 700; padding: 0 2px 2px;
+      color: var(--dark-text);
+    }
+    .custom-input input:focus { outline: none; border-bottom-color: var(--brass); }
+    .custom-input input::-webkit-outer-spin-button,
+    .custom-input input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .custom-input input { -moz-appearance: textfield; }
+
+    #continueBtn { width: 100%; justify-content: center; margin-top: 22px; }
+
+    /* ---------- MOCK CHECKOUT ---------- */
+    .co-toggle { display: flex; gap: 8px; margin-bottom: 24px; }
+    .co-toggle button {
+      flex: 1; padding: 12px; border-radius: 6px; cursor: pointer; font-family: inherit;
+      font-size: 14px; font-weight: 600; border: 2px solid var(--border);
+      background: #fff; color: var(--muted); transition: .18s;
+    }
+    .co-toggle button[aria-pressed="true"] {
+      border-color: var(--brass); color: var(--dark-text); background: rgba(184,134,11,.06);
+    }
+    .co-toggle button:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+
+    .browser {
+      border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #fff;
+    }
+    .browser-bar {
+      background: #F1EFEA; padding: 10px 14px; display: flex; align-items: center; gap: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .browser-dots { display: flex; gap: 5px; }
+    .browser-dots i { width: 9px; height: 9px; border-radius: 50%; background: #D3CFC7; display: block; }
+    .browser-url {
+      flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 4px;
+      padding: 5px 10px; font-size: 11px; color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .checkout-page { padding: 32px 28px; max-width: 420px; margin: 0 auto; }
+    .co-logo {
+      font-family: 'Bitter', serif; font-weight: 700; font-size: 15px;
+      text-align: center; margin-bottom: 4px;
+    }
+    .co-host { text-align: center; font-size: 11px; color: var(--muted); margin-bottom: 24px; }
+    .co-summary {
+      background: var(--warm-bg); border-radius: 6px; padding: 16px 18px; margin-bottom: 24px;
+      display: flex; justify-content: space-between; align-items: baseline;
+    }
+    .co-summary .lbl { font-size: 14px; font-weight: 600; }
+    .co-summary .sub { font-size: 12px; color: var(--muted); margin-top: 3px; }
+    .co-summary .val { font-family: 'Bitter', serif; font-size: 24px; font-weight: 700; }
+    .co-field { margin-bottom: 14px; }
+    .co-field label {
+      display: block; font-size: 12px; font-weight: 600; color: var(--muted);
+      margin-bottom: 5px; letter-spacing: .02em;
+    }
+    .co-field .fake {
+      border: 1px solid var(--border); border-radius: 5px; padding: 11px 12px;
+      font-size: 14px; color: #A9A49B; background: #FCFBF9;
+    }
+    .co-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .co-wallets { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px; }
+    .co-wallet {
+      border: 1px solid var(--border); border-radius: 5px; padding: 10px;
+      text-align: center; font-size: 13px; font-weight: 600; background: #fff; color: var(--dark-text);
+    }
+    .co-divider {
+      display: flex; align-items: center; gap: 12px; margin: 18px 0;
+      color: var(--muted); font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    }
+    .co-divider::before, .co-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .co-pay {
+      width: 100%; padding: 14px; border: none; border-radius: 6px; color: #fff;
+      font-family: inherit; font-size: 15px; font-weight: 700; margin-top: 8px;
+      cursor: default;
+    }
+    .co-foot { text-align: center; font-size: 11px; color: var(--muted); margin-top: 14px; line-height: 1.6; }
+
+    .noaccount {
+      margin-top: 20px; background: #EAF4EC; border: 1px solid #BFD9C6;
+      border-radius: 6px; padding: 14px 16px; font-size: 14px; color: #24603A; line-height: 1.6;
+    }
+    .noaccount strong { color: #17452a; }
+
+    /* ---------- COMPARISON ---------- */
+    table.cmp { width: 100%; border-collapse: collapse; background: #fff; font-size: 14px; }
+    table.cmp th, table.cmp td {
+      border: 1px solid var(--border); padding: 12px 14px; text-align: left; vertical-align: top;
+    }
+    table.cmp thead th {
+      background: var(--navy); color: #fff; font-family: 'Bitter', serif; font-size: 14px;
+    }
+    table.cmp tbody th {
+      background: var(--warm-bg); font-weight: 700; width: 190px; font-size: 13px;
+    }
+    table.cmp .good { color: #1E7A45; font-weight: 700; }
+    table.cmp .bad  { color: #A8341F; font-weight: 700; }
+    .cmp-wrap { overflow-x: auto; margin-bottom: 20px; }
+    .cmp-note { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+    .net-table { width: 100%; border-collapse: collapse; background: #fff; font-size: 14px; margin-top: 8px; }
+    .net-table th, .net-table td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; }
+    .net-table thead th { background: var(--warm-bg); font-size: 13px; }
+    .net-table td:first-child { font-weight: 600; }
+    .net-best { background: rgba(30,122,69,.07); font-weight: 700; }
+
+    /* ---------- QUESTIONS ---------- */
+    .q { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--brass);
+      border-radius: 6px; padding: 20px 22px; margin-bottom: 14px; }
+    .q h3 { font-size: 17px; margin-bottom: 8px; }
+    .q p { color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .q .why {
+      margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border);
+      font-size: 13px; color: var(--dark-text);
+    }
+    .q .why b { color: var(--brass); }
+    .q.blocker { border-left-color: #A8341F; }
+    .q.blocker .why b { color: #A8341F; }
+
+    .callout {
+      background: #FEF6E7; border: 1px solid #F0D9A8; border-radius: 6px;
+      padding: 16px 18px; font-size: 14px; line-height: 1.7; color: #6B4E0C; margin-top: 24px;
+    }
+    .callout strong { color: #4A360A; }
+
+    @media (prefers-reduced-motion: reduce) { .cane-fill, .tier { transition: none; } }
+    @media (max-width: 760px) {
+      .demo-wrap { grid-template-columns: 1fr; gap: 24px; }
+      .cane-rail { flex-direction: row; justify-content: center; gap: 24px; }
+      .cane-rail svg { width: 56px; height: 190px; }
+      .flow-body { padding: 22px 18px; }
+      .flow-step { font-size: 11px; padding: 12px 10px; gap: 6px; }
+      .co-toggle { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="review-bar">
+  <strong>INTERNAL REVIEW PAGE</strong> &nbsp;·&nbsp; Not linked from the site. Not indexed. For Ryan &amp; Aaron only.
+</div>
+
+<header class="rv-hero">
+  <h1>Sponsor a Cane</h1>
+  <p>The design is built. Before it goes live, four things need your call. This page walks the whole flow, shows what the donor actually sees, and lays out the choice between Square and Stripe with real numbers.</p>
+</header>
+
+<!-- ============ 1. THE BUTTON ============ -->
+<section class="rv-section">
+  <div class="rv-inner">
+    <div class="rv-num">01 — The button</div>
+    <h2>What it looks like in the nav</h2>
+    <p class="rv-lede">Here&rsquo;s the new Sponsor a Cane button sitting next to the existing Donate button. <strong>This is a mockup only</strong> &mdash; nothing on the live site has changed, and neither button here is clickable.</p>
+
+    <div class="navmock">
+      <div class="nm-brand">
+        <span>Veteran Promise Project</span>
+      </div>
+      <div class="nm-links">
+        <span>Home</span><span>Services</span><span>Cane Gallery</span><span>Sponsors</span><span>Blog</span><span>Resources</span><span>Contact</span>
+        <a class="btn btn-outline btn-sm" style="color:var(--brass-light);border-color:var(--brass-light);">Donate</a>
+        <a class="btn btn-primary btn-sm">Sponsor a Cane</a>
+      </div>
+    </div>
+    <p class="nm-caption">
+      Both shown together so you can see them side by side. <strong>My recommendation: pick one.</strong> Two competing asks in a nav usually means neither gets clicked &mdash; and the GoFundMe is titled <code>help-shanon-ryan-craft-quality-canes-for-veterans</code>, which reads as a personal fundraiser rather than the organization. If Sponsor a Cane replaces it, the whole site reads as VPP the nonprofit, not Ryan the individual. That&rsquo;s your call, and it&rsquo;s question #4 below.
+    </p>
+  </div>
+</section>
+
+<!-- ============ 2. THE FLOW ============ -->
+<section class="rv-section">
+  <div class="rv-inner">
+    <div class="rv-num">02 — The flow</div>
+    <h2>Walk it yourself</h2>
+    <p class="rv-lede">Pick an amount. Watch the cane fill. Then hit continue and you&rsquo;ll see exactly what the donor lands on &mdash; and you can flip between the Square and Stripe versions of that screen.</p>
+
+    <div class="flow">
+      <div class="flow-steps">
+        <div class="flow-step active" id="s1"><span class="dot">1</span> Choose an amount</div>
+        <div class="flow-step" id="s2"><span class="dot">2</span> Checkout</div>
+        <div class="flow-step" id="s3"><span class="dot">3</span> Done</div>
+      </div>
+
+      <!-- STEP 1 -->
+      <div class="flow-body" id="step1">
+        <div class="demo-wrap">
+          <aside class="cane-rail" aria-hidden="true">
+            <svg viewBox="0 0 70 260">
+              <defs>
+                <mask id="caneMask" maskUnits="userSpaceOnUse" x="0" y="0" width="70" height="260">
+                  <path d="M26 250 L26 80 A13 13 0 1 1 52 80 L52 102"
+                        fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+                </mask>
+              </defs>
+              <path class="cane-empty" d="M26 250 L26 80 A13 13 0 1 1 52 80 L52 102"
+                    stroke-width="12" stroke-linecap="round"/>
+              <g mask="url(#caneMask)">
+                <rect id="caneFill" class="cane-fill" x="0" y="0" width="70" height="260"/>
+              </g>
+            </svg>
+            <div class="cane-readout">
+              <div class="amt" id="railAmount">$0</div>
+              <div class="cap" id="railCaption">Choose an amount</div>
+            </div>
+          </aside>
+
+          <div>
+            <div class="freq" role="group" aria-label="Giving frequency">
+              <button type="button" id="freqOnce" aria-pressed="true">One time</button>
+              <button type="button" id="freqMonthly" aria-pressed="false">Monthly</button>
+            </div>
+            <div class="tiers" role="radiogroup" aria-label="Sponsorship amount" id="tiers"></div>
+            <button type="button" class="btn btn-primary" id="continueBtn" disabled>Choose an amount</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="flow-body" id="step2" style="display:none;">
+        <div class="co-toggle" role="group" aria-label="Processor preview">
+          <button type="button" id="pSquare" aria-pressed="true">Show me the Square version</button>
+          <button type="button" id="pStripe" aria-pressed="false">Show me the Stripe version</button>
+        </div>
+
+        <div class="browser">
+          <div class="browser-bar">
+            <div class="browser-dots"><i></i><i></i><i></i></div>
+            <div class="browser-url" id="coUrl">square.link/u/vpp-sponsor-a-cane</div>
+          </div>
+          <div class="checkout-page">
+            <div class="co-logo">Veteran Promise Project</div>
+            <div class="co-host" id="coHost">Secure checkout hosted by Square</div>
+
+            <div class="co-summary">
+              <div>
+                <div class="lbl" id="coTierName">A full cane</div>
+                <div class="sub" id="coFreq">One-time sponsorship</div>
+              </div>
+              <div class="val" id="coAmount">$150</div>
+            </div>
+
+            <div class="co-wallets">
+              <div class="co-wallet">Apple&nbsp;Pay</div>
+              <div class="co-wallet">Google&nbsp;Pay</div>
+            </div>
+            <div class="co-divider">or pay with card</div>
+
+            <div class="co-field">
+              <label>Email</label>
+              <div class="fake">you@example.com</div>
+            </div>
+            <div class="co-field">
+              <label>Card number</label>
+              <div class="fake">1234 5678 9012 3456</div>
+            </div>
+            <div class="co-row">
+              <div class="co-field">
+                <label>Expiry</label>
+                <div class="fake">MM / YY</div>
+              </div>
+              <div class="co-field">
+                <label>CVV</label>
+                <div class="fake">123</div>
+              </div>
+            </div>
+            <div class="co-field">
+              <label>Name on card</label>
+              <div class="fake">Jane Sponsor</div>
+            </div>
+
+            <button class="co-pay" id="coPay" style="background:#006AFF;">Pay $150</button>
+            <div class="co-foot" id="coFoot">Payments processed securely by Square.<br>Veteran Promise Project never sees your card number.</div>
+          </div>
+        </div>
+
+        <div class="noaccount">
+          <strong>Answering your question directly:</strong> the sponsor does <strong>not</strong> need a Square account, a Stripe account, or any account at all. They type in a card and they&rsquo;re done &mdash; same as buying anything online. Both processors work exactly this way. (PayPal is the only one that pushes donors toward making an account, which is part of why I didn&rsquo;t recommend it.)
+        </div>
+
+        <p style="margin-top:20px;">
+          <button type="button" class="btn btn-outline btn-sm" id="backBtn">&larr; Back to amounts</button>
+        </p>
+      </div>
+    </div>
+
+    <p class="nm-caption" style="margin-top:16px;">
+      <strong>This checkout screen is a representative mockup</strong>, not a screenshot. The real Square and Stripe pages will differ in styling and exact wording &mdash; but the shape of it (amount, wallet buttons, card fields, pay) is accurate, and neither asks the donor to create an account.
+    </p>
+  </div>
+</section>
+
+<!-- ============ 3. THE CHOICE ============ -->
+<section class="rv-section">
+  <div class="rv-inner">
+    <div class="rv-num">03 — The choice</div>
+    <h2>Square vs Stripe, with real numbers</h2>
+    <p class="rv-lede">You already have Square, which counts for a lot. But it&rsquo;s the more expensive option, and there&rsquo;s a receipting gap worth knowing about before you commit.</p>
+
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th style="width:190px;"></th>
+            <th>Square <span style="font-weight:400;opacity:.7;">(you have this)</span></th>
+            <th>Stripe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Nonprofit discount</th>
+            <td class="bad">None. Square does not offer discounted rates to 501(c)(3)s on any standard plan.</td>
+            <td class="good">Yes — 2.2% + 30¢, down from 2.9% + 30¢.</td>
+          </tr>
+          <tr>
+            <th>Online rate</th>
+            <td>3.3% + 30¢ on the Free plan<br>2.9% + 30¢ on Plus / Premium</td>
+            <td>2.9% + 30¢ standard<br><strong>2.2% + 30¢ once approved</strong></td>
+          </tr>
+          <tr>
+            <th>What the discount requires</th>
+            <td>—</td>
+            <td>EIN or IRS 501(c)(3) determination letter, plus 80%+ of your volume being tax-deductible donations. <strong>Not retroactive</strong> — apply before you launch.</td>
+          </tr>
+          <tr>
+            <th>Amex</th>
+            <td>Same rate</td>
+            <td class="bad">Excluded from the discount — up to 3.5%</td>
+          </tr>
+          <tr>
+            <th>Donor needs an account?</th>
+            <td class="good">No</td>
+            <td class="good">No</td>
+          </tr>
+          <tr>
+            <th>Recurring / monthly</th>
+            <td class="good">Yes — donation links support one-time or recurring</td>
+            <td class="good">Yes — recurring Payment Links</td>
+          </tr>
+          <tr>
+            <th>Custom amount</th>
+            <td class="good">Yes — donor-entered amount supported</td>
+            <td class="good">Yes — "customer chooses price" link</td>
+          </tr>
+          <tr>
+            <th>Per-donation cap</th>
+            <td class="bad">$5,000 on donation links</td>
+            <td>No practical cap</td>
+          </tr>
+          <tr>
+            <th>Tax receipts</th>
+            <td class="bad">Not IRS-compliant. Square's receipt confirms the transaction but omits the EIN and the goods-and-services statement the IRS requires. You'd export a CSV and send year-end letters by hand.</td>
+            <td>Also not automatic — but the same manual work either way. Neither is a fundraising platform.</td>
+          </tr>
+          <tr>
+            <th>In-person donations</th>
+            <td class="good">Yes — 2.6% + 10¢ with a reader. Good at events.</td>
+            <td>Possible, but not Stripe's strength for a one-person shop.</td>
+          </tr>
+          <tr>
+            <th>Setup effort</th>
+            <td class="good">Already open. Create links, done.</td>
+            <td>New account under VPP's legal name + Navy Federal, then apply for the rate.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size:18px;margin:28px 0 6px;">What VPP actually keeps, per sponsorship</h3>
+    <table class="net-table">
+      <thead>
+        <tr>
+          <th>Sponsorship</th>
+          <th>Square (Free)</th>
+          <th>Square (Plus)</th>
+          <th>Stripe (standard)</th>
+          <th>Stripe (nonprofit)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>$35</td><td>$33.55</td><td>$33.69</td><td>$33.69</td><td class="net-best">$33.93</td></tr>
+        <tr><td>$75</td><td>$72.23</td><td>$72.53</td><td>$72.53</td><td class="net-best">$73.05</td></tr>
+        <tr><td>$150</td><td>$144.75</td><td>$145.35</td><td>$145.35</td><td class="net-best">$146.40</td></tr>
+      </tbody>
+    </table>
+    <p class="cmp-note" style="margin-top:12px;">
+      On a $150 cane, the gap between Square Free and Stripe&rsquo;s nonprofit rate is <strong>$1.65</strong>. Across 100 sponsored canes that&rsquo;s $165 &mdash; roughly one more cane&rsquo;s worth of wood and hardware. Real, but not enormous.
+    </p>
+
+    <div class="callout">
+      <strong>My honest read:</strong> if you don&rsquo;t have the IRS determination letter yet, <strong>stay on Square</strong>. No discount is available to you anywhere without it, the rates converge, and opening a second processor buys you nothing right now. Ship it, revisit when the letter lands.<br><br>
+      If you <em>do</em> have determination, Stripe is worth the 30 minutes &mdash; better rate, and an account in VPP&rsquo;s name reads as an organization rather than a person.<br><br>
+      Either way, the page I built doesn&rsquo;t change. Swapping processors is a one-line edit on my end.
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. WHAT I NEED FROM YOU ============ -->
+<section class="rv-section">
+  <div class="rv-inner">
+    <div class="rv-num">04 — Open questions</div>
+    <h2>Four things only you can answer</h2>
+    <p class="rv-lede">Nothing ships until these are settled. The first two are blockers.</p>
+
+    <div class="q blocker">
+      <h3>1. Do you have the IRS 501(c)(3) determination letter — or just the EIN?</h3>
+      <p>These get confused constantly, and they&rsquo;re not the same thing. Navy Federal will open a nonprofit business account on an EIN plus state incorporation papers. The IRS determination letter is a separate document, and it&rsquo;s the one that matters here.</p>
+      <div class="why"><b>Why it blocks:</b> it decides whether Stripe&rsquo;s 2.2% rate is even available to you, and whether the website is legally allowed to describe sponsorships as tax-deductible. Right now the page makes no tax claim at all — deliberately. It stays that way until you confirm.</div>
+    </div>
+
+    <div class="q blocker">
+      <h3>2. What does a cane actually cost you?</h3>
+      <p>Materials, hardware, finish, shipping — the real number for one finished cane out the door. The tiers on this page ($35 / $75 / $150) are <strong>placeholders I made up</strong>.</p>
+      <div class="why"><b>Why it blocks:</b> the whole design is calibrated to &ldquo;$150 = one full cane.&rdquo; The cane graphic fills to the handle at $150. If the true cost is $90, the page is telling sponsors something untrue. I&rsquo;m not shipping a number I invented.</div>
+    </div>
+
+    <div class="q">
+      <h3>3. Which Square plan are you on — Free, Plus, or Premium?</h3>
+      <p>Free is 3.3% + 30¢ online. Plus and Premium drop it to 2.9% + 30¢, but carry a monthly fee I haven&rsquo;t verified.</p>
+      <div class="why"><b>Why it matters:</b> 0.4% swing, and it changes whether Square is actually close to Stripe or noticeably behind.</div>
+    </div>
+
+    <div class="q">
+      <h3>4. Does Sponsor a Cane replace the GoFundMe, or run alongside it?</h3>
+      <p>You said you wanted this to feel like the nonprofit rather than something tied to you personally. The GoFundMe link is literally titled <em>help-shanon-ryan-craft-quality-canes-for-veterans</em>.</p>
+      <div class="why"><b>My recommendation:</b> replace it. One clear ask, funds landing in VPP&rsquo;s Navy Federal account, nothing routed through a personal fundraiser. But it&rsquo;s your organization and your donor base — if the GoFundMe has momentum you don&rsquo;t want to lose, we can run both for a transition period.</div>
+    </div>
+
+    <div class="callout">
+      <strong>Sequencing.</strong> Don&rsquo;t let me pull the GoFundMe until the new checkout links exist — otherwise the site has no working way to give, for however long the gap lasts. Order is: confirm 501(c)(3) status &rarr; create the checkout links &rarr; I drop them in and remove the GoFundMe in a single change. One commit, no downtime.
+    </div>
+  </div>
+</section>
+
+<footer style="background:var(--navy);padding:32px 24px;text-align:center;">
+  <p style="color:rgba(255,255,255,.5);font-size:13px;line-height:1.7;max-width:600px;margin:0 auto;">
+    Internal review page &mdash; <strong style="color:var(--brass-light);">sponsor-review.html</strong><br>
+    Not linked in the nav, not in the sitemap, tagged <code style="color:rgba(255,255,255,.7);">noindex</code>. Reachable by direct link only.
+  </p>
+</footer>
+
+<script>
+/* Placeholder tiers — same values as sponsor.html. Ryan replaces these. */
+const TIERS = [
+  { amount: 35,  name: 'The blank',            desc: 'A hardwood blank and the finish that goes on it.' },
+  { amount: 75,  name: 'Handle and hardware',  desc: 'Brass collar, tip, and the fittings that take a veteran\u2019s weight.' },
+  { amount: 150, name: 'A full cane',          desc: 'One complete cane, start to finish, for one veteran.', flag: 'Sponsors a whole cane' }
+];
+const FULL_CANE = 150;
+const MIN_CUSTOM = 5;
+
+let selected = null, frequency = 'once', processor = 'square';
+
+/* ---- render tiers ---- */
+const tiersEl = document.getElementById('tiers');
+tiersEl.innerHTML = TIERS.map((t, i) => `
+  <button type="button" class="tier" role="radio" aria-checked="false"
+          data-amount="${t.amount}" data-index="${i}" tabindex="${i === 0 ? '0' : '-1'}">
+    <div class="tier-amt">$${t.amount}</div>
+    <div>
+      ${t.flag ? `<div class="tier-flag">${t.flag}</div>` : ''}
+      <div class="tier-name">${t.name}</div>
+      <div class="tier-desc">${t.desc}</div>
+    </div>
+  </button>`).join('') + `
+  <div class="tier" role="radio" aria-checked="false" tabindex="-1" data-custom="true" data-index="${TIERS.length}">
+    <div class="custom-input">
+      <span>$</span>
+      <input type="number" id="customAmount" min="${MIN_CUSTOM}" step="1" placeholder="0"
+             aria-label="Custom amount" inputmode="numeric">
+    </div>
+    <div>
+      <div class="tier-name">Another amount</div>
+      <div class="tier-desc">Whatever they can put toward the next one.</div>
+    </div>
+  </div>`;
+
+const tierEls = Array.from(tiersEl.querySelectorAll('[role="radio"]'));
+const customInput = document.getElementById('customAmount');
+
+function currentTierName() {
+  if (selected === null) return '';
+  const t = TIERS.find(t => t.amount === selected);
+  return t ? t.name : 'Sponsorship';
+}
+
+function select(el) {
+  tierEls.forEach(t => { t.setAttribute('aria-checked','false'); t.setAttribute('tabindex','-1'); });
+  el.setAttribute('aria-checked','true');
+  el.setAttribute('tabindex','0');
+  if (el.dataset.custom) {
+    const v = parseInt(customInput.value, 10);
+    selected = (!isNaN(v) && v >= MIN_CUSTOM) ? v : null;
+    customInput.focus();
+  } else {
+    selected = parseInt(el.dataset.amount, 10);
+  }
+  paint();
+}
+
+tierEls.forEach(el => {
+  el.addEventListener('click', () => select(el));
+  el.addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target !== customInput) { e.preventDefault(); select(el); }
+    if (['ArrowDown','ArrowRight','ArrowUp','ArrowLeft'].includes(e.key)) {
+      e.preventDefault();
+      const i = parseInt(el.dataset.index, 10);
+      const n = ['ArrowDown','ArrowRight'].includes(e.key)
+        ? (i + 1) % tierEls.length : (i - 1 + tierEls.length) % tierEls.length;
+      tierEls[n].focus(); select(tierEls[n]);
+    }
+  });
+});
+customInput.addEventListener('input', () => {
+  const wrap = customInput.closest('[role="radio"]');
+  if (wrap.getAttribute('aria-checked') !== 'true') select(wrap);
+  const v = parseInt(customInput.value, 10);
+  selected = (!isNaN(v) && v >= MIN_CUSTOM) ? v : null;
+  paint();
+});
+customInput.addEventListener('focus', () => {
+  const wrap = customInput.closest('[role="radio"]');
+  if (wrap.getAttribute('aria-checked') !== 'true') select(wrap);
+});
+
+/* ---- frequency ---- */
+const freqOnce = document.getElementById('freqOnce');
+const freqMonthly = document.getElementById('freqMonthly');
+freqOnce.addEventListener('click', () => { frequency = 'once'; setFreqUI(); });
+freqMonthly.addEventListener('click', () => { frequency = 'monthly'; setFreqUI(); });
+function setFreqUI() {
+  freqOnce.setAttribute('aria-pressed', String(frequency === 'once'));
+  freqMonthly.setAttribute('aria-pressed', String(frequency === 'monthly'));
+  paint();
+}
+
+/* ---- cane fill ---- */
+const caneFill = document.getElementById('caneFill');
+const railAmount = document.getElementById('railAmount');
+const railCaption = document.getElementById('railCaption');
+const continueBtn = document.getElementById('continueBtn');
+
+function paint() {
+  const amt = selected || 0;
+  const pct = Math.min(amt / FULL_CANE, 1);
+  caneFill.style.transform = `scaleY(${pct})`;
+  railAmount.textContent = '$' + amt.toLocaleString();
+
+  if (amt === 0) railCaption.textContent = 'Choose an amount';
+  else if (pct >= 1) {
+    const canes = Math.floor(amt / FULL_CANE);
+    railCaption.textContent = canes > 1
+      ? `${canes} canes${frequency === 'monthly' ? ' a month' : ''}`
+      : `A full cane${frequency === 'monthly' ? ' a month' : ''}`;
+  } else railCaption.textContent = `${Math.round(pct * 100)}% of a cane`;
+
+  continueBtn.disabled = !selected;
+  continueBtn.textContent = !selected
+    ? 'Choose an amount'
+    : (frequency === 'monthly' ? `Continue — $${selected} a month` : `Continue — $${selected}`);
+}
+
+/* ---- step navigation ---- */
+const step1 = document.getElementById('step1');
+const step2 = document.getElementById('step2');
+const s1 = document.getElementById('s1');
+const s2 = document.getElementById('s2');
+
+continueBtn.addEventListener('click', () => {
+  step1.style.display = 'none';
+  step2.style.display = 'block';
+  s1.classList.remove('active');
+  s2.classList.add('active');
+  paintCheckout();
+  step2.scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+document.getElementById('backBtn').addEventListener('click', () => {
+  step2.style.display = 'none';
+  step1.style.display = 'block';
+  s2.classList.remove('active');
+  s1.classList.add('active');
+});
+
+/* ---- processor toggle + mock checkout ---- */
+const pSquare = document.getElementById('pSquare');
+const pStripe = document.getElementById('pStripe');
+pSquare.addEventListener('click', () => { processor = 'square'; paintCheckout(); });
+pStripe.addEventListener('click', () => { processor = 'stripe'; paintCheckout(); });
+
+function paintCheckout() {
+  pSquare.setAttribute('aria-pressed', String(processor === 'square'));
+  pStripe.setAttribute('aria-pressed', String(processor === 'stripe'));
+
+  const isSquare = processor === 'square';
+  document.getElementById('coUrl').textContent = isSquare
+    ? 'square.link/u/vpp-sponsor-a-cane'
+    : 'buy.stripe.com/vpp-sponsor-a-cane';
+  document.getElementById('coHost').textContent = isSquare
+    ? 'Secure checkout hosted by Square'
+    : 'Secure checkout hosted by Stripe';
+  document.getElementById('coFoot').innerHTML = isSquare
+    ? 'Payments processed securely by Square.<br>Veteran Promise Project never sees your card number.'
+    : 'Payments processed securely by Stripe.<br>Veteran Promise Project never sees your card number.';
+
+  const pay = document.getElementById('coPay');
+  pay.style.background = isSquare ? '#006AFF' : '#635BFF';
+
+  const amt = selected || 0;
+  document.getElementById('coAmount').textContent = '$' + amt.toLocaleString();
+  document.getElementById('coTierName').textContent = currentTierName();
+  document.getElementById('coFreq').textContent = frequency === 'monthly'
+    ? 'Monthly sponsorship' : 'One-time sponsorship';
+  pay.textContent = frequency === 'monthly'
+    ? `Subscribe — $${amt}/month` : `Pay $${amt}`;
+}
+
+paint();
+</script>
+</body>
+</html>
