@@ -9,12 +9,33 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .foot-social { display: flex; gap: 14px; margin-top: 4px; }
+    .foot-social a {
+      width: 34px; height: 34px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,.08); transition: background .2s;
+    }
+    .foot-social a:hover { background: var(--brass); }
+    .foot-social svg { width: 17px; height: 17px; fill: #fff; }
+  </style>
+
+  <link rel="canonical" href="https://veteranpromiseproject.com/">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta property="og:title" content="Veteran Promise Project">
+  <meta property="og:description" content="Handcrafted walking canes for the veterans who earned them. Free, always. Plus help navigating the VA.">
+  <meta property="og:image" content="https://veteranpromiseproject.com/images/canes/cane-06.jpg">
+  <meta property="og:url" content="https://veteranpromiseproject.com/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
   <nav class="navbar">
     <div class="navbar-inner">
       <a href="index.html" class="navbar-brand">
-        <svg width="56" height="56" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"><g transform="translate(150,150)"><circle r="112" fill="none" stroke="#FFFFFF" stroke-width="3"/><circle r="100" fill="none" stroke="#C9A84C" stroke-width="1.25"/><path d="M -38,-72 A 17,17 0 1 1 -54,-91 L 56,88" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M 38,-72 A 17,17 0 1 0 54,-91 L -56,88" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="8" r="5.5" fill="#B22234"/></g></svg>
+        <img src="images/logo.png" alt="Veteran Promise Project" width="52" height="52">
         <span style="display:flex;flex-direction:column;line-height:1.2;"><strong>Veteran Promise Project</strong><small style="font-size:10px;letter-spacing:2px;opacity:0.7;font-weight:400;">SERVING THOSE WHO SERVED</small></span>
       </a>
       <div class="navbar-links">
@@ -97,41 +118,10 @@
     <div class="container">
       <div class="text-center" style="margin-bottom:56px;">
         <div class="section-label">The Workshop</div>
-        <h2 class="section-title">Recently completed canes</h2>
-        <p class="section-desc">Every piece is one of a kind. Built by hand, finished with care.</p>
+        <h2 class="section-title">From the workshop</h2>
+        <p class="section-desc">Each one is built for the veteran who&rsquo;ll carry it.</p>
       </div>
-      <div class="gallery-grid">
-        <div class="cane-card">
-        <div class="cane-visual">
-          <img src="images/cane-16.png" alt="Cane #16" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-          <div class="cane-badge">#16</div>
-        </div>
-        <div class="cane-info">
-          <h4>Mahogany</h4>
-          <p>Danish oil finish &middot; Decorative brass fittings</p>
-        </div>
-      </div>
-        <div class="cane-card">
-        <div class="cane-visual">
-          <img src="images/cane-15.png" alt="Cane #15" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;" loading="lazy">
-          <div class="cane-badge">#15</div>
-        </div>
-        <div class="cane-info">
-          <h4>Custom Hardwood</h4>
-          <p>Hand-finished &middot; Ergonomic grip</p>
-        </div>
-      </div>
-        <div class="cane-card">
-        <div class="cane-visual">
-          <img src="images/canes-brass-handles.jpg" alt="Cane #14" style="width:100%;height:100%;object-fit:cover;object-position:top;" loading="lazy">
-          <div class="cane-badge">#14</div>
-        </div>
-        <div class="cane-info">
-          <h4>Select Hardwood</h4>
-          <p>Natural finish &middot; Classic profile</p>
-        </div>
-      </div>
-      </div>
+      <div class="gallery-grid" id="homeCanes"></div>
       <div class="text-center" style="margin-top:40px;">
         <a href="cane-gallery.html" class="btn btn-outline">View Full Gallery <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,6 15,12 9,18"/></svg></a>
       </div>
@@ -203,7 +193,7 @@
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <svg width="24" height="24" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"><g transform="translate(150,150)"><circle r="112" fill="none" stroke="#FFFFFF" stroke-width="3"/><circle r="100" fill="none" stroke="#C9A84C" stroke-width="1.25"/><path d="M -38,-72 A 17,17 0 1 1 -54,-91 L 56,88" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M 38,-72 A 17,17 0 1 0 54,-91 L -56,88" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="8" r="5.5" fill="#B22234"/></g></svg>
+          <img src="images/logo.png" alt="" width="26" height="26">
           <span>Veteran Promise Project</span>
         </div>
         <p class="footer-about">Custom walking canes and VA benefits support for the veterans who&rsquo;ve earned it. Every cane free. Every veteran honored.</p>
@@ -226,16 +216,14 @@
       </div>
       <div class="footer-links">
         <div class="footer-heading">Connect</div>
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">YouTube</a>
+        <div class="foot-social" id="social"></div>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">&copy; 2026 Veteran Promise Project. All rights reserved.</div>
       <div class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
       </div>
     </div>
   </footer>
@@ -278,5 +266,25 @@
     }
     function changeTestimonial(dir) { goToSlide(currentSlide + dir); }
   </script>
+
+<script src="canes.js"></script>
+<script>
+  /* Homepage strip renders from canes.js — same source of truth as the gallery.
+     Swap a photo there and it changes here too. */
+  const strip = document.getElementById('homeCanes');
+  CANES.filter(c => c.home).slice(0, 3).forEach(c => {
+    const el = document.createElement('a');
+    el.className = 'cane-card';
+    el.href = 'cane-gallery.html';
+    el.innerHTML = `
+      <div class="cane-frame">
+        <img src="${c.img}" alt="${c.title}" data-fit="${c.fit}"
+             style="object-position:${c.pos};" loading="lazy" decoding="async">
+      </div>
+      <div class="cane-info"><h4>${c.title}</h4><p>${c.desc}</p></div>`;
+    strip.appendChild(el);
+  });
+  renderSocial();
+</script>
 </body>
 </html>

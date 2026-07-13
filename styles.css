@@ -7,6 +7,8 @@
       --dark-text: #1F2937;
       --muted: #6B7280;
       --border: #E5E7EB;
+      --char: #16181B;        /* Ryan's charred photo board */
+      --char-lift: #1F2227;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -226,22 +228,26 @@
       box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: transform 0.2s;
     }
     .cane-card:hover { transform: translateY(-4px); }
-    .cane-visual {
-      height: 280px; position: relative;
-      background: linear-gradient(135deg, #3D2B1F 0%, #5C3A21 40%, #7B4F2E 100%);
-      display: flex; align-items: center; justify-content: center;
+    /* ---- CANE FRAME (shared: index.html + cane-gallery.html) ----
+       Replaces the old `.cane-visual { height: 280px }`, which made a landscape
+       frame inside a ~340px card and cover-cropped every portrait cane photo
+       down to its middle. 3:4 is the native ratio of Ryan's shots.
+       --char is sampled from the charred board he photographs on, so photos set
+       to `contain` letterbox invisibly instead of being cropped. */
+    .cane-frame {
+      aspect-ratio: 3 / 4; background: var(--char);
+      position: relative; overflow: hidden;
     }
-    .cane-visual-inner { text-align: center; color: rgba(255,255,255,0.5); }
-    .cane-visual-inner svg { opacity: 0.3; }
-    .cane-visual-inner span { display: block; font-size: 13px; margin-top: 8px; }
-    .cane-badge {
-      position: absolute; top: 12px; right: 12px;
-      background: var(--brass); color: #fff; padding: 4px 12px;
-      border-radius: 4px; font-size: 12px; font-weight: 700;
+    .cane-frame img { width: 100%; height: 100%; display: block; }
+    .cane-frame img[data-fit="cover"]   { object-fit: cover; }
+    .cane-frame img[data-fit="contain"] { object-fit: contain; }
+
+    .cane-card {
+      background: var(--char); border: 1px solid rgba(255,255,255,0.06);
     }
-    .cane-info { padding: 20px; }
-    .cane-info h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
-    .cane-info p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+    .cane-info { padding: 16px 18px 20px; background: var(--char-lift); }
+    .cane-info h4 { font-size: 16px; font-weight: 700; margin-bottom: 5px; color: #fff; }
+    .cane-info p { font-size: 13.5px; color: rgba(255,255,255,0.55); line-height: 1.55; }
 
     /* ---- TESTIMONIAL ---- */
     .testimonial-section { background: var(--navy); padding: 72px 24px; }
