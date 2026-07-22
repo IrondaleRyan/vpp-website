@@ -639,3 +639,36 @@
         transform: perspective(800px) rotateY(0.8deg) skewY(0.2deg);
       }
     }
+/* ============================================================
+   FOOTER SOCIAL ICONS — add to styles.css
+   Fixes the oversized Facebook/Instagram/YouTube icons in the
+   footer. The #social container had no sizing rules, so the
+   SVGs rendered at full size. Affects all 11 pages.
+   ============================================================ */
+.foot-social {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.foot-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.75);
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+}
+.foot-social a:hover {
+  background: var(--brass);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.foot-social svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  display: block;
+}
