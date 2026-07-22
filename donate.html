@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate | Veteran Promise Project</title>
+  <meta name="description" content="Sponsor a handcrafted walking cane or fund a veteran's VA benefits case. Every cane leaves the shop free to the veteran who receives it.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="canonical" href="https://veteranpromiseproject.com/donate.html">
+  <meta property="og:title" content="Donate | Veteran Promise Project">
+  <meta property="og:description" content="Sponsor a cane, or fund a veteran's benefits case. Every cane free. Every veteran honored.">
+  <meta property="og:url" content="https://veteranpromiseproject.com/donate.html">
+  <meta property="og:type" content="website">
+  <style>
+    /* ================= DONATE PAGE ================= */
+    .give-wrap { max-width: 940px; margin: 0 auto; }
+
+    /* ---- track chooser ---- */
+    .tracks { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:34px; }
+    .track {
+      background:#fff; border:2px solid var(--border); border-radius:8px; padding:22px 20px;
+      cursor:pointer; text-align:left; font-family:inherit; transition:.18s; width:100%;
+    }
+    .track:hover { border-color:#D6D2C8; }
+    .track[aria-pressed="true"] { border-color:var(--brass); box-shadow:0 4px 18px rgba(184,134,11,.14); }
+    .track:focus-visible { outline:2px solid var(--brass); outline-offset:3px; }
+    .track h3 { font-size:19px; margin-bottom:6px; }
+    .track p { font-size:13.5px; color:var(--muted); line-height:1.6; }
+
+    /* ---- give panel ---- */
+    .give { display:grid; grid-template-columns:180px 1fr; gap:44px; align-items:start; }
+
+    .rail { position:sticky; top:104px; }
+    .cane-rail { display:flex; flex-direction:column; align-items:center; gap:16px; }
+    .cane-rail svg { width:92px; height:330px; }
+    .cane-empty { stroke:#E2DDD2; fill:none; }
+    .cane-fill { fill:var(--brass); transform:scaleY(0); transform-box:fill-box;
+      transform-origin:bottom; transition:transform .55s cubic-bezier(.22,1,.36,1); }
+    .readout { text-align:center; }
+    .readout .amt { font-family:'Bitter',serif; font-size:28px; font-weight:700; line-height:1; }
+    .readout .lab { font-size:10px; font-weight:700; letter-spacing:.14em;
+      text-transform:uppercase; color:var(--muted); margin-top:8px; }
+
+    .case-rail { display:none; }
+    .case-rail.show { display:block; }
+    .case-lab { font-size:10px; font-weight:700; letter-spacing:.12em;
+      text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+    .case-stack { position:relative; height:14px; border-radius:7px; overflow:hidden; background:#EFEBE2; }
+    .case-fill { position:absolute; left:0; top:0; height:100%; width:0; background:var(--brass);
+      transition:width .55s cubic-bezier(.22,1,.36,1); }
+    .case-amt { font-family:'Bitter',serif; font-size:26px; font-weight:700; margin-top:12px; line-height:1; }
+    .case-sub { font-size:11px; color:var(--muted); margin-top:5px; line-height:1.5; }
+
+    /* ---- controls ---- */
+    .freq { display:inline-flex; background:#fff; border:1px solid var(--border);
+      border-radius:999px; padding:4px; margin-bottom:22px; }
+    .freq button { border:none; background:transparent; cursor:pointer; font-family:inherit;
+      font-size:14px; font-weight:600; color:var(--muted); padding:8px 20px;
+      border-radius:999px; transition:.2s; }
+    .freq button[aria-pressed="true"] { background:var(--navy); color:#fff; }
+    .freq button:focus-visible { outline:2px solid var(--brass); outline-offset:2px; }
+
+    .tiers { display:flex; flex-direction:column; gap:12px; }
+    .tier { display:grid; grid-template-columns:104px 1fr; align-items:center; gap:20px;
+      background:#fff; border:1px solid var(--border); border-left:4px solid var(--border);
+      border-radius:6px; padding:20px 22px; cursor:pointer; width:100%; text-align:left;
+      font-family:inherit; transition:.18s; }
+    .tier:hover { border-color:#D6D2C8; box-shadow:0 2px 10px rgba(17,24,39,.06); }
+    .tier[aria-checked="true"] { border-color:var(--brass); border-left-color:var(--brass);
+      box-shadow:0 4px 18px rgba(184,134,11,.14); }
+    .tier:focus-visible { outline:2px solid var(--brass); outline-offset:3px; }
+    .tier-amt { font-family:'Bitter',serif; font-size:24px; font-weight:700; }
+    .tier-name { font-weight:700; font-size:16px; margin-bottom:3px; }
+    .tier-desc { color:var(--muted); font-size:14px; line-height:1.5; }
+    .tier-flag { display:inline-block; font-size:10px; font-weight:700; letter-spacing:.12em;
+      text-transform:uppercase; color:var(--brass); margin-bottom:5px; }
+
+    .custom-input { display:flex; align-items:center; }
+    .custom-input span { font-family:'Bitter',serif; font-size:20px; font-weight:700; color:var(--muted); }
+    .custom-input input { width:74px; border:none; border-bottom:2px solid var(--border);
+      background:transparent; font-family:'Bitter',serif; font-size:24px; font-weight:700;
+      padding:0 2px 2px; color:var(--dark-text); }
+    .custom-input input:focus { outline:none; border-bottom-color:var(--brass); }
+    .custom-input input::-webkit-outer-spin-button,
+    .custom-input input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+    .custom-input input { -moz-appearance:textfield; }
+
+    .checkout { margin-top:26px; }
+    .checkout .btn { width:100%; justify-content:center; font-size:17px; padding:17px 28px; }
+    .checkout-note { margin-top:12px; font-size:13px; color:var(--muted);
+      text-align:center; line-height:1.6; }
+    .not-live { display:none; margin-top:12px; padding:12px 16px; border-radius:6px;
+      background:#FEF6E7; border:1px solid #F0D9A8; color:#7A5B10; font-size:13px; line-height:1.5; }
+    .not-live.show { display:block; }
+
+    /* ---- where it goes ---- */
+    .goes { border-top:1px solid var(--border); margin-top:56px; padding-top:40px; }
+    .goes > h2 { font-size:24px; margin-bottom:8px; }
+    .goes > p { color:var(--muted); font-size:15px; line-height:1.7; margin-bottom:26px; max-width:640px; }
+    .goes-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+    .goes-card { background:#fff; border:1px solid var(--border); border-radius:8px; padding:22px 24px; }
+    .goes-card h4 { font-size:16px; margin-bottom:14px; }
+    .gline { display:flex; justify-content:space-between; gap:14px; padding:8px 0;
+      border-bottom:1px dotted var(--border); font-size:14px; }
+    .gline:last-of-type { border-bottom:none; }
+    .gline .l { color:var(--muted); }
+    .gline .v { font-family:'Bitter',serif; font-weight:700; white-space:nowrap; }
+    .gtotal { display:flex; justify-content:space-between; gap:14px; margin-top:10px;
+      padding-top:12px; border-top:2px solid var(--navy); font-weight:700; font-size:15px; }
+    .gtotal .v { font-family:'Bitter',serif; font-size:19px; }
+    .gnote { background:var(--warm-bg); border-radius:6px; padding:14px 16px; margin-top:16px; }
+    .gnote .k { font-size:10px; font-weight:700; letter-spacing:.12em;
+      text-transform:uppercase; color:var(--muted); margin-bottom:5px; }
+    .gnote .n { font-family:'Bitter',serif; font-size:20px; font-weight:700; line-height:1.15; }
+    .gnote .s { font-size:12.5px; color:var(--muted); margin-top:6px; line-height:1.65; }
+
+    @media (prefers-reduced-motion:reduce) { .cane-fill,.tier,.case-fill { transition:none; } }
+    @media (max-width:860px) {
+      .tracks { grid-template-columns:1fr; }
+      .give { grid-template-columns:1fr; gap:30px; }
+      .rail { position:static; }
+      .cane-rail { flex-direction:row; justify-content:center; gap:28px; }
+      .cane-rail svg { width:60px; height:200px; }
+      .goes-grid { grid-template-columns:1fr; gap:20px; }
+    }
+    @media (max-width:520px) {
+      .tier { grid-template-columns:1fr; gap:8px; padding:18px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <img src="images/logo.png" alt="Veteran Promise Project" width="52" height="52">
+        <span style="display:flex;flex-direction:column;line-height:1.2;"><strong>Veteran Promise Project</strong><small style="font-size:10px;letter-spacing:2px;opacity:0.7;font-weight:400;">SERVING THOSE WHO SERVED</small></span>
+      </a>
+      <div class="navbar-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="cane-gallery.html">Cane Gallery</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="blog.html">Blog</a>
+        <a href="resources.html">Resources</a>
+        <a href="contact.html">Contact</a>
+        <a href="donate.html" class="btn btn-primary btn-sm nav-active">Donate</a>
+      </div>
+      <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+        <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="cane-gallery.html">Cane Gallery</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="blog.html">Blog</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+      <a href="donate.html" class="btn btn-primary" style="justify-content:center;margin-top:8px;">Donate</a>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <h1>Donate</h1>
+    <p class="page-hero-sub">Every cane leaves the shop free to the veteran who receives it, and no veteran is ever charged for help with a claim. Someone still pays for the wood, the brass, and the miles. That&rsquo;s what this is.</p>
+  </header>
+
+  <section class="section" style="background: var(--warm-bg);">
+    <div class="container">
+      <div class="give-wrap">
+
+        <div class="tracks" role="group" aria-label="What to fund">
+          <button type="button" class="track" id="trkCane" aria-pressed="true">
+            <h3>Sponsor a veteran&rsquo;s cane</h3>
+            <p>Hardwood, brass, and finish &mdash; a handcrafted cane delivered free to the veteran who receives it.</p>
+          </button>
+          <button type="button" class="track" id="trkBen" aria-pressed="false">
+            <h3>Sponsor a veteran&rsquo;s benefits case</h3>
+            <p>Funds the travel and casework it takes to walk one veteran through a VA claim, start to finish.</p>
+          </button>
+        </div>
+
+        <div class="give">
+          <aside class="rail" aria-hidden="true">
+            <div class="cane-rail" id="railCane">
+              <svg viewBox="0 0 70 260" role="presentation">
+                <defs>
+                  <mask id="caneMask" maskUnits="userSpaceOnUse" x="0" y="0" width="70" height="260">
+                    <path d="M26 250 L26 80 A13 13 0 1 1 52 80 L52 102"
+                          fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+                  </mask>
+                </defs>
+                <path class="cane-empty" d="M26 250 L26 80 A13 13 0 1 1 52 80 L52 102"
+                      stroke-width="12" stroke-linecap="round"/>
+                <g mask="url(#caneMask)">
+                  <rect id="caneFill" class="cane-fill" x="0" y="0" width="70" height="260"/>
+                </g>
+              </svg>
+              <div class="readout">
+                <div class="amt" id="caneAmt">$0</div>
+                <div class="lab" id="caneLab">Choose an amount</div>
+              </div>
+            </div>
+
+            <div class="case-rail" id="railCase">
+              <div class="case-lab">Toward one benefits case</div>
+              <div class="case-stack"><div class="case-fill" id="caseFill"></div></div>
+              <div class="case-amt" id="caseAmt">$0</div>
+              <div class="case-sub" id="caseSub">Choose an amount</div>
+            </div>
+          </aside>
+
+          <div>
+            <div class="freq" role="group" aria-label="Giving frequency">
+              <button type="button" id="freqOnce" aria-pressed="true">One time</button>
+              <button type="button" id="freqMonthly" aria-pressed="false">Monthly</button>
+            </div>
+
+            <div class="tiers" role="radiogroup" aria-label="Amount" id="tiers"></div>
+
+            <div class="checkout">
+              <button type="button" class="btn btn-primary" id="giveBtn" disabled>Choose an amount</button>
+              <div class="not-live" id="notLive">
+                Online giving isn&rsquo;t switched on yet. Please <a href="contact.html">get in touch</a> and we&rsquo;ll take it from there.
+              </div>
+              <p class="checkout-note">Checkout is handled by our payment processor. Veteran Promise Project never sees your card number.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="goes">
+          <h2>Where it goes</h2>
+          <p>These are real figures from VPP&rsquo;s production records &mdash; one cane delivered, one benefits case closed.</p>
+          <div class="goes-grid">
+
+            <div class="goes-card">
+              <h4>One cane, delivered</h4>
+              <div class="gline"><span class="l">Materials</span><span class="v">$62.37</span></div>
+              <div class="gline"><span class="l">Shipping</span><span class="v">$38.80</span></div>
+              <div class="gline"><span class="l">Craft labor &mdash; 15.5 hrs, donated</span><span class="v">$740.90</span></div>
+              <div class="gtotal"><span>Full cost</span><span class="v">$842.07</span></div>
+              <div class="gnote">
+                <div class="k">Cost to the veteran</div>
+                <div class="n">Nothing</div>
+                <div class="s">This cane was sponsored at $500. VPP covered the remaining $342.07.</div>
+              </div>
+            </div>
+
+            <div class="goes-card">
+              <h4>One benefits case, closed</h4>
+              <div class="gline"><span class="l">Travel, meals, fuel</span><span class="v">$280.00</span></div>
+              <div class="gline"><span class="l">Casework &mdash; 75 hrs, donated</span><span class="v">$5,025.00</span></div>
+              <div class="gtotal"><span>Full cost</span><span class="v">$5,305.00</span></div>
+              <div class="gnote">
+                <div class="k">What the VA now pays that veteran</div>
+                <div class="n">$4,028.16 a month</div>
+                <div class="s">Following his rating increase. That compensation is paid to the veteran by the VA &mdash; it is not income to VPP. What a gift here funds is the advocacy that got the claim through.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner" style="background: var(--navy);">
+    <div class="container">
+      <h2 style="color:#fff;">Other ways to help</h2>
+      <p style="color:rgba(255,255,255,0.7);">Donating hardwood, sharing the mission, or pointing a veteran our way all move the needle.</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn btn-primary">Get in touch</a>
+        <a href="cane-gallery.html" class="btn btn-secondary">See the canes</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="" width="26" height="26">
+          <span>Veteran Promise Project</span>
+        </div>
+        <p class="footer-about">Custom walking canes and VA benefits support for the veterans who&rsquo;ve earned it. Every cane free. Every veteran honored.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-heading">Navigate</div>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="cane-gallery.html">Cane Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="resources.html">Resources</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="footer-links">
+        <div class="footer-heading">Get Involved</div>
+        <a href="request.html">Request Support</a>
+        <a href="donate.html">Donate</a>
+        <a href="contact.html">Become a Sponsor</a>
+        <a href="contact.html">Volunteer</a>
+      </div>
+      <div class="footer-links">
+        <div class="footer-heading">Connect</div>
+        <div class="foot-social" id="social"></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 Veteran Promise Project. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+<script src="canes.js"></script>
+<script>
+/* =====================================================================
+   GIVE_CONFIG — the only block that changes when the processor is picked.
+   Everything below it is processor-agnostic.
+
+   Paste a hosted checkout URL into each `links` slot and that amount goes
+   live. Works with Square Payment Links, Stripe Payment Links, Zeffy
+   forms, or Raisely — all four are just hosted URLs.
+
+   Any tier left blank shows the "not switched on yet" notice instead of
+   dead-ending the donor.
+
+   PayPal-style single-URL setup: set amountParam.base and the amount
+   rides in the query string; that overrides the per-tier links.
+
+   TODO: amounts below are placeholders drawn from VPP's production log.
+         Replace with the published tier amounts before launch.
+   ===================================================================== */
+const GIVE_CONFIG = {
+
+  allowMonthly: true,
+
+  // PayPal-style: base URL + amount query param. Leave blank for the others.
+  amountParam: { base: '', param: 'amount' },
+
+  cane: {
+    full: 842.07,                       // the amount that fills the cane graphic
+    tiers: [
+      { amount: 62.37,  name: 'The materials',
+        desc: 'Hardwood, brass, and finish for one cane.',
+        links: { once: '', monthly: '' } },
+      { amount: 101.17, name: 'Materials and shipping',
+        desc: 'Everything it takes in cash to put a cane in a veteran\u2019s hand.',
+        links: { once: '', monthly: '' } },
+      { amount: 842.07, name: 'A full cane',
+        desc: 'The complete cost, including 15.5 hours of craft work.',
+        flag: 'Sponsors a whole cane',
+        links: { once: '', monthly: '' } }
+    ],
+    custom: { min: 5, links: { once: '', monthly: '' } }
+  },
+
+  benefits: {
+    full: 5305.00,                      // the amount that fills the case bar
+    travel: 280.00,
+    tiers: [
+      { amount: 280.00,  name: 'The travel',
+        desc: 'Meals, fuel, and mileage to see one claim through.',
+        links: { once: '', monthly: '' } },
+      { amount: 5305.00, name: 'A full case',
+        desc: 'Everything one closed benefits case costs, including 75 hours of casework.',
+        flag: 'Funds a whole case',
+        links: { once: '', monthly: '' } }
+    ],
+    custom: { min: 5, links: { once: '', monthly: '' } }
+  }
+};
+
+/* ---------------- state ---------------- */
+let track = 'cane', selected = null, frequency = 'once';
+const cfg = () => GIVE_CONFIG[track];
+
+const money = n => Number.isInteger(n)
+  ? '$' + n.toLocaleString()
+  : '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+const tiersEl  = document.getElementById('tiers');
+const giveBtn  = document.getElementById('giveBtn');
+const notLive  = document.getElementById('notLive');
+const railCane = document.getElementById('railCane');
+const railCase = document.getElementById('railCase');
+const caneFill = document.getElementById('caneFill');
+const caneAmt  = document.getElementById('caneAmt');
+const caneLab  = document.getElementById('caneLab');
+const caseFill = document.getElementById('caseFill');
+const caseAmt  = document.getElementById('caseAmt');
+const caseSub  = document.getElementById('caseSub');
+
+let tierEls = [], customInput = null;
+
+/* ---------------- render ---------------- */
+function renderTiers() {
+  const c = cfg();
+  tiersEl.innerHTML = c.tiers.map((t, i) => `
+    <button type="button" class="tier" role="radio" aria-checked="false"
+            data-amount="${t.amount}" data-index="${i}" tabindex="${i === 0 ? '0' : '-1'}">
+      <div class="tier-amt">${money(t.amount)}</div>
+      <div>
+        ${t.flag ? `<div class="tier-flag">${t.flag}</div>` : ''}
+        <div class="tier-name">${t.name}</div>
+        <div class="tier-desc">${t.desc}</div>
+      </div>
+    </button>`).join('') + `
+    <div class="tier" role="radio" aria-checked="false" tabindex="-1"
+         data-custom="true" data-index="${c.tiers.length}">
+      <div class="custom-input">
+        <span>$</span>
+        <input type="number" id="customAmount" min="${c.custom.min}" step="1" placeholder="0"
+               aria-label="Custom amount" inputmode="numeric">
+      </div>
+      <div>
+        <div class="tier-name">Another amount</div>
+        <div class="tier-desc">Whatever you can put toward the next one.</div>
+      </div>
+    </div>`;
+
+  tierEls = Array.from(tiersEl.querySelectorAll('[role="radio"]'));
+  customInput = document.getElementById('customAmount');
+  wire();
+}
+
+function wire() {
+  tierEls.forEach(el => {
+    el.addEventListener('click', () => select(el));
+    el.addEventListener('keydown', e => {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target !== customInput) {
+        e.preventDefault(); select(el);
+      }
+      if (['ArrowDown','ArrowRight','ArrowUp','ArrowLeft'].includes(e.key)) {
+        e.preventDefault();
+        const i = parseInt(el.dataset.index, 10);
+        const n = ['ArrowDown','ArrowRight'].includes(e.key)
+          ? (i + 1) % tierEls.length : (i - 1 + tierEls.length) % tierEls.length;
+        tierEls[n].focus(); select(tierEls[n]);
+      }
+    });
+  });
+  customInput.addEventListener('input', () => {
+    const w = customInput.closest('[role="radio"]');
+    if (w.getAttribute('aria-checked') !== 'true') select(w);
+    const v = parseFloat(customInput.value);
+    selected = (!isNaN(v) && v >= cfg().custom.min) ? v : null;
+    paint();
+  });
+  customInput.addEventListener('focus', () => {
+    const w = customInput.closest('[role="radio"]');
+    if (w.getAttribute('aria-checked') !== 'true') select(w);
+  });
+}
+
+function select(el) {
+  tierEls.forEach(t => { t.setAttribute('aria-checked','false'); t.setAttribute('tabindex','-1'); });
+  el.setAttribute('aria-checked','true');
+  el.setAttribute('tabindex','0');
+  if (el.dataset.custom) {
+    const v = parseFloat(customInput.value);
+    selected = (!isNaN(v) && v >= cfg().custom.min) ? v : null;
+    customInput.focus();
+  } else {
+    selected = parseFloat(el.dataset.amount);
+  }
+  paint();
+}
+
+/* ---------------- track ---------------- */
+const trkCane = document.getElementById('trkCane');
+const trkBen  = document.getElementById('trkBen');
+trkCane.addEventListener('click', () => setTrack('cane'));
+trkBen .addEventListener('click', () => setTrack('benefits'));
+
+function setTrack(t) {
+  track = t;
+  selected = null;
+  trkCane.setAttribute('aria-pressed', String(t === 'cane'));
+  trkBen .setAttribute('aria-pressed', String(t === 'benefits'));
+  railCane.style.display = (t === 'cane') ? 'flex' : 'none';
+  railCase.classList.toggle('show', t === 'benefits');
+  renderTiers();
+  paint();
+}
+
+/* ---------------- frequency ---------------- */
+const freqOnce = document.getElementById('freqOnce');
+const freqMonthly = document.getElementById('freqMonthly');
+if (!GIVE_CONFIG.allowMonthly) freqMonthly.closest('.freq').style.display = 'none';
+freqOnce.addEventListener('click', () => { frequency = 'once'; setFreqUI(); });
+freqMonthly.addEventListener('click', () => { frequency = 'monthly'; setFreqUI(); });
+function setFreqUI() {
+  freqOnce.setAttribute('aria-pressed', String(frequency === 'once'));
+  freqMonthly.setAttribute('aria-pressed', String(frequency === 'monthly'));
+  paint();
+}
+
+/* ---------------- paint ---------------- */
+function paint() {
+  const amt = selected || 0;
+
+  if (track === 'cane') {
+    const pct = Math.min(amt / GIVE_CONFIG.cane.full, 1);
+    caneFill.style.transform = `scaleY(${pct})`;
+    caneAmt.textContent = money(amt);
+    if (amt === 0) caneLab.textContent = 'Choose an amount';
+    else if (pct >= 1) {
+      const n = Math.floor(amt / GIVE_CONFIG.cane.full);
+      caneLab.textContent = n > 1
+        ? `${n} canes${frequency === 'monthly' ? ' a month' : ''}`
+        : `A full cane${frequency === 'monthly' ? ' a month' : ''}`;
+    } else caneLab.textContent = `${Math.round(pct * 100)}% of a cane`;
+  } else {
+    const b = GIVE_CONFIG.benefits;
+    const pct = Math.min(amt / b.full, 1);
+    caseFill.style.width = (pct * 100) + '%';
+    caseAmt.textContent = money(amt);
+    if (amt === 0) caseSub.textContent = 'Choose an amount';
+    else if (pct >= 1) caseSub.textContent = 'Covers one full case';
+    else if (amt >= b.travel) caseSub.textContent = `Covers the travel, plus ${Math.round(pct * 100)}% of the case`;
+    else caseSub.textContent = `${Math.round((amt / b.travel) * 100)}% of the travel costs`;
+  }
+
+  if (!selected) {
+    giveBtn.disabled = true;
+    giveBtn.textContent = 'Choose an amount';
+    notLive.classList.remove('show');
+    return;
+  }
+
+  giveBtn.disabled = false;
+  giveBtn.textContent = frequency === 'monthly'
+    ? `Give ${money(selected)} a month`
+    : `Give ${money(selected)}`;
+  notLive.classList.toggle('show', !checkoutUrl());
+}
+
+/* ---------------- processor-agnostic URL builder ---------------- */
+function checkoutUrl() {
+  const ap = GIVE_CONFIG.amountParam;
+  if (ap.base) {
+    const u = new URL(ap.base);
+    u.searchParams.set(ap.param, String(selected));
+    return u.toString();
+  }
+  const c = cfg();
+  const tier = c.tiers.find(t => Math.abs(t.amount - selected) < 0.005);
+  const links = tier ? tier.links : c.custom.links;
+  return (links && links[frequency]) || '';
+}
+
+giveBtn.addEventListener('click', () => {
+  const url = checkoutUrl();
+  if (!url) { notLive.classList.add('show'); return; }
+  window.location.href = url;
+});
+
+/* ---------------- nav ---------------- */
+function toggleMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const m = document.getElementById('menu-icon');
+  const x = document.getElementById('close-icon');
+  const open = menu.classList.toggle('open');
+  m.style.display = open ? 'none' : 'block';
+  x.style.display = open ? 'block' : 'none';
+}
+
+setTrack('cane');
+renderSocial();
+</script>
+</body>
+</html>
