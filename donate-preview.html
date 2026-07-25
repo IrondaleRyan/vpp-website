@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate | Veteran Promise Project</title>
+  <meta name="description" content="Sponsor a handcrafted walking cane or fund a veteran's VA benefits case. Every cane leaves the shop free to the veteran who receives it.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --brass: #B8860B;
+      --brass-light: #D4A833;
+      --navy: #111827;
+      --warm-bg: #F8F6F2;
+      --dark-text: #1F2937;
+      --muted: #6B7280;
+      --border: #E5E7EB;
+      --char: #16181B;        /* Ryan's charred photo board */
+      --char-lift: #1F2227;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--dark-text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    h1, h2, h3, h4 { font-family: 'Bitter', serif; }
+
+    /* ---- UTILITY ---- */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 80px 24px; }
+    .section-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--brass); margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 32px; font-weight: 700; line-height: 1.2; margin-bottom: 16px;
+    }
+    .section-desc {
+      color: var(--muted); font-size: 17px; max-width: 540px;
+      margin: 0 auto; line-height: 1.6;
+    }
+    .text-center { text-align: center; }
+
+    /* ---- BUTTONS ---- */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 6px; font-weight: 600;
+      font-size: 15px; letter-spacing: 0.02em; border: none;
+      cursor: pointer; transition: all 0.2s ease;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    .btn-primary { background: var(--brass); color: #fff; }
+    .btn-primary:hover { background: #9A7209; }
+    .btn-secondary {
+      background: transparent; color: #fff;
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.8); }
+    .btn-outline {
+      background: transparent; color: var(--brass);
+      border: 2px solid var(--brass);
+    }
+    .btn-outline:hover { background: rgba(184,134,11,0.08); }
+    .btn-dark { background: var(--navy); color: #fff; }
+    .btn-dark:hover { background: #1f2e45; }
+    .btn-sm { padding: 10px 20px; font-size: 14px; }
+
+    .chevron-icon {
+      width: 18px; height: 18px; display: inline-block; vertical-align: middle;
+    }
+
+    /* ---- MOCKUP BANNER ---- */
+
+
+    /* ---- NAV ---- */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--navy); border-bottom: 2px solid var(--brass);
+    }
+    .navbar-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; height: 64px;
+    }
+    .navbar-brand {
+      display: flex; align-items: center; gap: 10px; color: #fff;
+    }
+    .navbar-brand span {
+      font-family: 'Bitter', serif; font-weight: 700; font-size: 18px;
+      letter-spacing: 0.01em;
+    }
+    .navbar-links {
+      display: flex; align-items: center; gap: 28px;
+    }
+    .navbar-links a {
+      color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 600;
+      letter-spacing: 0.02em; transition: color 0.2s;
+    }
+    .navbar-links a:hover { color: #fff; }
+    .nav-members-link {
+      color: rgba(255,255,255,0.5) !important; font-size: 13px !important;
+      border-left: 1px solid rgba(255,255,255,0.15); padding-left: 20px !important;
+    }
+    .nav-members-link:hover { color: rgba(255,255,255,0.9) !important; }
+    .mobile-toggle {
+      display: none; align-items: center; justify-content: center;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .mobile-menu {
+      display: none; background: var(--navy); padding: 16px 24px 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      flex-direction: column; gap: 16px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: rgba(255,255,255,0.8); font-size: 16px; font-weight: 600;
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a2740 50%, #243447 100%);
+      padding: 140px 24px 100px; position: relative; overflow: hidden;
+    }
+    .hero-texture {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: repeating-linear-gradient(
+        45deg, transparent, transparent 2px,
+        rgba(255,255,255,0.5) 2px, rgba(255,255,255,0.5) 4px
+      );
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 680px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(184,134,11,0.15); border: 1px solid rgba(184,134,11,0.3);
+      border-radius: 20px; padding: 6px 16px; margin-bottom: 28px;
+    }
+    .hero-badge-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--brass);
+    }
+    .hero-badge span {
+      color: var(--brass-light); font-size: 13px; font-weight: 600;
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: 48px; font-weight: 700; color: #fff; line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 19px; color: rgba(255,255,255,0.7); line-height: 1.6;
+      margin-bottom: 36px; max-width: 560px;
+    }
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* ---- IMPACT COUNTER ---- */
+    .impact-strip {
+      background: #fff; border-bottom: 1px solid var(--border);
+    }
+    .impact-grid {
+      display: flex; justify-content: center;
+    }
+    .impact-stat {
+      flex: 1; text-align: center; padding: 32px 20px;
+      border-right: 1px solid var(--border);
+    }
+    .impact-stat:last-child { border-right: none; }
+    .impact-value {
+      font-family: 'Bitter', serif; font-size: 26px; font-weight: 700;
+      color: var(--brass); margin-bottom: 4px;
+    }
+    .impact-label {
+      font-size: 13px; color: var(--muted); font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .impact-strip-va {
+      background: var(--navy); border-bottom: 1px solid rgba(184,134,11,0.3);
+    }
+    .impact-strip-va .impact-value { color: #fff; }
+    .impact-strip-va .impact-label { color: rgba(255,255,255,0.7); }
+    .impact-strip-va .impact-stat { border-right-color: rgba(255,255,255,0.15); }
+
+    /* ---- HOW IT WORKS ---- */
+    .steps-grid { display: flex; gap: 40; justify-content: center; align-items: flex-start; }
+    .step-card {
+      flex: 1; text-align: center; padding: 36px 24px;
+      background: #fff; border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06); position: relative;
+    }
+    .step-number {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--navy); color: var(--brass); width: 28px; height: 28px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; font-family: 'Bitter', serif;
+    }
+    .step-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(184,134,11,0.1);
+      display: flex; align-items: center; justify-content: center;
+      margin: 12px auto 20px;
+    }
+    .step-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .step-card p { font-size: 15px; color: var(--muted); line-height: 1.6; }
+
+    /* ---- SERVICES ---- */
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .service-card {
+      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .service-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .service-visual {
+      height: 260px; display: flex; align-items: center; justify-content: center;
+    }
+    .service-visual--cane {
+      background: linear-gradient(135deg, #3D2B1F, #5C3A21, #7B4F2E);
+    }
+    .service-visual--va {
+      background: linear-gradient(135deg, #1a2740, #243447, #2d4a5e);
+    }
+    .service-body { padding: 28px; }
+    .service-body h3 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+    .service-body p {
+      font-size: 15px; color: var(--muted); line-height: 1.6; margin-bottom: 20px;
+    }
+
+    /* ---- GALLERY ---- */
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .cane-card {
+      background: #fff; border-radius: 8px; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: transform 0.2s;
+    }
+    .cane-card:hover { transform: translateY(-4px); }
+    /* ---- CANE FRAME (shared: index.html + cane-gallery.html) ----
+       Replaces the old `.cane-visual { height: 280px }`, which made a landscape
+       frame inside a ~340px card and cover-cropped every portrait cane photo
+       down to its middle. 3:4 is the native ratio of Ryan's shots.
+       --char is sampled from the charred board he photographs on, so photos set
+       to `contain` letterbox invisibly instead of being cropped. */
+    .cane-frame {
+      aspect-ratio: 3 / 4; background: var(--char);
+      position: relative; overflow: hidden;
+    }
+    .cane-frame img { width: 100%; height: 100%; display: block; }
+    .cane-frame img[data-fit="cover"]   { object-fit: cover; }
+    .cane-frame img[data-fit="contain"] { object-fit: contain; }
+
+    .cane-card {
+      background: var(--char); border: 1px solid rgba(255,255,255,0.06);
+    }
+    .cane-info { padding: 16px 18px 20px; background: var(--char-lift); }
+    .cane-info h4 { font-size: 16px; font-weight: 700; margin-bottom: 5px; color: #fff; }
+    .cane-info p { font-size: 13.5px; color: rgba(255,255,255,0.55); line-height: 1.55; }
+
+    /* ---- TESTIMONIAL ---- */
+    .testimonial-section { background: var(--navy); padding: 72px 24px; }
+    .testimonial-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+    .testimonial-carousel {
+      max-width: 800px; margin: 0 auto; display: flex;
+      align-items: center; gap: 16px; position: relative;
+    }
+    .testimonial-slides { flex: 1; overflow: hidden; position: relative; min-height: 200px; }
+    .testimonial-slide {
+      text-align: center; opacity: 0; position: absolute; top: 0; left: 0; right: 0;
+      transition: opacity 0.5s ease; pointer-events: none;
+    }
+    .testimonial-slide.active { opacity: 1; position: relative; pointer-events: auto; }
+    .testimonial-arrow {
+      background: none; border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.6);
+      width: 44px; height: 44px; border-radius: 50%; cursor: pointer; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+    }
+    .testimonial-arrow:hover { border-color: var(--brass); color: var(--brass); }
+    .testimonial-dots {
+      display: flex; justify-content: center; gap: 8px; margin-top: 24px;
+    }
+    .testimonial-dot {
+      width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.4);
+      background: none; cursor: pointer; padding: 0; transition: all 0.2s;
+    }
+    .testimonial-dot.active { background: var(--brass); border-color: var(--brass); }
+    .stars { display: flex; justify-content: center; gap: 4px; margin-bottom: 24px; }
+    blockquote {
+      font-family: 'Bitter', serif; font-size: 16px; font-weight: 400;
+      color: #fff; line-height: 1.7; margin-bottom: 24px; font-style: italic;
+    }
+    .testimonial-name { color: var(--brass-light); font-weight: 700; font-size: 16px; }
+    .testimonial-meta {
+      color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 2px;
+    }
+
+    /* ---- FOUNDER ---- */
+    .founder-grid {
+      display: flex; gap: 56px; align-items: center;
+    }
+    .founder-photo {
+      flex: 0 0 320px; height: 380px; border-radius: 10px;
+      background: linear-gradient(135deg, #2d3a2e, #3d4a3e);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .founder-photo-placeholder {
+      text-align: center; color: rgba(255,255,255,0.4);
+    }
+    .founder-photo-placeholder span { display: block; font-size: 13px; margin-top: 12px; }
+    .founder-photo-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.6));
+      padding: 40px 20px 20px; text-align: center;
+    }
+    .founder-photo-overlay h4 {
+      color: #fff; font-size: 16px; font-weight: 700;
+    }
+    .founder-photo-overlay p {
+      color: rgba(255,255,255,0.7); font-size: 13px; margin-top: 2px;
+    }
+    .founder-text { flex: 1; }
+    .founder-text p {
+      font-size: 16px; color: var(--muted); line-height: 1.7; margin-bottom: 16px;
+    }
+    .founder-text p:last-child { margin-bottom: 0; }
+
+    /* ---- SPONSORS ---- */
+    .sponsors-grid {
+      display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+    }
+    .sponsor-card {
+      background: #fff; border-radius: 10px; padding: 28px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06); text-align: center;
+      flex: 0 1 300px;
+    }
+    .sponsor-avatar {
+      width: 64px; height: 64px; border-radius: 50%; background: #E5E7EB;
+      margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;
+      font-size: 24px; font-weight: 700; font-family: 'Bitter', serif; color: var(--muted);
+    }
+    .sponsor-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+    .sponsor-card p { font-size: 14px; color: var(--muted); line-height: 1.5; margin-bottom: 8px; }
+    .sponsor-since { font-size: 12px; color: var(--brass); font-weight: 600; }
+
+    /* ---- NEWSLETTER ---- */
+    .newsletter {
+      background: var(--navy); padding: 56px 24px;
+    }
+    .newsletter-inner {
+      max-width: 700px; margin: 0 auto;
+      display: flex; align-items: center; gap: 32px;
+    }
+    .newsletter-text { flex: 1; }
+    .newsletter-text h3 {
+      font-family: 'Bitter', serif; font-size: 22px; font-weight: 700;
+      color: #fff; margin-bottom: 8px;
+    }
+    .newsletter-text p {
+      font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.5;
+    }
+    .newsletter-form { display: flex; gap: 8px; flex: 0 0 auto; }
+    .newsletter-input {
+      padding: 12px 16px; border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.08); color: #fff;
+      font-size: 15px; width: 220; outline: none;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    .newsletter-input::placeholder { color: rgba(255,255,255,0.4); }
+    .newsletter-input:focus { border-color: var(--brass); }
+    .btn-icon { padding: 12px 16px; }
+
+    /* ---- CTA BANNER ---- */
+    .cta-banner { padding: 64px 24px; text-align: center; }
+    .brass-divider {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+    }
+    .brass-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brass); }
+    .brass-line {
+      width: 80px; height: 2px;
+      background: linear-gradient(90deg, var(--brass), var(--brass-light), var(--brass));
+    }
+    .cta-banner h2 {
+      font-size: 30px; font-weight: 700; margin-top: 28px; margin-bottom: 12px;
+    }
+    .cta-banner p {
+      color: var(--muted); font-size: 17px; max-width: 500px;
+      margin: 0 auto 28px; line-height: 1.6;
+    }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ---- FOOTER ---- */
+    .site-footer {
+      background: var(--navy); padding: 56px 24px 32px;
+      border-top: 3px solid var(--brass);
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .footer-brand {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+    }
+    .footer-brand span {
+      font-family: 'Bitter', serif; font-weight: 700; font-size: 16px; color: #fff;
+    }
+    .footer-about {
+      font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6; max-width: 280px;
+    }
+    .footer-heading {
+      color: var(--brass); font-size: 13px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;
+    }
+    .footer-links a {
+      display: block; color: rgba(255,255,255,0.6); font-size: 14px;
+      margin-bottom: 10px; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #fff; }
+    .footer-bottom {
+      max-width: 1100px; margin: 40px auto 0; padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { font-size: 13px; color: rgba(255,255,255,0.4); }
+    .footer-legal a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ---- MEMBERS ---- */
+    .members-grid {
+      display: flex; gap: 56px; align-items: center;
+    }
+    .members-text { flex: 1; }
+    .members-features { display: flex; flex-direction: column; gap: 14px; }
+    .members-feature {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 15px; color: var(--muted); line-height: 1.5;
+    }
+    .members-feature svg { flex-shrink: 0; margin-top: 2px; }
+    .members-visual { flex: 0 0 340px; }
+    .members-card {
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      border: 1px solid var(--border);
+    }
+    .members-card-header {
+      background: var(--navy); padding: 16px 20px;
+      display: flex; align-items: center; gap: 10px;
+      color: #fff; font-weight: 700; font-size: 15px;
+      font-family: 'Bitter', serif;
+    }
+    .members-card-body { padding: 20px; background: #fff; }
+    .members-card-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 0; border-bottom: 1px solid #F3F4F6;
+    }
+    .members-card-row:last-of-type { border-bottom: none; }
+    .members-card-label { font-size: 13px; color: var(--muted); font-weight: 600; }
+    .members-card-value { font-size: 14px; color: var(--dark-text); font-weight: 600; }
+    .members-card-status {
+      font-size: 12px; font-weight: 700; padding: 3px 10px;
+      border-radius: 12px; letter-spacing: 0.02em;
+    }
+    .members-card-status--active {
+      background: rgba(22,101,52,0.1); color: #166534;
+    }
+    .members-card-progress { padding-top: 16px; }
+    .members-card-progress-label {
+      display: flex; justify-content: space-between;
+      font-size: 13px; color: var(--muted); font-weight: 600; margin-bottom: 8px;
+    }
+    .members-card-progress-bar {
+      height: 8px; background: #E5E7EB; border-radius: 4px; overflow: hidden;
+    }
+    .members-card-progress-fill {
+      height: 100%; border-radius: 4px;
+      background: linear-gradient(90deg, var(--brass), #D4A833);
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      .navbar-links { display: none !important; }
+      .mobile-toggle { display: flex !important; }
+      .hero h1 { font-size: 32px; }
+      .hero { padding: 156px 24px 64px; }
+      .hero p { font-size: 17px; }
+      .hero-buttons { flex-direction: column; }
+      .hero-buttons .btn { justify-content: center; }
+      .impact-grid { flex-direction: column; }
+      .impact-value { font-size: 24px; }
+      .impact-stat { border-right: none; border-bottom: 1px solid var(--border); padding: 20px; }
+      .impact-stat:last-child { border-bottom: none; }
+      .impact-strip-va .impact-stat { border-bottom-color: rgba(255,255,255,0.15); }
+      .steps-grid { flex-direction: column; }
+      .services-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .founder-grid { flex-direction: column; }
+      .founder-photo { flex: none; width: 100%; height: 280px; }
+      .members-grid { flex-direction: column; }
+      .members-visual { flex: none; width: 100%; }
+      .newsletter-inner { flex-direction: column; text-align: center; }
+      .newsletter-form { width: 100%; }
+      .newsletter-input { flex: 1; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .section-title { font-size: 26px; }
+      blockquote { font-size: 15px; }
+      .testimonial-arrow { width: 36px; height: 36px; }
+      .testimonial-arrow svg { width: 18px; height: 18px; }
+    }
+  
+    /* ---- PAGE HERO ---- */
+    .page-hero {
+      background: linear-gradient(135deg, #111827 0%, #1a2740 50%, #243447 100%);
+      padding: 104px 24px 64px; position: relative; text-align: center;
+    }
+    .page-hero h1 {
+      font-family: 'Bitter', serif; font-size: 40px; font-weight: 700;
+      color: #fff; margin-bottom: 12px;
+    }
+    .page-hero-sub {
+      font-size: 18px; color: rgba(255,255,255,0.6); max-width: 560px;
+      margin: 0 auto; line-height: 1.6;
+    }
+
+    /* ---- ACTIVE NAV ---- */
+    .nav-active { color: #fff !important; }
+
+    /* ---- FULL GALLERY ---- */
+    .gallery-grid--full {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+
+    /* ---- FAQ ---- */
+    .faq-list { max-width: 680px; margin: 0 auto; text-align: left; }
+    .faq-item {
+      border: 1px solid #E5E7EB; border-radius: 8px; margin-bottom: 12px;
+      overflow: hidden; transition: box-shadow 0.2s;
+    }
+    .faq-item[open] { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .faq-item summary {
+      padding: 16px 20px; font-weight: 700; font-size: 16px; cursor: pointer;
+      list-style: none; display: flex; justify-content: space-between; align-items: center;
+      font-family: 'Bitter', serif; color: #1F2937;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+'; font-size: 20px; font-weight: 400; color: #B8860B;
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item p {
+      padding: 0 20px 16px; font-size: 15px; color: #6B7280; line-height: 1.6; margin: 0;
+    }
+
+    /* ---- CONTACT ---- */
+    .contact-grid {
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: start;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block; font-size: 13px; font-weight: 600; color: #6B7280;
+      margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 12px 14px; border: 1px solid #D1D5DB; border-radius: 6px;
+      font-size: 15px; font-family: 'Source Sans 3', sans-serif; color: #1F2937;
+      outline: none; transition: border-color 0.2s; background: #fff;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: #B8860B;
+    }
+    .form-group textarea { resize: vertical; }
+    .contact-info-area { display: flex; flex-direction: column; gap: 20px; }
+    .contact-info-card {
+      padding: 24px; border: 1px solid #E5E7EB; border-radius: 10px;
+      transition: box-shadow 0.2s;
+    }
+    .contact-info-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .contact-info-card h4 {
+      font-family: 'Bitter', serif; font-size: 17px; font-weight: 700; margin-bottom: 6px;
+    }
+    .contact-info-card p {
+      font-size: 14px; color: #6B7280; line-height: 1.5; margin: 0;
+    }
+
+    /* ---- RESPONSIVE ADDITIONS ---- */
+    @media (max-width: 768px) {
+      .page-hero { padding: 84px 24px 48px; }
+      .page-hero h1 { font-size: 28px; }
+      .gallery-grid--full { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid--full { grid-template-columns: 1fr; }
+    }
+
+    /* ---- AMERICAN FLAG HERO BACKGROUND ---- */
+    .hero { position: relative; }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        /* Stars field - top left */
+        radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px),
+        /* Red stripes */
+        repeating-linear-gradient(
+          180deg,
+          rgba(191,10,48,0.10) 0px,
+          rgba(191,10,48,0.10) 28px,
+          transparent 28px,
+          transparent 56px
+        );
+      background-size: 18px 18px, 100% 100%;
+      background-position: 0 0, 0 0;
+      animation: flagWave 8s ease-in-out infinite;
+      opacity: 0.6;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0; z-index: 0;
+      /* Blue canton in top-left */
+      background: linear-gradient(
+        135deg,
+        rgba(0,40,104,0.25) 0%,
+        rgba(0,40,104,0.15) 30%,
+        transparent 45%
+      );
+    }
+    .hero .container,
+    .hero .hero-texture { position: relative; z-index: 1; }
+
+    @keyframes flagWave {
+      0%, 100% {
+        transform: perspective(800px) rotateY(0deg) skewY(0deg);
+      }
+      25% {
+        transform: perspective(800px) rotateY(1.5deg) skewY(0.5deg);
+      }
+      50% {
+        transform: perspective(800px) rotateY(-1deg) skewY(-0.3deg);
+      }
+      75% {
+        transform: perspective(800px) rotateY(0.8deg) skewY(0.2deg);
+      }
+    }
+
+/* ============================================================
+   FOOTER SOCIAL ICONS — add to styles.css
+   Fixes the oversized Facebook/Instagram/YouTube icons in the
+   footer. The #social container had no sizing rules, so the
+   SVGs rendered at full size. Affects all 11 pages.
+   ============================================================ */
+.foot-social {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.foot-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.75);
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+}
+.foot-social a:hover {
+  background: var(--brass);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.foot-social svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  display: block;
+}
+
+
+/* ============================================================
+   MODEL COMPARISON — used on services.html and donate.html
+   ============================================================ */
+.model-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.model-col { padding: 34px 36px; }
+.model-col + .model-col {
+  border-left: 1px solid var(--border);
+  background: #FBFAF8;
+}
+.model-kicker {
+  font-size: 10px; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; margin-bottom: 12px;
+}
+.model-ours .model-kicker  { color: var(--brass); }
+.model-theirs .model-kicker { color: #9A9488; }
+.model-col h3 {
+  font-size: 21px; line-height: 1.25; margin-bottom: 14px; color: var(--navy);
+}
+.model-theirs h3 { color: #5F5A51; }
+.model-col p {
+  font-size: 15px; line-height: 1.7; color: var(--muted); margin-bottom: 14px;
+}
+.model-col p:last-child { margin-bottom: 0; }
+.model-figure {
+  display: block;
+  font-family: 'Bitter', serif;
+  font-size: 27px; font-weight: 700; line-height: 1.15;
+  color: var(--navy); margin: 4px 0 6px;
+}
+.model-theirs .model-figure { color: #8A3524; }
+.model-ours .model-figure   { color: var(--brass); }
+.model-figure small {
+  display: block; font-family: 'Source Sans 3', sans-serif;
+  font-size: 12px; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--muted); margin-top: 6px;
+}
+.model-sub {
+  border-top: 1px solid var(--border);
+  margin-top: 20px; padding-top: 18px;
+}
+.model-sub h4 {
+  font-size: 14px; margin-bottom: 7px; color: #5F5A51;
+}
+.model-sources {
+  max-width: 1000px; margin: 18px auto 0;
+  font-size: 12px; line-height: 1.7; color: var(--muted); text-align: center;
+}
+@media (max-width: 820px) {
+  .model-compare { grid-template-columns: 1fr; }
+  .model-col + .model-col { border-left: none; border-top: 1px solid var(--border); }
+  .model-col { padding: 28px 24px; }
+}
+
+</style>
+  <link rel="canonical" href="https://veteranpromiseproject.com/donate.html">
+  <meta property="og:title" content="Donate | Veteran Promise Project">
+  <meta property="og:description" content="Sponsor a cane, or fund a veteran's benefits case. Every cane free. Every veteran honored.">
+  <meta property="og:url" content="https://veteranpromiseproject.com/donate.html">
+  <meta property="og:type" content="website">
+  <style>
+    /* ================= DONATE PAGE ================= */
+    .give-wrap { max-width: 940px; margin: 0 auto; }
+
+    /* ---- track chooser ---- */
+    .tracks { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:34px; }
+    .track {
+      background:#fff; border:2px solid var(--border); border-radius:8px; padding:22px 20px;
+      cursor:pointer; text-align:left; font-family:inherit; transition:.18s; width:100%;
+    }
+    .track:hover { border-color:#D6D2C8; }
+    .track[aria-pressed="true"] { border-color:var(--brass); box-shadow:0 4px 18px rgba(184,134,11,.14); }
+    .track:focus-visible { outline:2px solid var(--brass); outline-offset:3px; }
+    .track h3 { font-size:19px; margin-bottom:6px; }
+    .track p { font-size:13.5px; color:var(--muted); line-height:1.6; }
+
+    /* ---- give panel ---- */
+    .give { display:grid; grid-template-columns:180px 1fr; gap:44px; align-items:start; }
+
+    .rail { position:sticky; top:104px; }
+    .cane-rail { display:flex; flex-direction:column; align-items:center; gap:16px; }
+    .cane-rail svg { width:92px; height:330px; }
+    .cane-empty { stroke:#E2DDD2; fill:none; }
+    .cane-fill { fill:var(--brass); transform:scaleY(0); transform-box:fill-box;
+      transform-origin:bottom; transition:transform .55s cubic-bezier(.22,1,.36,1); }
+    .readout { text-align:center; }
+    .readout .amt { font-family:'Bitter',serif; font-size:28px; font-weight:700; line-height:1; }
+    .readout .lab { font-size:10px; font-weight:700; letter-spacing:.14em;
+      text-transform:uppercase; color:var(--muted); margin-top:8px; }
+
+    .case-rail { display:none; }
+    .case-rail.show { display:block; }
+    .case-lab { font-size:10px; font-weight:700; letter-spacing:.12em;
+      text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+    .case-stack { position:relative; height:14px; border-radius:7px; overflow:hidden; background:#EFEBE2; }
+    .case-fill { position:absolute; left:0; top:0; height:100%; width:0; background:var(--brass);
+      transition:width .55s cubic-bezier(.22,1,.36,1); }
+    .case-amt { font-family:'Bitter',serif; font-size:26px; font-weight:700; margin-top:12px; line-height:1; }
+    .case-sub { font-size:11px; color:var(--muted); margin-top:5px; line-height:1.5; }
+
+    /* ---- controls ---- */
+    .freq { display:inline-flex; background:#fff; border:1px solid var(--border);
+      border-radius:999px; padding:4px; margin-bottom:22px; }
+    .freq button { border:none; background:transparent; cursor:pointer; font-family:inherit;
+      font-size:14px; font-weight:600; color:var(--muted); padding:8px 20px;
+      border-radius:999px; transition:.2s; }
+    .freq button[aria-pressed="true"] { background:var(--navy); color:#fff; }
+    .freq button:focus-visible { outline:2px solid var(--brass); outline-offset:2px; }
+
+    .tiers { display:flex; flex-direction:column; gap:12px; }
+    .tier { display:grid; grid-template-columns:104px 1fr; align-items:center; gap:20px;
+      background:#fff; border:1px solid var(--border); border-left:4px solid var(--border);
+      border-radius:6px; padding:20px 22px; cursor:pointer; width:100%; text-align:left;
+      font-family:inherit; transition:.18s; }
+    .tier:hover { border-color:#D6D2C8; box-shadow:0 2px 10px rgba(17,24,39,.06); }
+    .tier[aria-checked="true"] { border-color:var(--brass); border-left-color:var(--brass);
+      box-shadow:0 4px 18px rgba(184,134,11,.14); }
+    .tier:focus-visible { outline:2px solid var(--brass); outline-offset:3px; }
+    .tier-amt { font-family:'Bitter',serif; font-size:24px; font-weight:700; }
+    .tier-name { font-weight:700; font-size:16px; margin-bottom:3px; }
+    .tier-desc { color:var(--muted); font-size:14px; line-height:1.5; }
+    .tier-flag { display:inline-block; font-size:10px; font-weight:700; letter-spacing:.12em;
+      text-transform:uppercase; color:var(--brass); margin-bottom:5px; }
+
+    .custom-input { display:flex; align-items:center; }
+    .custom-input span { font-family:'Bitter',serif; font-size:20px; font-weight:700; color:var(--muted); }
+    .custom-input input { width:74px; border:none; border-bottom:2px solid var(--border);
+      background:transparent; font-family:'Bitter',serif; font-size:24px; font-weight:700;
+      padding:0 2px 2px; color:var(--dark-text); }
+    .custom-input input:focus { outline:none; border-bottom-color:var(--brass); }
+    .custom-input input::-webkit-outer-spin-button,
+    .custom-input input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+    .custom-input input { -moz-appearance:textfield; }
+
+    .checkout { margin-top:26px; }
+    .checkout .btn { width:100%; justify-content:center; font-size:17px; padding:17px 28px; }
+    .checkout-note { margin-top:12px; font-size:13px; color:var(--muted);
+      text-align:center; line-height:1.6; }
+    .not-live { display:none; margin-top:12px; padding:12px 16px; border-radius:6px;
+      background:#FEF6E7; border:1px solid #F0D9A8; color:#7A5B10; font-size:13px; line-height:1.5; }
+    .not-live.show { display:block; }
+
+    /* GoFundMe alternative, below the Zeffy checkout */
+    .give-alt { margin-top:22px; padding-top:22px; border-top:1px solid var(--border); text-align:center; }
+    .give-alt-or {
+      display:inline-block; font-size:11px; font-weight:700; letter-spacing:.14em;
+      text-transform:uppercase; color:var(--muted); margin-bottom:14px;
+    }
+    .give-alt-btn { display:inline-flex; }
+    .give-alt-note { font-size:12.5px; color:var(--muted); margin-top:10px; line-height:1.6; }
+
+    /* ---- where it goes ---- */
+    .goes { border-top:1px solid var(--border); margin-top:56px; padding-top:40px; }
+    .goes > h2 { font-size:24px; margin-bottom:8px; }
+    .goes > p { color:var(--muted); font-size:15px; line-height:1.7; margin-bottom:26px; max-width:640px; }
+    .goes-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+    .goes-card { background:#fff; border:1px solid var(--border); border-radius:8px; padding:22px 24px; }
+    .goes-card h4 { font-size:16px; margin-bottom:14px; }
+    .gline { display:flex; justify-content:space-between; gap:14px; padding:8px 0;
+      border-bottom:1px dotted var(--border); font-size:14px; }
+    .gline:last-of-type { border-bottom:none; }
+    .gline .l { color:var(--muted); }
+    .gline .v { font-family:'Bitter',serif; font-weight:700; white-space:nowrap; }
+    .gtotal { display:flex; justify-content:space-between; gap:14px; margin-top:10px;
+      padding-top:12px; border-top:2px solid var(--navy); font-weight:700; font-size:15px; }
+    .gtotal .v { font-family:'Bitter',serif; font-size:19px; }
+    .gnote { background:var(--warm-bg); border-radius:6px; padding:14px 16px; margin-top:16px; }
+    .gnote .k { font-size:10px; font-weight:700; letter-spacing:.12em;
+      text-transform:uppercase; color:var(--muted); margin-bottom:5px; }
+    .gnote .n { font-family:'Bitter',serif; font-size:20px; font-weight:700; line-height:1.15; }
+    .gnote .s { font-size:12.5px; color:var(--muted); margin-top:6px; line-height:1.65; }
+
+    @media (prefers-reduced-motion:reduce) { .cane-fill,.tier,.case-fill { transition:none; } }
+    @media (max-width:860px) {
+      .tracks { grid-template-columns:1fr; }
+      .give { grid-template-columns:1fr; gap:30px; }
+      .rail { position:static; }
+      .cane-rail { flex-direction:row; justify-content:center; gap:28px; }
+      .cane-rail svg { width:60px; height:200px; }
+      .goes-grid { grid-template-columns:1fr; gap:20px; }
+    }
+    @media (max-width:520px) {
+      .tier { grid-template-columns:1fr; gap:8px; padding:18px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <img src="images/logo.png" alt="Veteran Promise Project" width="52" height="52">
+        <span style="display:flex;flex-direction:column;line-height:1.2;"><strong>Veteran Promise Project</strong><small style="font-size:10px;letter-spacing:2px;opacity:0.7;font-weight:400;">SERVING THOSE WHO SERVED</small></span>
+      </a>
+      <div class="navbar-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="cane-gallery.html">Cane Gallery</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="blog.html">Blog</a>
+        <a href="resources.html">Resources</a>
+        <a href="contact.html">Contact</a>
+        <a href="donate.html" class="btn btn-primary btn-sm nav-active">Donate</a>
+      </div>
+      <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+        <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="cane-gallery.html">Cane Gallery</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="blog.html">Blog</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+      <a href="donate.html" class="btn btn-primary" style="justify-content:center;margin-top:8px;">Donate</a>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <h1>Donate</h1>
+    <p class="page-hero-sub">Every cane leaves the shop free to the veteran who receives it, and no veteran is ever charged for help with a claim. Someone still pays for the wood, the brass, and the miles. That&rsquo;s what this is.</p>
+  </header>
+
+  <section class="section" style="background: var(--warm-bg);">
+    <div class="container">
+      <div class="give-wrap">
+
+        <div class="tracks" role="group" aria-label="What to fund">
+          <button type="button" class="track" id="trkCane" aria-pressed="true">
+            <h3>Sponsor a veteran&rsquo;s cane</h3>
+            <p>Hardwood, brass, and finish &mdash; a handcrafted cane delivered free to the veteran who receives it.</p>
+          </button>
+          <button type="button" class="track" id="trkBen" aria-pressed="false">
+            <h3>Sponsor a veteran&rsquo;s benefits case</h3>
+            <p>Funds the travel and casework it takes to walk one veteran through a VA claim, start to finish.</p>
+          </button>
+        </div>
+
+        <div class="give">
+          <aside class="rail" aria-hidden="true">
+            <div class="cane-rail" id="railCane">
+              <svg viewBox="0 0 70 260" role="presentation">
+                <defs>
+                  <mask id="caneMask" maskUnits="userSpaceOnUse" x="0" y="0" width="70" height="260">
+                    <path d="M26 250 L26 80 A13 13 0 1 1 52 80 L52 102"
+                          fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+                  </mask>
+                </defs>
+                <path class="cane-empty" d="M26 250 L26 80 A13 13 0 1 1 52 80 L52 102"
+                      stroke-width="12" stroke-linecap="round"/>
+                <g mask="url(#caneMask)">
+                  <rect id="caneFill" class="cane-fill" x="0" y="0" width="70" height="260"/>
+                </g>
+              </svg>
+              <div class="readout">
+                <div class="amt" id="caneAmt">$0</div>
+                <div class="lab" id="caneLab">Choose an amount</div>
+              </div>
+            </div>
+
+            <div class="case-rail" id="railCase">
+              <div class="case-lab">Toward one benefits case</div>
+              <div class="case-stack"><div class="case-fill" id="caseFill"></div></div>
+              <div class="case-amt" id="caseAmt">$0</div>
+              <div class="case-sub" id="caseSub">Choose an amount</div>
+            </div>
+          </aside>
+
+          <div>
+            <div class="freq" role="group" aria-label="Giving frequency">
+              <button type="button" id="freqOnce" aria-pressed="true">One time</button>
+              <button type="button" id="freqMonthly" aria-pressed="false">Monthly</button>
+            </div>
+
+            <div class="tiers" role="radiogroup" aria-label="Amount" id="tiers"></div>
+
+            <div class="checkout">
+              <button type="button" class="btn btn-primary" id="giveBtn" disabled>Choose an amount</button>
+              <div class="not-live" id="notLive">
+                Online giving isn&rsquo;t switched on yet. Please <a href="contact.html">get in touch</a> and we&rsquo;ll take it from there.
+              </div>
+              <p class="checkout-note">Donations are processed securely by <strong>Zeffy</strong> at <span style="white-space:nowrap;">zeffy.com</span>, which opens in a new tab. Veteran Promise Project never sees your card number.</p>
+
+              <div class="give-alt">
+                <span class="give-alt-or">or</span>
+                <a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans"
+                   target="_blank" rel="noopener" class="btn btn-secondary give-alt-btn">Donate via GoFundMe</a>
+                <p class="give-alt-note">Prefer GoFundMe? You can give through our campaign there instead.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="goes">
+          <h2>Where it goes</h2>
+          <p>These are real figures from VPP&rsquo;s production records &mdash; one cane delivered, one benefits case closed.</p>
+          <div class="goes-grid">
+
+            <div class="goes-card">
+              <h4>One cane, delivered</h4>
+              <div class="gline"><span class="l">Materials</span><span class="v">$62.37</span></div>
+              <div class="gline"><span class="l">Shipping &amp; packing</span><span class="v">$53.00</span></div>
+              <div class="gline"><span class="l">Craft labor &mdash; 15.5 hrs</span><span class="v">$740.90</span></div>
+              <div class="gtotal"><span>Full cost</span><span class="v">$856.27</span></div>
+              <div class="gnote">
+                <div class="k">Cost to the veteran</div>
+                <div class="n">Nothing</div>
+                <div class="s">This cane was sponsored at $500. VPP covered the remaining $356.27.</div>
+              </div>
+            </div>
+
+            <div class="goes-card">
+              <h4>One benefits case, closed</h4>
+              <div class="gline"><span class="l">Travel, meals, fuel</span><span class="v">$280.00</span></div>
+              <div class="gline"><span class="l">Casework &mdash; 75 hrs</span><span class="v">$5,025.00</span></div>
+              <div class="gtotal"><span>Full cost</span><span class="v">$5,305.00</span></div>
+              <div class="gnote">
+                <div class="k">What the VA now pays that veteran</div>
+                <div class="n">$4,028.16 a month</div>
+                <div class="s">Following a rating increase. That compensation is paid to the veteran by the VA &mdash; it is not income to VPP. What a gift here funds is the advocacy that got the claim through.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:#fff;">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:40px;">
+        <div class="section-label">Why Your Gift Matters</div>
+        <h2 class="section-title">Free means free</h2>
+        <p class="section-desc">Sponsorship is what keeps it free. Here&rsquo;s the alternative veterans face elsewhere.</p>
+      </div>
+
+      <div class="model-compare">
+        <div class="model-col model-ours">
+          <div class="model-kicker">Our nonprofit model</div>
+          <h3>Services are offered free of charge to veterans.</h3>
+          <span class="model-figure">$0
+            <small>What a veteran pays</small>
+          </span>
+          <p>Sponsors make donations to the cause as a tangible way of saying &ldquo;thank you for your service.&rdquo; The veteran is never billed, never invoiced, and never signs away a share of what they&rsquo;ve earned.</p>
+        </div>
+
+        <div class="model-col model-theirs">
+          <div class="model-kicker">For-profit &ldquo;claim shark&rdquo; models</div>
+          <h3>A one-time fee equal to five times the monthly increase.</h3>
+          <span class="model-figure">$8,000&ndash;$25,000+
+            <small>Typical out-of-pocket cost</small>
+          </span>
+          <p>Depending on how significantly a veteran&rsquo;s disability rating jumps, total out-of-pocket costs regularly land in this range.</p>
+          <div class="model-sub">
+            <h4>Backpay exploitation</h4>
+            <p>Some for-profit companies delay filing claims for months. This maximizes the retroactive &ldquo;backpay&rdquo; a veteran receives from the VA, allowing the consultant to take a larger cut &mdash; sometimes up to $30,000.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="model-sources">Fee practices reported by NPR, CBS News, The War Horse, and Stateline. In May 2026 a federal court found one such company had charged a veteran $21,360 on a single claim.</p>
+    </div>
+  </section>
+
+  <section class="cta-banner" style="background: var(--navy);">
+    <div class="container">
+      <h2 style="color:#fff;">Other ways to help</h2>
+      <p style="color:rgba(255,255,255,0.7);">Donating hardwood, sharing the mission, or pointing a veteran our way all move the needle.</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn btn-primary">Get in touch</a>
+        <a href="cane-gallery.html" class="btn btn-secondary">See the canes</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="" width="26" height="26">
+          <span>Veteran Promise Project</span>
+        </div>
+        <p class="footer-about">Custom walking canes and VA benefits support for the veterans who&rsquo;ve earned it. Every cane free. Every veteran honored.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-heading">Navigate</div>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="cane-gallery.html">Cane Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="resources.html">Resources</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="footer-links">
+        <div class="footer-heading">Get Involved</div>
+        <a href="request.html">Request Support</a>
+        <a href="donate.html">Donate</a>
+        <a href="contact.html">Become a Sponsor</a>
+        <a href="contact.html">Volunteer</a>
+      </div>
+      <div class="footer-links">
+        <div class="footer-heading">Connect</div>
+        <div class="foot-social" id="social"></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 Veteran Promise Project. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+<script>
+/* ============================================================================
+   canes.js — the ONLY place cane photos are defined.
+   Used by cane-gallery.html (grid + carousel) and index.html (preview strip).
+
+   To swap a photo:      change `img`.
+   To reorder:           move the object.
+   To add a cane:        copy a block, drop the file in images/canes/.
+   To remove one:        delete the block.
+   Nothing else in the site needs touching. No numbers are shown to visitors,
+   so reordering can never make a caption lie.
+
+   fit  — "cover"   fills the frame, crops the edges. For photos already near 3:4.
+          "contain" fits the whole photo inside the frame, no crop. The card
+                    background (#16181B) is sampled from Ryan's charred board,
+                    so the letterboxing is invisible.
+   home — true means this cane also shows in the homepage strip. A flag, not an
+          index, so reordering this file can never break the homepage.
+   NOTE ON CAPTIONS — these are placeholders. They describe only what is visible
+   in each photo: handle type, hardware, construction, inlay. Wood species are a
+   VISUAL READ, not confirmed — "walnut" is inferred from tone, and every pale
+   wood is called "pale" rather than guessed at. Ryan should replace all twelve
+   with his own words; he knows the species, the veteran, and the build.
+
+   pos  — object-position. Keeps the cane centred when `cover` crops.
+          Measured from the pixels, not eyeballed.
+   ==========================================================================*/
+
+const CANES = [
+  {
+    img:   "images/canes/cane-06.jpg",
+    home:  true,
+    title: "USMC Derby",
+    desc:  "Cast brass derby handle over a pale, straight-grained shaft, with thin dark accent rings at the collar. The Marine Corps Eagle, Globe and Anchor is burned into the wood at hand height.",
+    fit: "cover",  pos: "38% 46%",
+  },
+  {
+    img:   "images/canes/cane-11.jpg",
+    home:  true,
+    title: "Burl and Cross",
+    desc:  "Full length. A burl crown, brass collar, a segmented band of pale and dark wood beneath it, and a slim walnut shaft carrying a small inlaid cross.",
+    fit: "cover",  pos: "36% 46%",
+  },
+  {
+    img:   "images/canes/cane-10.jpg",
+    title: "Burl and Cross, Up Close",
+    desc:  "The grip of the same cane: a broad, palm-fitting handle carved from burl — the dark flecks are the burl's own eyes. Below the brass collar, a segmented band of pale wood inlaid with dark rectangles.",
+    fit: "contain",  pos: "42% 62%",
+  },
+  {
+    img:   "images/canes/cane-02.jpg",
+    title: "Horse Head",
+    desc:  "A one-piece wooden derby handle in the same warm hardwood as the shaft, with a cast silver horse's head at the crown. A patterned silver band sits below the grip, then thin accent rings. The maker's roundel is burned into the shaft.",
+    fit: "cover",  pos: "37% 45%",
+  },
+  {
+    img:   "images/canes/cane-08.jpg",
+    home:  true,
+    title: "The Seam",
+    desc:  "A laminated shaft — pale hardwood bonded either side of a dark walnut core. Above it, an engraved brass collar. Below it, a stack of contrasting segments: dark blocks split by a fine pale line, a pale ring, then the shaft continues in a third wood.",
+    fit: "contain",  pos: "44% 69%",
+  },
+  {
+    img:   "images/canes/cane-12.jpg",
+    title: "A Matched Pair",
+    desc:  "Two canes built as a set, one pale and one walnut, sharing the same cast brass derby, the same pale collar ring, and the same service seal. Rubber ferrules on both.",
+    fit: "cover",  pos: "40% 41%",
+  },
+  {
+    img:   "images/canes/cane-05.jpg",
+    title: "Faith and Service",
+    desc:  "Two walnut canes with cast brass derby handles and pale collar rings. One carries a cross inlaid into the shaft; the other a service seal above the crossed-swords roundel.",
+    fit: "cover",  pos: "37% 39%",
+  },
+  {
+    img:   "images/canes/cane-03.jpg",
+    title: "Two Crosses",
+    desc:  "Two walnut canes cut with a gentle sculpted waist. Cast derby handles — polished brass on one, antiqued bronze on the other. A plain Latin cross medallion on the left, a Celtic cross on the right. Rubber ferrules on both.",
+    fit: "contain",  pos: "39% 42%",
+  },
+  {
+    img:   "images/canes/cane-07.jpg",
+    title: "Cross and Wreath",
+    desc:  "A walnut shaft that keeps its natural sway, topped with a rounded knob crown rather than a derby. Brass collar, contrasting accent rings, and a brass cross-and-wreath medallion set into the shaft.",
+    fit: "cover",  pos: "37% 48%",
+  },
+  {
+    img:   "images/canes/cane-04.jpg",
+    title: "Carved Palm Rest",
+    desc:  "A rounded palm-rest crown carved from dark walnut, with a pale accent line laminated along its outer edge. Brass collar below, and a small dark roundel set into the flat of the grip.",
+    fit: "cover",  pos: "41% 42%",
+  },
+  {
+    img:   "images/canes/cane-09.jpg",
+    title: "Inlaid Cross",
+    desc:  "A cross inlaid flush into the walnut — wood set into wood, not a medallion. Above it, a band of figured burl framed in pale rings, then a brass collar and a cast brass derby handle.",
+    fit: "contain",  pos: "51% 45%",
+  },
+  {
+    img:   "images/canes/cane-01.jpg",
+    title: "Collar and Burl",
+    desc:  "Detail at the collar. A pale shaft meets a band of figured burl, framed top and bottom by darker rings and seated against an engraved brass ferrule. The Spartan helmet and crossed swords are struck into the brass.",
+    fit: "cover",  pos: "54% 38%",
+  },
+];
+
+/* ---------------------------------------------------------------------------
+   Canes used in slots elsewhere on the site. Named, never positional — change
+   the filename here and that page follows. Both slots are LANDSCAPE frames
+   (blog card = 200px tall, service card = 260px tall), so they're filled with
+   the two landscape photos in the set. Those are the same two that need
+   `contain` in the 3:4 gallery grid — here they fit natively, no crop at all.
+   --------------------------------------------------------------------------*/
+const CANE_SLOTS = {
+  blogCraftingCanes:  "images/canes/cane-10.jpg",  // blog.html  -> "Crafting Custom Canes"
+  servicesCustomCane: "images/canes/cane-09.jpg",  // services.html -> "Free Custom Walking Canes"
+};
+
+/* Look up a cane's title/desc/pos by its file, so alt text stays in sync. */
+function caneByFile(f) { return CANES.find(c => c.img === f); }
+
+/* ---------------------------------------------------------------------------
+   Social links + footer rendering. Defined once, used by every page.
+   To add, remove or reorder a network: edit SOCIAL. Nothing else changes.
+   A page opts in by having <div class="foot-social" id="social"></div>.
+   --------------------------------------------------------------------------*/
+const SOCIAL = {
+  facebook:  "https://www.facebook.com/VeteransPromiseProject",
+  instagram: "https://www.instagram.com/theveteranpromiseproject",
+  youtube:   "https://www.youtube.com/@VeteranPromiseProject",
+};
+
+const SOCIAL_ICONS = {
+  facebook:  '<path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/>',
+  instagram: '<path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.9 5.9 0 0 0 .63 4.14c-.3.76-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/>',
+  youtube:   '<path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.08 0 12 0 12s0 3.92.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/>',
+};
+
+function renderSocial() {
+  const box = document.getElementById('social');
+  if (!box) return;
+  Object.entries(SOCIAL).forEach(([name, url]) => {
+    const a = document.createElement('a');
+    a.href = url; a.target = '_blank'; a.rel = 'noopener';
+    a.setAttribute('aria-label', name[0].toUpperCase() + name.slice(1));
+    a.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true">${SOCIAL_ICONS[name]}</svg>`;
+    box.appendChild(a);
+  });
+}
+
+</script>
+<script>
+/* =====================================================================
+   GIVE_CONFIG — the only block that changes when the processor is picked.
+   Everything below it is processor-agnostic.
+
+   Paste a hosted checkout URL into each `links` slot and that amount goes
+   live. Works with Square Payment Links, Stripe Payment Links, Zeffy
+   forms, or Raisely — all four are just hosted URLs.
+
+   Any tier left blank shows the "not switched on yet" notice instead of
+   dead-ending the donor.
+
+   PayPal-style single-URL setup: set amountParam.base and the amount
+   rides in the query string; that overrides the per-tier links.
+
+   TODO: amounts below are placeholders drawn from VPP's production log.
+         Replace with the published tier amounts before launch.
+   ===================================================================== */
+const GIVE_CONFIG = {
+
+  allowMonthly: true,
+
+  /* Each track has separate one-time and monthly suggested amounts, matching
+     the published Zeffy forms. The page's frequency toggle swaps which list
+     shows. Every tier links to the same Zeffy form for that track — Zeffy
+     collects the final amount and frequency on its side. */
+
+  cane: {
+    url: 'https://www.zeffy.com/en-US/donation-form/sponsor-a-cane',
+    full: 860,          // fills the cane graphic at the top one-time tier
+    monthlyFull: 100,   // fills it at the top monthly tier
+    once: [
+      { amount: 65,  name: 'The materials',
+        desc: 'Hardwood, brass, and finish for one cane.' },
+      { amount: 115, name: 'Materials and shipping',
+        desc: 'Everything it takes in cash to put a cane in a veteran\u2019s hand.' },
+      { amount: 250, name: 'A cane and then some',
+        desc: 'Covers one cane and helps toward the next.' },
+      { amount: 860, name: 'A full cane',
+        desc: 'The complete cost, including the craft work.',
+        flag: 'Sponsors a whole cane' }
+    ],
+    monthly: [
+      { amount: 10,  name: '$10 a month', desc: 'Steady support toward the next cane.' },
+      { amount: 25,  name: '$25 a month', desc: 'A cane every few months, together.' },
+      { amount: 50,  name: '$50 a month', desc: 'Most of a cane every season.' },
+      { amount: 100, name: '$100 a month', desc: 'More than a cane a year.' }
+    ],
+    custom: { min: 5 }
+  },
+
+  benefits: {
+    url: 'https://www.zeffy.com/en-US/donation-form/sponsor-a-veterans-benefits-case',
+    full: 5305,         // fills the case bar at the top one-time tier
+    monthlyFull: 100,
+    travel: 280,
+    once: [
+      { amount: 280,  name: 'The travel',
+        desc: 'Meals, fuel, and mileage to see one claim through.' },
+      { amount: 1500, name: 'Travel and part of the casework',
+        desc: 'Covers the travel and a share of the hours behind a claim.' },
+      { amount: 3000, name: 'Most of a case',
+        desc: 'Covers the bulk of one full benefits case.' },
+      { amount: 5305, name: 'A full case',
+        desc: 'Everything one closed benefits case costs, including the casework.',
+        flag: 'Funds a whole case' }
+    ],
+    monthly: [
+      { amount: 10,  name: '$10 a month', desc: 'Steady support for veterans\u2019 claims.' },
+      { amount: 25,  name: '$25 a month', desc: 'Helps keep cases moving all year.' },
+      { amount: 50,  name: '$50 a month', desc: 'Funds a meaningful share of a case yearly.' },
+      { amount: 100, name: '$100 a month', desc: 'Toward a full case every year.' }
+    ],
+    custom: { min: 5 }
+  }
+};
+
+/* ---------------- state ---------------- */
+let track = 'cane', selected = null, frequency = 'once';
+const cfg = () => GIVE_CONFIG[track];
+
+const money = n => Number.isInteger(n)
+  ? '$' + n.toLocaleString()
+  : '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+const tiersEl  = document.getElementById('tiers');
+const giveBtn  = document.getElementById('giveBtn');
+const notLive  = document.getElementById('notLive');
+const railCane = document.getElementById('railCane');
+const railCase = document.getElementById('railCase');
+const caneFill = document.getElementById('caneFill');
+const caneAmt  = document.getElementById('caneAmt');
+const caneLab  = document.getElementById('caneLab');
+const caseFill = document.getElementById('caseFill');
+const caseAmt  = document.getElementById('caseAmt');
+const caseSub  = document.getElementById('caseSub');
+
+let tierEls = [], customInput = null;
+
+/* ---------------- render ---------------- */
+function renderTiers() {
+  const c = cfg();
+  const list = c[frequency];
+  tiersEl.innerHTML = list.map((t, i) => `
+    <button type="button" class="tier" role="radio" aria-checked="false"
+            data-amount="${t.amount}" data-index="${i}" tabindex="${i === 0 ? '0' : '-1'}">
+      <div class="tier-amt">${money(t.amount)}</div>
+      <div>
+        ${t.flag ? `<div class="tier-flag">${t.flag}</div>` : ''}
+        <div class="tier-name">${t.name}</div>
+        <div class="tier-desc">${t.desc}</div>
+      </div>
+    </button>`).join('') + `
+    <div class="tier" role="radio" aria-checked="false" tabindex="-1"
+         data-custom="true" data-index="${list.length}">
+      <div class="custom-input">
+        <span>$</span>
+        <input type="number" id="customAmount" min="${c.custom.min}" step="1" placeholder="0"
+               aria-label="Custom amount" inputmode="numeric">
+      </div>
+      <div>
+        <div class="tier-name">Another amount</div>
+        <div class="tier-desc">Whatever you can put toward the next one.</div>
+      </div>
+    </div>`;
+
+  tierEls = Array.from(tiersEl.querySelectorAll('[role="radio"]'));
+  customInput = document.getElementById('customAmount');
+  wire();
+}
+
+function wire() {
+  tierEls.forEach(el => {
+    el.addEventListener('click', () => select(el));
+    el.addEventListener('keydown', e => {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target !== customInput) {
+        e.preventDefault(); select(el);
+      }
+      if (['ArrowDown','ArrowRight','ArrowUp','ArrowLeft'].includes(e.key)) {
+        e.preventDefault();
+        const i = parseInt(el.dataset.index, 10);
+        const n = ['ArrowDown','ArrowRight'].includes(e.key)
+          ? (i + 1) % tierEls.length : (i - 1 + tierEls.length) % tierEls.length;
+        tierEls[n].focus(); select(tierEls[n]);
+      }
+    });
+  });
+  customInput.addEventListener('input', () => {
+    const w = customInput.closest('[role="radio"]');
+    if (w.getAttribute('aria-checked') !== 'true') select(w);
+    const v = parseFloat(customInput.value);
+    selected = (!isNaN(v) && v >= cfg().custom.min) ? v : null;
+    paint();
+  });
+  customInput.addEventListener('focus', () => {
+    const w = customInput.closest('[role="radio"]');
+    if (w.getAttribute('aria-checked') !== 'true') select(w);
+  });
+}
+
+function select(el) {
+  tierEls.forEach(t => { t.setAttribute('aria-checked','false'); t.setAttribute('tabindex','-1'); });
+  el.setAttribute('aria-checked','true');
+  el.setAttribute('tabindex','0');
+  if (el.dataset.custom) {
+    const v = parseFloat(customInput.value);
+    selected = (!isNaN(v) && v >= cfg().custom.min) ? v : null;
+    customInput.focus();
+  } else {
+    selected = parseFloat(el.dataset.amount);
+  }
+  paint();
+}
+
+/* ---------------- track ---------------- */
+const trkCane = document.getElementById('trkCane');
+const trkBen  = document.getElementById('trkBen');
+trkCane.addEventListener('click', () => setTrack('cane'));
+trkBen .addEventListener('click', () => setTrack('benefits'));
+
+function setTrack(t) {
+  track = t;
+  selected = null;
+  frequency = 'once';                    // reset frequency too, so it doesn't carry over
+  trkCane.setAttribute('aria-pressed', String(t === 'cane'));
+  trkBen .setAttribute('aria-pressed', String(t === 'benefits'));
+  railCane.style.display = (t === 'cane') ? 'flex' : 'none';
+  railCase.classList.toggle('show', t === 'benefits');
+  renderTiers();                         // fresh tier buttons, all unselected
+  // hard-reset the frequency toggle UI
+  if (typeof freqOnce !== 'undefined') {
+    freqOnce.setAttribute('aria-pressed', 'true');
+    freqMonthly.setAttribute('aria-pressed', 'false');
+  }
+  // reset button state so nothing from the previous track lingers
+  giveBtn.disabled = true;
+  giveBtn.textContent = 'Choose an amount';
+  notLive.classList.remove('show');
+  paint();
+}
+
+/* ---------------- frequency ---------------- */
+const freqOnce = document.getElementById('freqOnce');
+const freqMonthly = document.getElementById('freqMonthly');
+if (!GIVE_CONFIG.allowMonthly) freqMonthly.closest('.freq').style.display = 'none';
+freqOnce.addEventListener('click', () => { setFrequency('once'); });
+freqMonthly.addEventListener('click', () => { setFrequency('monthly'); });
+function setFrequency(f) {
+  frequency = f;
+  selected = null;                 // amounts differ between once/monthly
+  freqOnce.setAttribute('aria-pressed', String(f === 'once'));
+  freqMonthly.setAttribute('aria-pressed', String(f === 'monthly'));
+  renderTiers();                   // show that frequency's amounts
+  giveBtn.disabled = true;
+  giveBtn.textContent = 'Choose an amount';
+  notLive.classList.remove('show');
+  paint();
+}
+
+/* ---------------- paint ---------------- */
+function paint() {
+  const amt = selected || 0;
+
+  if (track === 'cane') {
+    const caneFullNow = (frequency === 'monthly') ? GIVE_CONFIG.cane.monthlyFull : GIVE_CONFIG.cane.full;
+    const pct = Math.min(amt / caneFullNow, 1);
+    caneFill.style.transform = `scaleY(${pct})`;
+    caneAmt.textContent = money(amt);
+    if (amt === 0) caneLab.textContent = 'Choose an amount';
+    else if (pct >= 1) {
+      const n = Math.floor(amt / caneFullNow);
+      caneLab.textContent = n > 1
+        ? `${n} canes${frequency === 'monthly' ? ' a month' : ''}`
+        : `A full cane${frequency === 'monthly' ? ' a month' : ''}`;
+    } else caneLab.textContent = `${Math.round(pct * 100)}% of a cane`;
+  } else {
+    const b = GIVE_CONFIG.benefits;
+    const caseFullNow = (frequency === 'monthly') ? b.monthlyFull : b.full;
+    const pct = Math.min(amt / caseFullNow, 1);
+    caseFill.style.width = (pct * 100) + '%';
+    caseAmt.textContent = money(amt);
+    if (amt === 0) caseSub.textContent = 'Choose an amount';
+    else if (pct >= 1) caseSub.textContent = 'Covers one full case';
+    else if (amt >= b.travel) caseSub.textContent = `Covers the travel, plus ${Math.round(pct * 100)}% of the case`;
+    else caseSub.textContent = `${Math.round((amt / b.travel) * 100)}% of the travel costs`;
+  }
+
+  if (!selected) {
+    giveBtn.disabled = true;
+    giveBtn.textContent = 'Choose an amount';
+    notLive.classList.remove('show');
+    return;
+  }
+
+  giveBtn.disabled = false;
+  giveBtn.textContent = frequency === 'monthly'
+    ? `Give ${money(selected)} a month`
+    : `Give ${money(selected)}`;
+  notLive.classList.toggle('show', !checkoutUrl());
+}
+
+/* ---------------- processor-agnostic URL builder ---------------- */
+function checkoutUrl() {
+  // Every tier in a track goes to the same Zeffy form; Zeffy collects the
+  // amount and frequency itself.
+  return cfg().url || '';
+}
+
+/* The Give button opens the Zeffy form for the selected track + amount in a
+   new tab, leaving VPP's page open behind it. */
+giveBtn.addEventListener('click', () => {
+  const url = (selected ? checkoutUrl() : '');
+  if (!url) { notLive.classList.add('show'); return; }
+  window.open(url, '_blank', 'noopener');
+});
+
+/* ---------------- nav ---------------- */
+function toggleMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const m = document.getElementById('menu-icon');
+  const x = document.getElementById('close-icon');
+  const open = menu.classList.toggle('open');
+  m.style.display = open ? 'none' : 'block';
+  x.style.display = open ? 'block' : 'none';
+}
+
+setTrack('cane');
+renderSocial();
+</script>
+</body>
+</html>

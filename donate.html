@@ -96,6 +96,15 @@
       background:#FEF6E7; border:1px solid #F0D9A8; color:#7A5B10; font-size:13px; line-height:1.5; }
     .not-live.show { display:block; }
 
+    /* GoFundMe alternative, below the Zeffy checkout */
+    .give-alt { margin-top:22px; padding-top:22px; border-top:1px solid var(--border); text-align:center; }
+    .give-alt-or {
+      display:inline-block; font-size:11px; font-weight:700; letter-spacing:.14em;
+      text-transform:uppercase; color:var(--muted); margin-bottom:14px;
+    }
+    .give-alt-btn { display:inline-flex; }
+    .give-alt-note { font-size:12.5px; color:var(--muted); margin-top:10px; line-height:1.6; }
+
     /* ---- where it goes ---- */
     .goes { border-top:1px solid var(--border); margin-top:56px; padding-top:40px; }
     .goes > h2 { font-size:24px; margin-bottom:8px; }
@@ -228,7 +237,14 @@
               <div class="not-live" id="notLive">
                 Online giving isn&rsquo;t switched on yet. Please <a href="contact.html">get in touch</a> and we&rsquo;ll take it from there.
               </div>
-              <p class="checkout-note">Checkout is handled by our payment processor. Veteran Promise Project never sees your card number.</p>
+              <p class="checkout-note">Donations are processed securely by <strong>Zeffy</strong> at <span style="white-space:nowrap;">zeffy.com</span>, which opens in a new tab. Veteran Promise Project never sees your card number.</p>
+
+              <div class="give-alt">
+                <span class="give-alt-or">or</span>
+                <a href="https://www.gofundme.com/f/help-shanon-ryan-craft-quality-canes-for-veterans"
+                   target="_blank" rel="noopener" class="btn btn-secondary give-alt-btn">Donate via GoFundMe</a>
+                <p class="give-alt-note">Prefer GoFundMe? You can give through our campaign there instead.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -241,25 +257,25 @@
             <div class="goes-card">
               <h4>One cane, delivered</h4>
               <div class="gline"><span class="l">Materials</span><span class="v">$62.37</span></div>
-              <div class="gline"><span class="l">Shipping</span><span class="v">$38.80</span></div>
-              <div class="gline"><span class="l">Craft labor &mdash; 15.5 hrs, donated</span><span class="v">$740.90</span></div>
-              <div class="gtotal"><span>Full cost</span><span class="v">$842.07</span></div>
+              <div class="gline"><span class="l">Shipping &amp; packing</span><span class="v">$53.00</span></div>
+              <div class="gline"><span class="l">Craft labor &mdash; 15.5 hrs</span><span class="v">$740.90</span></div>
+              <div class="gtotal"><span>Full cost</span><span class="v">$856.27</span></div>
               <div class="gnote">
                 <div class="k">Cost to the veteran</div>
                 <div class="n">Nothing</div>
-                <div class="s">This cane was sponsored at $500. VPP covered the remaining $342.07.</div>
+                <div class="s">This cane was sponsored at $500. VPP covered the remaining $356.27.</div>
               </div>
             </div>
 
             <div class="goes-card">
               <h4>One benefits case, closed</h4>
               <div class="gline"><span class="l">Travel, meals, fuel</span><span class="v">$280.00</span></div>
-              <div class="gline"><span class="l">Casework &mdash; 75 hrs, donated</span><span class="v">$5,025.00</span></div>
+              <div class="gline"><span class="l">Casework &mdash; 75 hrs</span><span class="v">$5,025.00</span></div>
               <div class="gtotal"><span>Full cost</span><span class="v">$5,305.00</span></div>
               <div class="gnote">
                 <div class="k">What the VA now pays that veteran</div>
                 <div class="n">$4,028.16 a month</div>
-                <div class="s">Following his rating increase. That compensation is paid to the veteran by the VA &mdash; it is not income to VPP. What a gift here funds is the advocacy that got the claim through.</div>
+                <div class="s">Following a rating increase. That compensation is paid to the veteran by the VA &mdash; it is not income to VPP. What a gift here funds is the advocacy that got the claim through.</div>
               </div>
             </div>
 
@@ -267,6 +283,42 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:#fff;">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:40px;">
+        <div class="section-label">Why Your Gift Matters</div>
+        <h2 class="section-title">Free means free</h2>
+        <p class="section-desc">Sponsorship is what keeps it free. Here&rsquo;s the alternative veterans face elsewhere.</p>
+      </div>
+
+      <div class="model-compare">
+        <div class="model-col model-ours">
+          <div class="model-kicker">Our nonprofit model</div>
+          <h3>Services are offered free of charge to veterans.</h3>
+          <span class="model-figure">$0
+            <small>What a veteran pays</small>
+          </span>
+          <p>Sponsors make donations to the cause as a tangible way of saying &ldquo;thank you for your service.&rdquo; The veteran is never billed, never invoiced, and never signs away a share of what they&rsquo;ve earned.</p>
+        </div>
+
+        <div class="model-col model-theirs">
+          <div class="model-kicker">For-profit &ldquo;claim shark&rdquo; models</div>
+          <h3>A one-time fee equal to five times the monthly increase.</h3>
+          <span class="model-figure">$8,000&ndash;$25,000+
+            <small>Typical out-of-pocket cost</small>
+          </span>
+          <p>Depending on how significantly a veteran&rsquo;s disability rating jumps, total out-of-pocket costs regularly land in this range.</p>
+          <div class="model-sub">
+            <h4>Backpay exploitation</h4>
+            <p>Some for-profit companies delay filing claims for months. This maximizes the retroactive &ldquo;backpay&rdquo; a veteran receives from the VA, allowing the consultant to take a larger cut &mdash; sometimes up to $30,000.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="model-sources">Fee practices reported by NPR, CBS News, The War Horse, and Stateline. In May 2026 a federal court found one such company had charged a veteran $21,360 on a single claim.</p>
     </div>
   </section>
 
@@ -343,39 +395,58 @@ const GIVE_CONFIG = {
 
   allowMonthly: true,
 
-  // PayPal-style: base URL + amount query param. Leave blank for the others.
-  amountParam: { base: '', param: 'amount' },
+  /* Each track has separate one-time and monthly suggested amounts, matching
+     the published Zeffy forms. The page's frequency toggle swaps which list
+     shows. Every tier links to the same Zeffy form for that track — Zeffy
+     collects the final amount and frequency on its side. */
 
   cane: {
-    full: 842.07,                       // the amount that fills the cane graphic
-    tiers: [
-      { amount: 62.37,  name: 'The materials',
-        desc: 'Hardwood, brass, and finish for one cane.',
-        links: { once: '', monthly: '' } },
-      { amount: 101.17, name: 'Materials and shipping',
-        desc: 'Everything it takes in cash to put a cane in a veteran\u2019s hand.',
-        links: { once: '', monthly: '' } },
-      { amount: 842.07, name: 'A full cane',
-        desc: 'The complete cost, including 15.5 hours of craft work.',
-        flag: 'Sponsors a whole cane',
-        links: { once: '', monthly: '' } }
+    url: 'https://www.zeffy.com/en-US/donation-form/sponsor-a-cane',
+    full: 860,          // fills the cane graphic at the top one-time tier
+    monthlyFull: 100,   // fills it at the top monthly tier
+    once: [
+      { amount: 65,  name: 'The materials',
+        desc: 'Hardwood, brass, and finish for one cane.' },
+      { amount: 115, name: 'Materials and shipping',
+        desc: 'Everything it takes in cash to put a cane in a veteran\u2019s hand.' },
+      { amount: 250, name: 'A cane and then some',
+        desc: 'Covers one cane and helps toward the next.' },
+      { amount: 860, name: 'A full cane',
+        desc: 'The complete cost, including the craft work.',
+        flag: 'Sponsors a whole cane' }
     ],
-    custom: { min: 5, links: { once: '', monthly: '' } }
+    monthly: [
+      { amount: 10,  name: '$10 a month', desc: 'Steady support toward the next cane.' },
+      { amount: 25,  name: '$25 a month', desc: 'A cane every few months, together.' },
+      { amount: 50,  name: '$50 a month', desc: 'Most of a cane every season.' },
+      { amount: 100, name: '$100 a month', desc: 'More than a cane a year.' }
+    ],
+    custom: { min: 5 }
   },
 
   benefits: {
-    full: 5305.00,                      // the amount that fills the case bar
-    travel: 280.00,
-    tiers: [
-      { amount: 280.00,  name: 'The travel',
-        desc: 'Meals, fuel, and mileage to see one claim through.',
-        links: { once: '', monthly: '' } },
-      { amount: 5305.00, name: 'A full case',
-        desc: 'Everything one closed benefits case costs, including 75 hours of casework.',
-        flag: 'Funds a whole case',
-        links: { once: '', monthly: '' } }
+    url: 'https://www.zeffy.com/en-US/donation-form/sponsor-a-veterans-benefits-case',
+    full: 5305,         // fills the case bar at the top one-time tier
+    monthlyFull: 100,
+    travel: 280,
+    once: [
+      { amount: 280,  name: 'The travel',
+        desc: 'Meals, fuel, and mileage to see one claim through.' },
+      { amount: 1500, name: 'Travel and part of the casework',
+        desc: 'Covers the travel and a share of the hours behind a claim.' },
+      { amount: 3000, name: 'Most of a case',
+        desc: 'Covers the bulk of one full benefits case.' },
+      { amount: 5305, name: 'A full case',
+        desc: 'Everything one closed benefits case costs, including the casework.',
+        flag: 'Funds a whole case' }
     ],
-    custom: { min: 5, links: { once: '', monthly: '' } }
+    monthly: [
+      { amount: 10,  name: '$10 a month', desc: 'Steady support for veterans\u2019 claims.' },
+      { amount: 25,  name: '$25 a month', desc: 'Helps keep cases moving all year.' },
+      { amount: 50,  name: '$50 a month', desc: 'Funds a meaningful share of a case yearly.' },
+      { amount: 100, name: '$100 a month', desc: 'Toward a full case every year.' }
+    ],
+    custom: { min: 5 }
   }
 };
 
@@ -404,7 +475,8 @@ let tierEls = [], customInput = null;
 /* ---------------- render ---------------- */
 function renderTiers() {
   const c = cfg();
-  tiersEl.innerHTML = c.tiers.map((t, i) => `
+  const list = c[frequency];
+  tiersEl.innerHTML = list.map((t, i) => `
     <button type="button" class="tier" role="radio" aria-checked="false"
             data-amount="${t.amount}" data-index="${i}" tabindex="${i === 0 ? '0' : '-1'}">
       <div class="tier-amt">${money(t.amount)}</div>
@@ -415,7 +487,7 @@ function renderTiers() {
       </div>
     </button>`).join('') + `
     <div class="tier" role="radio" aria-checked="false" tabindex="-1"
-         data-custom="true" data-index="${c.tiers.length}">
+         data-custom="true" data-index="${list.length}">
       <div class="custom-input">
         <span>$</span>
         <input type="number" id="customAmount" min="${c.custom.min}" step="1" placeholder="0"
@@ -484,11 +556,21 @@ trkBen .addEventListener('click', () => setTrack('benefits'));
 function setTrack(t) {
   track = t;
   selected = null;
+  frequency = 'once';                    // reset frequency too, so it doesn't carry over
   trkCane.setAttribute('aria-pressed', String(t === 'cane'));
   trkBen .setAttribute('aria-pressed', String(t === 'benefits'));
   railCane.style.display = (t === 'cane') ? 'flex' : 'none';
   railCase.classList.toggle('show', t === 'benefits');
-  renderTiers();
+  renderTiers();                         // fresh tier buttons, all unselected
+  // hard-reset the frequency toggle UI
+  if (typeof freqOnce !== 'undefined') {
+    freqOnce.setAttribute('aria-pressed', 'true');
+    freqMonthly.setAttribute('aria-pressed', 'false');
+  }
+  // reset button state so nothing from the previous track lingers
+  giveBtn.disabled = true;
+  giveBtn.textContent = 'Choose an amount';
+  notLive.classList.remove('show');
   paint();
 }
 
@@ -496,11 +578,17 @@ function setTrack(t) {
 const freqOnce = document.getElementById('freqOnce');
 const freqMonthly = document.getElementById('freqMonthly');
 if (!GIVE_CONFIG.allowMonthly) freqMonthly.closest('.freq').style.display = 'none';
-freqOnce.addEventListener('click', () => { frequency = 'once'; setFreqUI(); });
-freqMonthly.addEventListener('click', () => { frequency = 'monthly'; setFreqUI(); });
-function setFreqUI() {
-  freqOnce.setAttribute('aria-pressed', String(frequency === 'once'));
-  freqMonthly.setAttribute('aria-pressed', String(frequency === 'monthly'));
+freqOnce.addEventListener('click', () => { setFrequency('once'); });
+freqMonthly.addEventListener('click', () => { setFrequency('monthly'); });
+function setFrequency(f) {
+  frequency = f;
+  selected = null;                 // amounts differ between once/monthly
+  freqOnce.setAttribute('aria-pressed', String(f === 'once'));
+  freqMonthly.setAttribute('aria-pressed', String(f === 'monthly'));
+  renderTiers();                   // show that frequency's amounts
+  giveBtn.disabled = true;
+  giveBtn.textContent = 'Choose an amount';
+  notLive.classList.remove('show');
   paint();
 }
 
@@ -509,19 +597,21 @@ function paint() {
   const amt = selected || 0;
 
   if (track === 'cane') {
-    const pct = Math.min(amt / GIVE_CONFIG.cane.full, 1);
+    const caneFullNow = (frequency === 'monthly') ? GIVE_CONFIG.cane.monthlyFull : GIVE_CONFIG.cane.full;
+    const pct = Math.min(amt / caneFullNow, 1);
     caneFill.style.transform = `scaleY(${pct})`;
     caneAmt.textContent = money(amt);
     if (amt === 0) caneLab.textContent = 'Choose an amount';
     else if (pct >= 1) {
-      const n = Math.floor(amt / GIVE_CONFIG.cane.full);
+      const n = Math.floor(amt / caneFullNow);
       caneLab.textContent = n > 1
         ? `${n} canes${frequency === 'monthly' ? ' a month' : ''}`
         : `A full cane${frequency === 'monthly' ? ' a month' : ''}`;
     } else caneLab.textContent = `${Math.round(pct * 100)}% of a cane`;
   } else {
     const b = GIVE_CONFIG.benefits;
-    const pct = Math.min(amt / b.full, 1);
+    const caseFullNow = (frequency === 'monthly') ? b.monthlyFull : b.full;
+    const pct = Math.min(amt / caseFullNow, 1);
     caseFill.style.width = (pct * 100) + '%';
     caseAmt.textContent = money(amt);
     if (amt === 0) caseSub.textContent = 'Choose an amount';
@@ -546,22 +636,17 @@ function paint() {
 
 /* ---------------- processor-agnostic URL builder ---------------- */
 function checkoutUrl() {
-  const ap = GIVE_CONFIG.amountParam;
-  if (ap.base) {
-    const u = new URL(ap.base);
-    u.searchParams.set(ap.param, String(selected));
-    return u.toString();
-  }
-  const c = cfg();
-  const tier = c.tiers.find(t => Math.abs(t.amount - selected) < 0.005);
-  const links = tier ? tier.links : c.custom.links;
-  return (links && links[frequency]) || '';
+  // Every tier in a track goes to the same Zeffy form; Zeffy collects the
+  // amount and frequency itself.
+  return cfg().url || '';
 }
 
+/* The Give button opens the Zeffy form for the selected track + amount in a
+   new tab, leaving VPP's page open behind it. */
 giveBtn.addEventListener('click', () => {
-  const url = checkoutUrl();
+  const url = (selected ? checkoutUrl() : '');
   if (!url) { notLive.classList.add('show'); return; }
-  window.location.href = url;
+  window.open(url, '_blank', 'noopener');
 });
 
 /* ---------------- nav ---------------- */
